@@ -7,15 +7,9 @@
 
 #import "SceneGame.h"
 #import "SimpleAudioEngine.h"
-#import "ResourceManager.h"
 #import "Game.h"
 #import "SharedProgressManager.h"
-#import "GameCommon.h"
-#import "CardEntry.h"
-#import "Card.h"
 
-
-#import "CardView.h"
 
 
 @implementation SceneGame
@@ -53,7 +47,7 @@
 
     //TODO:implement purge
 
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[ResourceManager sceneGameBasic]];
+//    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[ResourceManager sceneGameBasic]];
 
 }
 
@@ -68,12 +62,6 @@
 }
 
 - (void)_initGameObjects
-{
-
-
-
-}
-- (void)intersection:(Card *)cards
 {
 
 

@@ -11,7 +11,7 @@
 		5EDC116F8B1AFD760582B6BD /* SceneBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC141EB95ABD84B78382A6 /* SceneBase.m */; };
 		5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */; };
 		5EDC14C0839415079AEF73FA /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC12AA4BD44F7C2D5F265B /* Game.m */; };
-		5EDC1B37B19B28A047BDE5B9 /* SceneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1C37B5305666CFD0D131 /* SceneGame.m */; };
+		5EDC1762B9A3EBA437BDC0D4 /* SceneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC15638FC94320FB2BB543 /* SceneGame.m */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -77,11 +77,11 @@
 		5EDC1042A352D4D591EC28A2 /* SharedProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedProgressManager.m; sourceTree = "<group>"; };
 		5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDeviceHelper.m; sourceTree = "<group>"; };
 		5EDC12AA4BD44F7C2D5F265B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		5EDC12E88AA3AD5732CBC16A /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
 		5EDC141EB95ABD84B78382A6 /* SceneBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBase.m; sourceTree = "<group>"; };
+		5EDC15638FC94320FB2BB543 /* SceneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGame.m; sourceTree = "<group>"; };
 		5EDC17D79872DD7E1F69FD69 /* ESceneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESceneType.h; sourceTree = "<group>"; };
 		5EDC1987932F448169B9CA54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		5EDC1C37B5305666CFD0D131 /* SceneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGame.m; sourceTree = "<group>"; };
+		5EDC1BEE128D78051A91CA4F /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
 		5EDC1CF26D5BADC5C34494BD /* ELanguageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELanguageType.h; sourceTree = "<group>"; };
 		5EDC1DA55C3417601861B9E3 /* SharedProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedProgressManager.h; sourceTree = "<group>"; };
 		5EDC1E6C5BA37F427417CC9D /* SharedDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDeviceHelper.h; sourceTree = "<group>"; };
@@ -205,8 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				5EDC1E5720165EE2DD806AF0 /* SceneBase */,
-				5EDC15C9EFF527FC48E42158 /* SceneGame */,
 				5EDC17D79872DD7E1F69FD69 /* ESceneType.h */,
+				5EDC1EF89B743F1D12514F08 /* SceneGame */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -218,16 +218,6 @@
 				5EDC17B12325AB97466D1C3F /* SharedProgressManager */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		5EDC15C9EFF527FC48E42158 /* SceneGame */ = {
-			isa = PBXGroup;
-			children = (
-				5EDC1C37B5305666CFD0D131 /* SceneGame.m */,
-				5EDC12E88AA3AD5732CBC16A /* SceneGame.h */,
-			);
-			name = SceneGame;
-			path = "../../../../../Downloads/blood-solitaire/TheGame/App/Controllers/Scenes/SceneGame";
 			sourceTree = "<group>";
 		};
 		5EDC174BE4DCEDC081147FC9 /* System */ = {
@@ -263,6 +253,15 @@
 				5EDC141EB95ABD84B78382A6 /* SceneBase.m */,
 			);
 			path = SceneBase;
+			sourceTree = "<group>";
+		};
+		5EDC1EF89B743F1D12514F08 /* SceneGame */ = {
+			isa = PBXGroup;
+			children = (
+				5EDC1BEE128D78051A91CA4F /* SceneGame.h */,
+				5EDC15638FC94320FB2BB543 /* SceneGame.m */,
+			);
+			path = SceneGame;
 			sourceTree = "<group>";
 		};
 		DC1BE68414F417CC00F49D25 /* ubuntu-font-family-0.80 */ = {
@@ -545,10 +544,10 @@
 				DCC1A3A913A94F1A005BD75D /* AppDelegate.m in Sources */,
 				DCC1A3AD13A94F1A005BD75D /* main.m in Sources */,
 				5EDC116F8B1AFD760582B6BD /* SceneBase.m in Sources */,
-				5EDC1B37B19B28A047BDE5B9 /* SceneGame.m in Sources */,
 				5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */,
 				5EDC14C0839415079AEF73FA /* Game.m in Sources */,
 				5EDC116299CA05FBD24AC548 /* SharedProgressManager.m in Sources */,
+				5EDC1762B9A3EBA437BDC0D4 /* SceneGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,6 @@
 #import "cocos2d.h"
 #import "SceneBase.h"
 
-@class Card;
 
 @interface SceneGame : SceneBase
 
@@ -34,7 +33,5 @@
 
 //! Prepare scene. Init all game objects here
 - (void)prepare;
-
-- (void)intersection:(Card *)cards;
 
 @end

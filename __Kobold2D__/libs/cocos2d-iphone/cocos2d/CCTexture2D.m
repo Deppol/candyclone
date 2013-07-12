@@ -624,9 +624,7 @@ static CCTexture2DPixelFormat defaultAlphaPixel_format = kCCTexture2DPixelFormat
 
 	// Is it a multiline ? sizeWithFont: only works with single line.
 	CGSize boundingSize = CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX);
-	dim = [string sizeWithFont:font
-			 constrainedToSize:boundingSize
-				 lineBreakMode:UILineBreakModeWordWrap];
+	dim = [string sizeWithFont:font constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap];
 	
 	if(dim.width == 0)
 		dim.width = 1;

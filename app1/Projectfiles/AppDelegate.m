@@ -11,6 +11,7 @@
 #import "SharedProgressManager.h"
 #import "Game.h"
 #import "SimpleAudioEngine.h"
+#import "SharedHighScoreManager.h"
 
 @implementation AppDelegate
 
@@ -21,7 +22,7 @@
 #else
 	CCLOG(@"ARC is either not available or not enabled");
 #endif
-    [super initializationComplete];
+
 
     glClearColor(0.2f, 0.2f, 0.4f, 1.0f);
 
@@ -29,19 +30,29 @@
         [SimpleAudioEngine sharedEngine];
 
         [SharedProgressManager shared];
+
+        [SharedHighScoreManager shared];
     }
 
     Game *game = [[Game alloc] init];
 
     [[SharedProgressManager shared] didGameStart:game];
 
-    [SceneBase setScene:EST_GAME];
+    [SceneBase setScene:EST_TEST];  //!Temporary scene. Made only to test Highscores. To be removed.
+
+    [NSThread sleepForTimeInterval:0.1f]; //Needed for scene to initialize
+
+    [super initializationComplete];
 
 }
 
 -(id) alternateView
 {
 	return nil;
+}
+
+-(void)applicationWillTerminate:(UIApplication *)application
+{
 }
 
 @end

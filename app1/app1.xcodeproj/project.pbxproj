@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		5EDC116299CA05FBD24AC548 /* SharedProgressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1042A352D4D591EC28A2 /* SharedProgressManager.m */; };
 		5EDC116F8B1AFD760582B6BD /* SceneBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC141EB95ABD84B78382A6 /* SceneBase.m */; };
+		5EDC1362AF5EECB256BC27D3 /* ConstantsForModelsStatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */; };
 		5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */; };
 		5EDC14C0839415079AEF73FA /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC12AA4BD44F7C2D5F265B /* Game.m */; };
+		5EDC15AF3A78510C44D89EE1 /* SceneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC18FC6D449B71B89215FE /* SceneTest.m */; };
 		5EDC1762B9A3EBA437BDC0D4 /* SceneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC15638FC94320FB2BB543 /* SceneGame.m */; };
+		5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -76,16 +79,22 @@
 /* Begin PBXFileReference section */
 		5EDC1042A352D4D591EC28A2 /* SharedProgressManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedProgressManager.m; sourceTree = "<group>"; };
 		5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDeviceHelper.m; sourceTree = "<group>"; };
+		5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedHighScoreManager.m; sourceTree = "<group>"; };
 		5EDC12AA4BD44F7C2D5F265B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		5EDC136B326C3AA06AC49DD7 /* SharedHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHighScoreManager.h; sourceTree = "<group>"; };
 		5EDC141EB95ABD84B78382A6 /* SceneBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBase.m; sourceTree = "<group>"; };
 		5EDC15638FC94320FB2BB543 /* SceneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGame.m; sourceTree = "<group>"; };
 		5EDC17D79872DD7E1F69FD69 /* ESceneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESceneType.h; sourceTree = "<group>"; };
+		5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantsForModelsStatic.m; sourceTree = "<group>"; };
+		5EDC18FC6D449B71B89215FE /* SceneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneTest.m; sourceTree = "<group>"; };
 		5EDC1987932F448169B9CA54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		5EDC1A22DD30EF153FECBAFE /* ConstantsForModelsStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsForModelsStatic.h; sourceTree = "<group>"; };
 		5EDC1BEE128D78051A91CA4F /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
 		5EDC1CF26D5BADC5C34494BD /* ELanguageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELanguageType.h; sourceTree = "<group>"; };
 		5EDC1DA55C3417601861B9E3 /* SharedProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedProgressManager.h; sourceTree = "<group>"; };
 		5EDC1E6C5BA37F427417CC9D /* SharedDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDeviceHelper.h; sourceTree = "<group>"; };
 		5EDC1ED283E7A6B997005F4B /* EDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDeviceType.h; sourceTree = "<group>"; };
+		5EDC1EF052B81D33E9BD1AEA /* SceneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneTest.h; sourceTree = "<group>"; };
 		5EDC1F41B2BB4485A0B8C7AD /* SceneBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneBase.h; sourceTree = "<group>"; };
 		DC1BE68614F417CC00F49D25 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		DC1BE68914F417CC00F49D25 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
@@ -190,6 +199,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EDC12075D5B500D395E7799 /* SceneTest */ = {
+			isa = PBXGroup;
+			children = (
+				5EDC18FC6D449B71B89215FE /* SceneTest.m */,
+				5EDC1EF052B81D33E9BD1AEA /* SceneTest.h */,
+			);
+			path = SceneTest;
+			sourceTree = "<group>";
+		};
 		5EDC13721D4EE0E7842872F0 /* SharedDeviceHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +225,7 @@
 				5EDC1E5720165EE2DD806AF0 /* SceneBase */,
 				5EDC17D79872DD7E1F69FD69 /* ESceneType.h */,
 				5EDC1EF89B743F1D12514F08 /* SceneGame */,
+				5EDC12075D5B500D395E7799 /* SceneTest */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -216,8 +235,20 @@
 			children = (
 				5EDC1B8C2129F6CED7B13F20 /* Game */,
 				5EDC17B12325AB97466D1C3F /* SharedProgressManager */,
+				5EDC1490783C1941DFB3D067 /* SharedHighScoreManager */,
+				5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */,
+				5EDC1A22DD30EF153FECBAFE /* ConstantsForModelsStatic.h */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5EDC1490783C1941DFB3D067 /* SharedHighScoreManager */ = {
+			isa = PBXGroup;
+			children = (
+				5EDC136B326C3AA06AC49DD7 /* SharedHighScoreManager.h */,
+				5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */,
+			);
+			path = SharedHighScoreManager;
 			sourceTree = "<group>";
 		};
 		5EDC174BE4DCEDC081147FC9 /* System */ = {
@@ -548,6 +579,9 @@
 				5EDC14C0839415079AEF73FA /* Game.m in Sources */,
 				5EDC116299CA05FBD24AC548 /* SharedProgressManager.m in Sources */,
 				5EDC1762B9A3EBA437BDC0D4 /* SceneGame.m in Sources */,
+				5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */,
+				5EDC1362AF5EECB256BC27D3 /* ConstantsForModelsStatic.m in Sources */,
+				5EDC15AF3A78510C44D89EE1 /* SceneTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

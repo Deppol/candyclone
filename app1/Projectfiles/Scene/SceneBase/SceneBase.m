@@ -9,6 +9,8 @@
 #import "SceneGame.h"
 #import "SharedProgressManager.h"
 #import "SharedDeviceHelper.h"
+#import "SceneTest.h"
+#import "SharedHighScoreManager.h"
 
 #include <mach/mach.h>
 #import <sys/sysctl.h>
@@ -48,11 +50,17 @@ static SceneBase *_currentScene = nil;
         _currentScene = nil;
     }
 
+
     switch (type)
     {
         case EST_GAME:
         {
             _currentScene = [SceneGame createScene];
+            break;
+        }
+        case EST_TEST: //!Temporary scene. Made only to test Highscores. To be removed.
+        {
+            _currentScene = [SceneTest createScene];
             break;
         }
         default:

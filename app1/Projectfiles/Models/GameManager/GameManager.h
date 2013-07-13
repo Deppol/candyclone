@@ -25,7 +25,7 @@
 
 - (CGPoint)getIndexOf:(Candy *)candy;
 
-- (void)markCandyByIndex:(CGPoint)coords;
+- (void)markCandyByIndex:(CGPoint)coordinates;
 
 - (void)markColor:(enum ECandyColor)candyColor;
 

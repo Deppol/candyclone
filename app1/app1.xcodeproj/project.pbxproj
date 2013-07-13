@@ -13,8 +13,17 @@
 		5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */; };
 		5EDC14C0839415079AEF73FA /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC12AA4BD44F7C2D5F265B /* Game.m */; };
 		5EDC15AF3A78510C44D89EE1 /* SceneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC18FC6D449B71B89215FE /* SceneTest.m */; };
-		5EDC1762B9A3EBA437BDC0D4 /* SceneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC15638FC94320FB2BB543 /* SceneGame.m */; };
 		5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */; };
+		CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */; };
+		CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52310AC602610BD9A81A4F /* GameManager.m */; };
+		CF523571F1A949753BAF07BC /* Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D2AFC0AB2516B65ED88 /* Candy.m */; };
+		CF52358C408C4F46B6235472 /* CandyBonus.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D1293B89B0BDEFB8D9C /* CandyBonus.m */; };
+		CF523AAD41BF1AE7CAB498C7 /* CandyBonusBomb.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5238E941BE9972823601D9 /* CandyBonusBomb.m */; };
+		CF523D3115E62603CC6F8192 /* CandyBonusColorBomb.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523CD9E5E078B3DF1F0A48 /* CandyBonusColorBomb.m */; };
+		CF523D54A0C6296A73C73F6D /* SceneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523AE3387C3F139C5D9289 /* SceneGame.m */; };
+		CF523D7F9DE3FEAE77432496 /* CandyBonusHorizontalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523509688A98BD6913D362 /* CandyBonusHorizontalLine.m */; };
+		CF523E4FFF3CB3FFDC6F15B0 /* CandyBonusVerticalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5230BD450666FA6825348E /* CandyBonusVerticalLine.m */; };
+		CF523FDD769C7353E713584E /* MyConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523AD066A30695094B65BD /* MyConstants.m */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -83,19 +92,39 @@
 		5EDC12AA4BD44F7C2D5F265B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		5EDC136B326C3AA06AC49DD7 /* SharedHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHighScoreManager.h; sourceTree = "<group>"; };
 		5EDC141EB95ABD84B78382A6 /* SceneBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBase.m; sourceTree = "<group>"; };
-		5EDC15638FC94320FB2BB543 /* SceneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGame.m; sourceTree = "<group>"; };
 		5EDC17D79872DD7E1F69FD69 /* ESceneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESceneType.h; sourceTree = "<group>"; };
 		5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantsForModelsStatic.m; sourceTree = "<group>"; };
 		5EDC18FC6D449B71B89215FE /* SceneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneTest.m; sourceTree = "<group>"; };
 		5EDC1987932F448169B9CA54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		5EDC1A22DD30EF153FECBAFE /* ConstantsForModelsStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsForModelsStatic.h; sourceTree = "<group>"; };
-		5EDC1BEE128D78051A91CA4F /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
 		5EDC1CF26D5BADC5C34494BD /* ELanguageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELanguageType.h; sourceTree = "<group>"; };
 		5EDC1DA55C3417601861B9E3 /* SharedProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedProgressManager.h; sourceTree = "<group>"; };
 		5EDC1E6C5BA37F427417CC9D /* SharedDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDeviceHelper.h; sourceTree = "<group>"; };
 		5EDC1ED283E7A6B997005F4B /* EDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDeviceType.h; sourceTree = "<group>"; };
 		5EDC1EF052B81D33E9BD1AEA /* SceneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneTest.h; sourceTree = "<group>"; };
 		5EDC1F41B2BB4485A0B8C7AD /* SceneBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneBase.h; sourceTree = "<group>"; };
+		CF523036A17F906E5ECC63A0 /* CandyBonusVerticalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusVerticalLine.h; sourceTree = "<group>"; };
+		CF5230BD450666FA6825348E /* CandyBonusVerticalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusVerticalLine.m; sourceTree = "<group>"; };
+		CF52310AC602610BD9A81A4F /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
+		CF52323BB94C50058EDA5913 /* CandyBonusHorizontalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusHorizontalLine.h; sourceTree = "<group>"; };
+		CF5232EEBB4455E23BF2CFB3 /* Candy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candy.h; sourceTree = "<group>"; };
+		CF5233A659E654ACF4B1F573 /* ECandyBonusType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECandyBonusType.h; sourceTree = "<group>"; };
+		CF52341290129F8397A96DFB /* MyConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConstants.h; sourceTree = "<group>"; };
+		CF523509688A98BD6913D362 /* CandyBonusHorizontalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusHorizontalLine.m; sourceTree = "<group>"; };
+		CF5235E6EF7BB22BB536524F /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
+		CF52373F0567BF9170806FEA /* CandyBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonus.h; sourceTree = "<group>"; };
+		CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusNothing.m; sourceTree = "<group>"; };
+		CF5238E941BE9972823601D9 /* CandyBonusBomb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusBomb.m; sourceTree = "<group>"; };
+		CF5239832C6F22354E7610AD /* CandyBonusNothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusNothing.h; sourceTree = "<group>"; };
+		CF523AD066A30695094B65BD /* MyConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConstants.m; sourceTree = "<group>"; };
+		CF523AE3387C3F139C5D9289 /* SceneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGame.m; sourceTree = "<group>"; };
+		CF523BE92D74E5DC9B491258 /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
+		CF523C3107923445449E0EBE /* CandyBonusColorBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusColorBomb.h; sourceTree = "<group>"; };
+		CF523CD9E5E078B3DF1F0A48 /* CandyBonusColorBomb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusColorBomb.m; sourceTree = "<group>"; };
+		CF523D09681F0B6DE918134B /* CandyBonusBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusBomb.h; sourceTree = "<group>"; };
+		CF523D1293B89B0BDEFB8D9C /* CandyBonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonus.m; sourceTree = "<group>"; };
+		CF523D2AFC0AB2516B65ED88 /* Candy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candy.m; sourceTree = "<group>"; };
+		CF523F0E1B9A2E1CDE3E02C7 /* ECandyColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECandyColor.h; sourceTree = "<group>"; };
 		DC1BE68614F417CC00F49D25 /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
 		DC1BE68914F417CC00F49D25 /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
 		DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-B.ttf"; sourceTree = "<group>"; };
@@ -224,8 +253,8 @@
 			children = (
 				5EDC1E5720165EE2DD806AF0 /* SceneBase */,
 				5EDC17D79872DD7E1F69FD69 /* ESceneType.h */,
-				5EDC1EF89B743F1D12514F08 /* SceneGame */,
 				5EDC12075D5B500D395E7799 /* SceneTest */,
+				CF523BC35F5F9C38D4BA7802 /* SceneGame */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -238,6 +267,8 @@
 				5EDC1490783C1941DFB3D067 /* SharedHighScoreManager */,
 				5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */,
 				5EDC1A22DD30EF153FECBAFE /* ConstantsForModelsStatic.h */,
+				CF523AAFA335B2C3BA3340A8 /* Candies */,
+				CF523EE80095496B5FEC8EC7 /* GameManager */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,13 +317,61 @@
 			path = SceneBase;
 			sourceTree = "<group>";
 		};
-		5EDC1EF89B743F1D12514F08 /* SceneGame */ = {
+		CF523AAFA335B2C3BA3340A8 /* Candies */ = {
 			isa = PBXGroup;
 			children = (
-				5EDC1BEE128D78051A91CA4F /* SceneGame.h */,
-				5EDC15638FC94320FB2BB543 /* SceneGame.m */,
+				CF523D2AFC0AB2516B65ED88 /* Candy.m */,
+				CF5232EEBB4455E23BF2CFB3 /* Candy.h */,
+				CF523F0E1B9A2E1CDE3E02C7 /* ECandyColor.h */,
+				CF523E0CE36384CAFB8FEC17 /* CandyBonuses */,
+			);
+			path = Candies;
+			sourceTree = "<group>";
+		};
+		CF523BC35F5F9C38D4BA7802 /* SceneGame */ = {
+			isa = PBXGroup;
+			children = (
+				CF523BE92D74E5DC9B491258 /* SceneGame.h */,
+				CF523AE3387C3F139C5D9289 /* SceneGame.m */,
 			);
 			path = SceneGame;
+			sourceTree = "<group>";
+		};
+		CF523CC7881526F5ECC9C72A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CF52373F0567BF9170806FEA /* CandyBonus.h */,
+				CF523D1293B89B0BDEFB8D9C /* CandyBonus.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CF523E0CE36384CAFB8FEC17 /* CandyBonuses */ = {
+			isa = PBXGroup;
+			children = (
+				CF5233A659E654ACF4B1F573 /* ECandyBonusType.h */,
+				CF523CC7881526F5ECC9C72A /* Base */,
+				CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */,
+				CF5239832C6F22354E7610AD /* CandyBonusNothing.h */,
+				CF5230BD450666FA6825348E /* CandyBonusVerticalLine.m */,
+				CF523036A17F906E5ECC63A0 /* CandyBonusVerticalLine.h */,
+				CF523509688A98BD6913D362 /* CandyBonusHorizontalLine.m */,
+				CF52323BB94C50058EDA5913 /* CandyBonusHorizontalLine.h */,
+				CF5238E941BE9972823601D9 /* CandyBonusBomb.m */,
+				CF523D09681F0B6DE918134B /* CandyBonusBomb.h */,
+				CF523CD9E5E078B3DF1F0A48 /* CandyBonusColorBomb.m */,
+				CF523C3107923445449E0EBE /* CandyBonusColorBomb.h */,
+			);
+			path = CandyBonuses;
+			sourceTree = "<group>";
+		};
+		CF523EE80095496B5FEC8EC7 /* GameManager */ = {
+			isa = PBXGroup;
+			children = (
+				CF52310AC602610BD9A81A4F /* GameManager.m */,
+				CF5235E6EF7BB22BB536524F /* GameManager.h */,
+			);
+			path = GameManager;
 			sourceTree = "<group>";
 		};
 		DC1BE68414F417CC00F49D25 /* ubuntu-font-family-0.80 */ = {
@@ -411,6 +490,8 @@
 				5EDC143DE388F23915E438F9 /* Scene */,
 				5EDC174BE4DCEDC081147FC9 /* System */,
 				5EDC14649408AAF7CDA6C230 /* Models */,
+				CF52341290129F8397A96DFB /* MyConstants.h */,
+				CF523AD066A30695094B65BD /* MyConstants.m */,
 			);
 			path = Projectfiles;
 			sourceTree = "<group>";
@@ -578,10 +659,19 @@
 				5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */,
 				5EDC14C0839415079AEF73FA /* Game.m in Sources */,
 				5EDC116299CA05FBD24AC548 /* SharedProgressManager.m in Sources */,
-				5EDC1762B9A3EBA437BDC0D4 /* SceneGame.m in Sources */,
 				5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */,
 				5EDC1362AF5EECB256BC27D3 /* ConstantsForModelsStatic.m in Sources */,
 				5EDC15AF3A78510C44D89EE1 /* SceneTest.m in Sources */,
+				CF523FDD769C7353E713584E /* MyConstants.m in Sources */,
+				CF523571F1A949753BAF07BC /* Candy.m in Sources */,
+				CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */,
+				CF523E4FFF3CB3FFDC6F15B0 /* CandyBonusVerticalLine.m in Sources */,
+				CF523D7F9DE3FEAE77432496 /* CandyBonusHorizontalLine.m in Sources */,
+				CF523AAD41BF1AE7CAB498C7 /* CandyBonusBomb.m in Sources */,
+				CF523D3115E62603CC6F8192 /* CandyBonusColorBomb.m in Sources */,
+				CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */,
+				CF52358C408C4F46B6235472 /* CandyBonus.m in Sources */,
+				CF523D54A0C6296A73C73F6D /* SceneGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

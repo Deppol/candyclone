@@ -1,0 +1,1 @@
+const NSUInteger FIELD_SIZE = 7;

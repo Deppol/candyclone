@@ -9,12 +9,12 @@
 #import "SimpleAudioEngine.h"
 #import "Game.h"
 #import "SharedProgressManager.h"
-
+#import "GameManager.h"
 
 
 @implementation SceneGame
 {
-  NSMutableArray *scene;
+	NSMutableArray *scene;
 }
 /*
  * Static
@@ -23,9 +23,9 @@
 //! Default creator for scene. Need override in derived classes.
 + (SceneBase *)createScene
 {
-    SceneGame *result = [[SceneGame alloc] init];
+	SceneGame *result = [[SceneGame alloc] init];
 
-    return result;
+	return result;
 }
 
 /*
@@ -33,7 +33,7 @@
  */
 - (ESceneType)type
 {
-    return EST_GAME;
+	return EST_GAME;
 }
 
 /*
@@ -43,9 +43,9 @@
 //! Load all resources here
 - (void)loadResources
 {
-    [super loadResources];
+	[super loadResources];
 
-    //TODO:implement purge
+	//TODO:implement purge
 
 //    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[ResourceManager sceneGameBasic]];
 
@@ -54,19 +54,18 @@
 //! Prepare scene. Init all game objects here
 - (void)prepare
 {
-    [super prepare];
+	[super prepare];
 
-    [[SharedProgressManager shared].game setupScene:self];
+	[[SharedProgressManager shared].game setupScene:self];
 
-    [self _initGameObjects];
+	[self _initGameObjects];
 }
 
 - (void)_initGameObjects
 {
-
+	_gameManager = [[GameManager alloc] init];
 
 
 }
-
 
 @end

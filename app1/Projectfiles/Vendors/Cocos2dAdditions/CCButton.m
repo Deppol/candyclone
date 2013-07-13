@@ -22,12 +22,26 @@
 
     BOOL _enabled;
 
+    CGRect _rect;
+
 }
 
 /*
  * Properties
  */
 
+- (void)setOpacity:(GLubyte)opacity
+{
+    _opacity = opacity;
+    for(NSUInteger i = 0; i< [_children count]; i++)
+        ((CCSprite *) [_children objectAtIndex:i]).opacity = _opacity;
+}
+- (void)setColor:(ccColor3B)color
+{
+    _color = color;
+    for(NSUInteger i = 0; i< [_children count]; i++)
+        ((CCSprite *) [_children objectAtIndex:i]).color = color;
+}
 - (void)setEnabled:(BOOL)value
 {
     _enabled = value;
@@ -42,16 +56,39 @@
  */
 
 //! Designated initializer
-- (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect rotated:(BOOL)rotated
+- (id)init
 {
-    self = [super initWithTexture:texture rect:rect rotated:rotated];
+    self = [super init];
 
-    if (self)
+    if(self)
     {
         [self _prepareButton];
     }
-
     return self;
+}
+
+- (id)initWithCCSprite:(CCSprite* ) sprite
+{
+    self = [self init];
+    if(self)
+    {
+        _rect = sprite.textureRect;
+        _opacity = sprite.opacity;
+        _color = sprite.color;
+        sprite.position = ccp(0,0);
+        [self addChild:sprite];
+    }
+    return self;
+}
+
+
+- (void)addCCSprite:(CCSprite*)sprite
+{
+    [sprite setTextureRect:_rect];
+    sprite.color = _color;
+    sprite.opacity = _opacity;
+    sprite.position = ccp(0,0);
+    [self addChild:sprite];
 }
 
 - (void)_prepareButton
@@ -193,12 +230,19 @@
     point.x *= self.scaleX;
     point.y *= self.scaleY;
 
-    CGRect r = [self boundingBox];
+    BOOL ans = NO;
 
-    r.origin.x = _startTouchPosition.x - _endTouchPosition.x;
-    r.origin.y = _startTouchPosition.y - _endTouchPosition.y;
+    for(NSUInteger i = 0; i< [_children count]; i++)
+    {
 
-    return CGRectContainsPoint(CGRectInset(r, -10, -10), point);
+        CGRect r = [((CCNode*)[_children objectAtIndex:i]) boundingBox];
+
+        //r.origin.x = _startTouchPosition.x - _endTouchPosition.x;
+        //r.origin.y = _startTouchPosition.y - _endTouchPosition.y;
+
+        ans = ans|CGRectContainsPoint(CGRectInset(r, -10, -10), point);
+    }
+    return ans;
 }
 
 @end

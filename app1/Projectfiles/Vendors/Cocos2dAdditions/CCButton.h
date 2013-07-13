@@ -16,17 +16,23 @@ static CGFloat const INTERVAL_BETWEEN_TOUCH_MOVED = 0.3f;
 static CGFloat const INTERVAL_BETWEEN_TOUCH_ENDED = 0.3f;
 static CGFloat const OPACITY_HIDE = 0.0f;
 
-@interface CCButton : CCSprite <CCTouchOneByOneDelegate>
+@interface CCButton : CCNode <CCTouchOneByOneDelegate>
 
 @property (nonatomic, assign) BOOL enabled;
 @property (nonatomic, assign) BOOL adjustColorWhenClicked;
 @property (nonatomic, assign) BOOL swallowsTouches;
 @property (nonatomic, assign) BOOL disallowSound;
+@property (nonatomic) ccColor3B color;
+@property (nonatomic) GLubyte opacity;
 
 @property (nonatomic, assign) id <CCButtonDelegate> delegate;
 
 //! Designated initializer
-- (id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect rotated:(BOOL)rotated;
+- (id)init;
+
+- (id)initWithCCSprite:(CCSprite* ) sprite;
+
+- (void)addCCSprite:(CCSprite*)sprite;
 
 - (void)dealloc;
 

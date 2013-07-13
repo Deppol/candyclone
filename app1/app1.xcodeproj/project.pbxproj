@@ -14,7 +14,9 @@
 		5EDC14C0839415079AEF73FA /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC12AA4BD44F7C2D5F265B /* Game.m */; };
 		5EDC15AF3A78510C44D89EE1 /* SceneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC18FC6D449B71B89215FE /* SceneTest.m */; };
 		5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */; };
+		5EDC1A7954FD3F0BD1AD2787 /* text2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC166E8B41383E4051F524 /* text2.png */; };
 		5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1D53F6542180CA7E3B79 /* CCButton.m */; };
+		5EDC1DD45D1E7829FE8079DF /* text1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1B79ED15CF6D1503AE71 /* text1.png */; };
 		CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */; };
 		CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52310AC602610BD9A81A4F /* GameManager.m */; };
 		CF523571F1A949753BAF07BC /* Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D2AFC0AB2516B65ED88 /* Candy.m */; };
@@ -95,11 +97,13 @@
 		5EDC1387FCC4C76423326295 /* CCButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCButtonDelegate.h; sourceTree = "<group>"; };
 		5EDC141EB95ABD84B78382A6 /* SceneBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBase.m; sourceTree = "<group>"; };
 		5EDC159C9EBC113B7A7C4EC5 /* CCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCButton.h; sourceTree = "<group>"; };
+		5EDC166E8B41383E4051F524 /* text2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text2.png; sourceTree = "<group>"; };
 		5EDC17D79872DD7E1F69FD69 /* ESceneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESceneType.h; sourceTree = "<group>"; };
 		5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantsForModelsStatic.m; sourceTree = "<group>"; };
 		5EDC18FC6D449B71B89215FE /* SceneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneTest.m; sourceTree = "<group>"; };
 		5EDC1987932F448169B9CA54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		5EDC1A22DD30EF153FECBAFE /* ConstantsForModelsStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsForModelsStatic.h; sourceTree = "<group>"; };
+		5EDC1B79ED15CF6D1503AE71 /* text1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text1.png; sourceTree = "<group>"; };
 		5EDC1CF26D5BADC5C34494BD /* ELanguageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELanguageType.h; sourceTree = "<group>"; };
 		5EDC1D53F6542180CA7E3B79 /* CCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCButton.m; sourceTree = "<group>"; };
 		5EDC1DA55C3417601861B9E3 /* SharedProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedProgressManager.h; sourceTree = "<group>"; };
@@ -526,6 +530,8 @@
 				DC275D2A13B27DBF009C5098 /* Pow.caf */,
 				DC485B4713AA194F00F2BC70 /* ship.png */,
 				DC485B4A13AA1C0E00F2BC70 /* ship-hd.png */,
+				5EDC1B79ED15CF6D1503AE71 /* text1.png */,
+				5EDC166E8B41383E4051F524 /* text2.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -650,6 +656,8 @@
 				DC65617315114B4A00E59F8A /* fps_images-ipadhd.png in Resources */,
 				DC2721A2160CAEB600D88944 /* Default-568h@2x.png in Resources */,
 				DC2721AA160CAFC700D88944 /* iTunesArtwork in Resources */,
+				5EDC1DD45D1E7829FE8079DF /* text1.png in Resources */,
+				5EDC1A7954FD3F0BD1AD2787 /* text2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

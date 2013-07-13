@@ -12,6 +12,7 @@
 #import "ConstantsForModelsStatic.h"
 #import "Game.h"
 #import "SharedProgressManager.h"
+#import "CCButton.h"
 
 //!Temporary scene. Made only to test Highscores. To be removed.
 @implementation SceneTest
@@ -65,9 +66,12 @@
         [_root addChild:label];
         [self addChild:_root];
     }
-    CCSprite* sprite = [CCSprite spriteWithFile:@"ship.png"];
-    sprite.position = ccp(50, 50);
-    [sprite runAction:[CCMoveBy actionWithDuration:1.0f position:ccp(0, -20)]];
-    [self addChild:sprite];
+    CCSprite* sprite1 = [CCSprite spriteWithFile:@"text1.png"];
+    CCSprite* sprite2 = [CCSprite spriteWithFile:@"text2.png"];
+    CCButton* btn1 = [[CCButton alloc] initWithCCSprite:sprite1];
+    btn1.position = ccp(75,75);
+    [btn1 addCCSprite:sprite2];
+    //[sprite runAction:[CCMoveBy actionWithDuration:1.0f position:ccp(0, -20)]];
+    [self addChild:btn1];
 }
 @end

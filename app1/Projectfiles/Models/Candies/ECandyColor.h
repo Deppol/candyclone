@@ -8,6 +8,7 @@ enum ECandyColor
 	ECC_GREEN,
 	ECC_YELLOW,
 	ECC_PURPLE,
+    ECC_ORANGE,
 
 	ECC_COUNT
 };

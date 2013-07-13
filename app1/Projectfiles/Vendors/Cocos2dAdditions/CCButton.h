@@ -25,7 +25,7 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 @property (nonatomic) ccColor3B color;
 @property (nonatomic) GLubyte opacity;
 
-@property (nonatomic, assign) id <CCButtonDelegate> delegate;
+@property (nonatomic, readwrite) id <CCButtonDelegate> delegate;
 
 //! Designated initializer
 - (id)init;

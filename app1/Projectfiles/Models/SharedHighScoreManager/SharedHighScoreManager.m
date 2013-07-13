@@ -6,7 +6,7 @@
 
 
 #import "SharedHighScoreManager.h"
-#import "ConstantsForModelsStatic.h"
+#import "ConstantsStatic.h"
 
 
 @implementation SharedHighScoreManager
@@ -55,7 +55,7 @@ static SharedHighScoreManager *_instance;
 
 - (void)addScore:(NSNumber *)newScore
 {
-    for (int i = 0; i < [ConstantsForModelsStatic scoresCount].intValue; i++)
+    for (int i = 0; i < [ConstantsStatic scoresCount].intValue; i++)
     {
         if (((NSNumber *) [_scores objectAtIndex:i]).intValue < newScore.intValue)
         {
@@ -70,19 +70,19 @@ static SharedHighScoreManager *_instance;
 - (void)_load
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *_scoreArray = [defaults arrayForKey:[ConstantsForModelsStatic scoresKeyName]];
+    NSArray *_scoreArray = [defaults arrayForKey:[ConstantsStatic scoresKeyName]];
     if ([_scoreArray count] == 0)
     {
         NSMutableArray *_generatedScores = [NSMutableArray array];
-        for (int i = 0; i < [ConstantsForModelsStatic scoresCount].intValue; i++)
+        for (int i = 0; i < [ConstantsStatic scoresCount].intValue; i++)
         {
             [_generatedScores addObject:[NSNumber numberWithInt:0]];
         }
 
-        [defaults setObject:_generatedScores forKey:[ConstantsForModelsStatic scoresKeyName]];
+        [defaults setObject:_generatedScores forKey:[ConstantsStatic scoresKeyName]];
         [defaults synchronize];
 
-        _scoreArray = [defaults arrayForKey:[ConstantsForModelsStatic scoresKeyName]];
+        _scoreArray = [defaults arrayForKey:[ConstantsStatic scoresKeyName]];
         NSAssert([_scoreArray count] != 0, @"Can't load scores for some reason");
 
         _scores = _generatedScores;
@@ -95,7 +95,7 @@ static SharedHighScoreManager *_instance;
 - (void)_save
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:_scores forKey:[ConstantsForModelsStatic scoresKeyName]];
+    [defaults setObject:_scores forKey:[ConstantsStatic scoresKeyName]];
     [defaults synchronize];
 }
 

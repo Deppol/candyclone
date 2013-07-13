@@ -5,10 +5,10 @@
 //
 
 
-#import "ConstantsForModelsStatic.h"
+#import "ConstantsStatic.h"
 
 
-@implementation ConstantsForModelsStatic
+@implementation ConstantsStatic
 /*
  * For SharedHighScoreManager
  */
@@ -21,6 +21,17 @@
 {
     return [NSNumber numberWithInt:5];
 }
+/*
+ * Fonts
+ */
++ (NSString *)buttonsFontName
+{
+    return @"Ubuntu Condenced";
+}
 
++(NSUInteger)buttonsFontSize
+{
+    return 40;
+}
 
 @end

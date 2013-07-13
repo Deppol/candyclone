@@ -24,6 +24,7 @@
 #endif
 
 
+
     glClearColor(0.2f, 0.2f, 0.4f, 1.0f);
 
     {//init singletons
@@ -38,7 +39,7 @@
 
     [[SharedProgressManager shared] didGameStart:game];
 
-    [SceneBase setScene:EST_TEST];  //!Temporary scene. Made only to test Highscores. To be removed.
+    [SceneBase setScene:EST_GAME];
 
     [NSThread sleepForTimeInterval:0.1f]; //Needed for scene to initialize
 

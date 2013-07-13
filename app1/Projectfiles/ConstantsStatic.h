@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface ConstantsForModelsStatic : NSObject
+@interface ConstantsStatic : NSObject
 
 /*
  * For SharedHighScoreManager
@@ -17,4 +17,12 @@
 + (NSString *)scoresKeyName;
 
 + (NSNumber *)scoresCount;
+
+/*
+ * Fonts
+ */
+
++ (NSString *)buttonsFontName;
+
++ (NSUInteger)buttonsFontSize;
 @end

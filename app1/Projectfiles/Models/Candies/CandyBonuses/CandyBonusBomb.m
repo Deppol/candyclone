@@ -36,7 +36,7 @@
 	CGPoint position = [gameManager getIndexOf:_owner];
 	for (NSInteger i = (NSInteger) position.x - 1; i <= position.x + 1; ++i)
 		for (NSInteger j = (NSInteger) position.y - 1; j <= position.y + 1; ++j)
-			if (i >= 0 && i < FIELD_SIZE && j >= 0 && j < FIELD_SIZE)
+			if (i >= 0 && i < (NSInteger) FIELD_SIZE && j >= 0 && j < (NSInteger) FIELD_SIZE)
 				[gameManager markCandyByIndex:CGPointMake(i, j)];
 }
 

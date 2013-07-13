@@ -14,6 +14,7 @@
 		5EDC14C0839415079AEF73FA /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC12AA4BD44F7C2D5F265B /* Game.m */; };
 		5EDC15AF3A78510C44D89EE1 /* SceneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC18FC6D449B71B89215FE /* SceneTest.m */; };
 		5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */; };
+		5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1D53F6542180CA7E3B79 /* CCButton.m */; };
 		CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */; };
 		CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52310AC602610BD9A81A4F /* GameManager.m */; };
 		CF523571F1A949753BAF07BC /* Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D2AFC0AB2516B65ED88 /* Candy.m */; };
@@ -91,13 +92,16 @@
 		5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedHighScoreManager.m; sourceTree = "<group>"; };
 		5EDC12AA4BD44F7C2D5F265B /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		5EDC136B326C3AA06AC49DD7 /* SharedHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHighScoreManager.h; sourceTree = "<group>"; };
+		5EDC1387FCC4C76423326295 /* CCButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCButtonDelegate.h; sourceTree = "<group>"; };
 		5EDC141EB95ABD84B78382A6 /* SceneBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBase.m; sourceTree = "<group>"; };
+		5EDC159C9EBC113B7A7C4EC5 /* CCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCButton.h; sourceTree = "<group>"; };
 		5EDC17D79872DD7E1F69FD69 /* ESceneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESceneType.h; sourceTree = "<group>"; };
 		5EDC188A374C5F63C1C02BC5 /* ConstantsForModelsStatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantsForModelsStatic.m; sourceTree = "<group>"; };
 		5EDC18FC6D449B71B89215FE /* SceneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneTest.m; sourceTree = "<group>"; };
 		5EDC1987932F448169B9CA54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		5EDC1A22DD30EF153FECBAFE /* ConstantsForModelsStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsForModelsStatic.h; sourceTree = "<group>"; };
 		5EDC1CF26D5BADC5C34494BD /* ELanguageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELanguageType.h; sourceTree = "<group>"; };
+		5EDC1D53F6542180CA7E3B79 /* CCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCButton.m; sourceTree = "<group>"; };
 		5EDC1DA55C3417601861B9E3 /* SharedProgressManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedProgressManager.h; sourceTree = "<group>"; };
 		5EDC1E6C5BA37F427417CC9D /* SharedDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDeviceHelper.h; sourceTree = "<group>"; };
 		5EDC1ED283E7A6B997005F4B /* EDeviceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDeviceType.h; sourceTree = "<group>"; };
@@ -237,6 +241,14 @@
 			path = SceneTest;
 			sourceTree = "<group>";
 		};
+		5EDC12F53B3F167DF98B2E3E /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				5EDC1DEF09028C864B5BD358 /* Cocos2dAdditions */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
 		5EDC13721D4EE0E7842872F0 /* SharedDeviceHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +318,16 @@
 				5EDC12AA4BD44F7C2D5F265B /* Game.m */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		5EDC1DEF09028C864B5BD358 /* Cocos2dAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				5EDC159C9EBC113B7A7C4EC5 /* CCButton.h */,
+				5EDC1D53F6542180CA7E3B79 /* CCButton.m */,
+				5EDC1387FCC4C76423326295 /* CCButtonDelegate.h */,
+			);
+			path = Cocos2dAdditions;
 			sourceTree = "<group>";
 		};
 		5EDC1E5720165EE2DD806AF0 /* SceneBase */ = {
@@ -492,6 +514,7 @@
 				5EDC14649408AAF7CDA6C230 /* Models */,
 				CF52341290129F8397A96DFB /* MyConstants.h */,
 				CF523AD066A30695094B65BD /* MyConstants.m */,
+				5EDC12F53B3F167DF98B2E3E /* Vendors */,
 			);
 			path = Projectfiles;
 			sourceTree = "<group>";
@@ -672,6 +695,7 @@
 				CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */,
 				CF52358C408C4F46B6235472 /* CandyBonus.m in Sources */,
 				CF523D54A0C6296A73C73F6D /* SceneGame.m in Sources */,
+				5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

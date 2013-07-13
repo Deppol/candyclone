@@ -66,8 +66,8 @@
         [_root addChild:label];
         [self addChild:_root];
     }
-    CCSprite* sprite1 = [CCSprite spriteWithFile:@"text1.png"];
-    CCSprite* sprite2 = [CCSprite spriteWithFile:@"text2.png"];
+    CCSprite* sprite1 = [CCSprite spriteWithFile:@"blueColor.png"];
+    CCSprite* sprite2 = [CCSprite spriteWithFile:@"blueLines.png"];
     CCButton* btn1 = [[CCButton alloc] initWithCCSprite:sprite1];
     btn1.position = ccp(75,75);
     [btn1 addCCSprite:sprite2];

@@ -16,8 +16,7 @@
  * Properties
  */
 
-@property (nonatomic, readonly) Game *game;
-
+@property(nonatomic, readonly) Game *game;
 
 
 /*
@@ -31,9 +30,9 @@
 
 
 //! Must call when some game starts
--(void)didGameStart:(Game *)game;
+- (void)didGameStart:(Game *)game;
 
 //! Must call when current game end
--(void)didGameEnd;
+- (void)didGameEnd;
 
 @end

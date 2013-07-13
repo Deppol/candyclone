@@ -10,14 +10,16 @@
 
 @interface SharedHighScoreManager : NSObject
 
-+ (SharedHighScoreManager *) shared;
++ (SharedHighScoreManager *)shared;
 
-@property(nonatomic, readonly) NSMutableArray * scores;
+@property(nonatomic, readonly) NSMutableArray *scores;
 
 
 //!designated initializer
 - (id)init;
+
 - (void)cleanup;
-- (void)addScore: (NSNumber*)newScore;
+
+- (void)addScore:(NSNumber *)newScore;
 
 @end

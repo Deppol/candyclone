@@ -14,7 +14,7 @@
 
 + (SceneBase *)createScene;
 
-@property (nonatomic, readonly) ESceneType type;
+@property(nonatomic, readonly) ESceneType type;
 
 
 /*

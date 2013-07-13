@@ -10,6 +10,11 @@
 
 @interface ConstantsForModelsStatic : NSObject
 
-+(NSString* )scoresKeyName;
-+(NSNumber* )scoresCount;
+/*
+ * For SharedHighScoreManager
+ */
+
++ (NSString *)scoresKeyName;
+
++ (NSNumber *)scoresCount;
 @end

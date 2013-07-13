@@ -28,7 +28,7 @@
  * Properties
  */
 
-@property (nonatomic, readonly) ESceneType type;
+@property(nonatomic, readonly) ESceneType type;
 
 /*
  * Instance methods

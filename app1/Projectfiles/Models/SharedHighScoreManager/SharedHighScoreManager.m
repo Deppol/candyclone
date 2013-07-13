@@ -12,7 +12,7 @@
 @implementation SharedHighScoreManager
 
 
-static SharedHighScoreManager * _instance;
+static SharedHighScoreManager *_instance;
 
 + (SharedHighScoreManager *)shared
 {
@@ -35,27 +35,29 @@ static SharedHighScoreManager * _instance;
 
     if (self)
     {
-         [self _load];
+        [self _load];
     }
 
     return self;
 }
 
--(void) dealloc
+- (void)dealloc
 {
     [self cleanup];
+
 }
+
 - (void)cleanup
 {
     _scores = nil;
     _instance = nil;
 }
 
-- (void)addScore: (NSNumber*)newScore
+- (void)addScore:(NSNumber *)newScore
 {
-    for(int i = 0; i<[ConstantsForModelsStatic scoresCount].intValue; i++)
+    for (int i = 0; i < [ConstantsForModelsStatic scoresCount].intValue; i++)
     {
-        if(((NSNumber *)[_scores objectAtIndex:i]).intValue < newScore.intValue)
+        if (((NSNumber *) [_scores objectAtIndex:i]).intValue < newScore.intValue)
         {
             [_scores insertObject:newScore atIndex:i];
             [_scores removeLastObject];
@@ -67,12 +69,12 @@ static SharedHighScoreManager * _instance;
 
 - (void)_load
 {
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    NSArray* _scoreArray = [defaults arrayForKey:[ConstantsForModelsStatic scoresKeyName]];
-    if([_scoreArray count] == 0)
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSArray *_scoreArray = [defaults arrayForKey:[ConstantsForModelsStatic scoresKeyName]];
+    if ([_scoreArray count] == 0)
     {
-        NSMutableArray * _generatedScores = [NSMutableArray array];
-        for(int i = 0; i<[ConstantsForModelsStatic scoresCount].intValue; i++)
+        NSMutableArray *_generatedScores = [NSMutableArray array];
+        for (int i = 0; i < [ConstantsForModelsStatic scoresCount].intValue; i++)
         {
             [_generatedScores addObject:[NSNumber numberWithInt:0]];
         }
@@ -89,9 +91,10 @@ static SharedHighScoreManager * _instance;
     _scores = [NSMutableArray arrayWithArray:_scoreArray];
 
 }
+
 - (void)_save
 {
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:_scores forKey:[ConstantsForModelsStatic scoresKeyName]];
     [defaults synchronize];
 }

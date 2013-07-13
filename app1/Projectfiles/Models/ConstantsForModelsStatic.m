@@ -12,11 +12,12 @@
 /*
  * For SharedHighScoreManager
  */
-+(NSString* )scoresKeyName
++ (NSString *)scoresKeyName
 {
     return @"CANDYCLONE_HIGHSCORES";
 }
-+(NSNumber *)scoresCount
+
++ (NSNumber *)scoresCount
 {
     return [NSNumber numberWithInt:5];
 }

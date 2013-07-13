@@ -11,7 +11,6 @@
 #import "SharedProgressManager.h"
 #import "GameManager.h"
 
-
 @implementation SceneGame
 {
 	NSMutableArray *scene;
@@ -64,7 +63,6 @@
 - (void)_initGameObjects
 {
 	_gameManager = [[GameManager alloc] init];
-
 
 }
 

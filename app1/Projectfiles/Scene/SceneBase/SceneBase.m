@@ -10,7 +10,6 @@
 #import "SharedProgressManager.h"
 #import "SharedDeviceHelper.h"
 #import "SharedHighScoreManager.h"
-#import "SceneTest.h"
 
 #include <mach/mach.h>
 #import <sys/sysctl.h>

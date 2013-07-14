@@ -25,4 +25,10 @@
 + (NSString *)buttonsFontName;
 
 + (NSUInteger)buttonsFontSize;
+
++(NSString *) gameTittle;
+
++(NSString *) newGameConst;
+
++(NSString *) highScoreConst;
 @end

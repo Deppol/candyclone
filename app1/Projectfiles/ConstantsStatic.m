@@ -26,7 +26,7 @@
  */
 + (NSString *)buttonsFontName
 {
-    return @"Ubuntu Condenced";
+    return @"Ubuntu Condensed";
 }
 
 +(NSUInteger)buttonsFontSize
@@ -34,4 +34,21 @@
     return 40;
 }
 
++ (NSString *)gameTittle
+{
+    NSString* temp = [[NSString alloc] initWithString:@"Candy Clone"];
+    return temp;
+}
+
++ (NSString *)newGameConst
+{
+    NSString* temp = [[NSString alloc] initWithString:@"New Game"];
+    return temp;
+}
+
++ (NSString *)highScoreConst
+{
+    NSString* temp = [[NSString alloc] initWithString:@"High Scores"];
+    return temp;
+}
 @end

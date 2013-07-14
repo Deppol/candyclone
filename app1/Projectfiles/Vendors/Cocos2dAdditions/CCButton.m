@@ -92,6 +92,7 @@
     [self addChild:sprite];
 }
 
+
 - (void)_prepareButton
 {
     _adjustColorWhenClicked = YES;

@@ -10,6 +10,7 @@
 #import "SharedProgressManager.h"
 #import "SharedDeviceHelper.h"
 #import "SharedHighScoreManager.h"
+#import "SceneStart.h"
 
 #include <mach/mach.h>
 #import <sys/sysctl.h>
@@ -20,7 +21,7 @@
 
 }
 
-static CCScene* _allocatedScene;
+
 
 /*
  * Static functions
@@ -45,11 +46,9 @@ static SceneBase *_currentScene = nil;
     if (_currentScene)
     {
         [_currentScene _startLoading];
-
         [_currentScene _clearScene];
 
-        [_currentScene cleanup];
-
+        [_currentScene cleanup];//CHECK
         _currentScene = nil;
     }
 
@@ -61,6 +60,13 @@ static SceneBase *_currentScene = nil;
             _currentScene = [SceneGame createScene];
             break;
         }
+
+        case EST_START: //!Temporary scene. Made only to test Highscores. To be removed.
+        {
+            _currentScene = [SceneStart createScene];
+            break;
+        }
+
         default:
         {
             //Not implemented
@@ -69,16 +75,16 @@ static SceneBase *_currentScene = nil;
         }
     }
 
-    if(_allocatedScene == nil)
-    {
-        _allocatedScene = [[CCScene alloc] init];
-        [_allocatedScene addChild:_currentScene];
-        [[CCDirector sharedDirector] runWithScene:_allocatedScene];
-    }
+    CCScene *scene = [CCScene node];
+
+    [scene addChild:_currentScene];
+
+    //[[CCDirector sharedDirector] stop];
+
+    if ([[CCDirector sharedDirector] runningScene] == nil)
+        [[CCDirector sharedDirector] runWithScene:scene];
     else
-    {
-        [_allocatedScene addChild:_currentScene];
-    }
+        [[CCDirector sharedDirector] replaceScene:scene];
 
     [_currentScene loadResources];
 
@@ -89,20 +95,20 @@ static SceneBase *_currentScene = nil;
         case EDT_IPHONE:
         case EDT_IPHONE_RETINA:
         {
-            [_currentScene placeViewsiPhone];
+            [_currentScene performSelectorOnMainThread:@selector(placeViewsiPhone) withObject:nil waitUntilDone:YES];
 
             break;
         }
         case EDT_IPHONE_RETINA_WIDE:
         {
-            [_currentScene placeViewsiPhoneWide];
+            [_currentScene performSelectorOnMainThread:@selector(placeViewsiPhoneWide) withObject:nil waitUntilDone:YES];
 
             break;
         }
         case EDT_IPAD:
         case EDT_IPAD_RETINA:
         {
-            [_currentScene placeViewsiPad];
+            [_currentScene performSelectorOnMainThread:@selector(placeViewsiPad) withObject:nil waitUntilDone:YES];
 
             break;
         }
@@ -174,6 +180,7 @@ static SceneBase *_currentScene = nil;
         [self removeFromParentAndCleanup:YES];
 
         [[CCTextureCache sharedTextureCache] removeAllTextures];
+
 
     }
 }

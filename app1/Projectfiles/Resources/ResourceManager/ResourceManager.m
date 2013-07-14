@@ -12,6 +12,10 @@
 {
 
 }
++(NSString*)getBackground
+{
+    return @"backgroundImage.png";
+}
 +(NSString*)getSoundOn
 {
     return @"musicOn.png";

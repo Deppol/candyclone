@@ -74,6 +74,8 @@
 		5EDC1FE8067E1C6CDAAE084C /* candyGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1D635C4A8EDB43A8B7F5 /* candyGreen.png */; };
 		5EDC1FF2293B3662BCA850B1 /* candyYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC178A25CB72C426A3ABCB /* candyYellow.png */; };
 		5EDC1FF71F4D8238C97A277E /* purpleLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1A71F65DBD646F28A764 /* purpleLines.png */; };
+		B06876A97D2E75FD0EA9C738 /* SceneStart.m in Sources */ = {isa = PBXBuildFile; fileRef = B0687FCFFBBEFCD69D640162 /* SceneStart.m */; };
+		B0687C8BEC07563AC792CE23 /* ButtonsService.m in Sources */ = {isa = PBXBuildFile; fileRef = B0687A8C657F603ADEF32188 /* ButtonsService.m */; };
 		CF5230D4CE84FA19A9F151F8 /* colorBombBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = CF52367DBADBB20ED80BF16C /* colorBombBlue.png */; };
 		CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */; };
 		CF52338B4FD973FD8960B0D9 /* colorBombGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5231919414A7BBC12E83D2 /* colorBombGreen.png */; };
@@ -236,6 +238,11 @@
 		5EDC1F41B2BB4485A0B8C7AD /* SceneBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneBase.h; sourceTree = "<group>"; };
 		5EDC1F4B9809C7FC36486512 /* tasty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tasty.png; sourceTree = "<group>"; };
 		5EDC1F5E82DD3FAC1999A7AC /* fieldImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fieldImage.png; sourceTree = "<group>"; };
+		B06873C2C44F3563469949AB /* SceneStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneStart.h; sourceTree = "<group>"; };
+		B06878F37530F2195803EA2C /* EButtonServiceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EButtonServiceType.h; sourceTree = "<group>"; };
+		B0687A8C657F603ADEF32188 /* ButtonsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonsService.m; sourceTree = "<group>"; };
+		B0687FAC968F21CD2461EBCD /* ButtonsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonsService.h; sourceTree = "<group>"; };
+		B0687FCFFBBEFCD69D640162 /* SceneStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneStart.m; sourceTree = "<group>"; };
 		CF52300CF648A1B883A2244A /* colorBombYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombYellow.png; sourceTree = "<group>"; };
 		CF523036A17F906E5ECC63A0 /* CandyBonusVerticalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusVerticalLine.h; sourceTree = "<group>"; };
 		CF5230BD450666FA6825348E /* CandyBonusVerticalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusVerticalLine.m; sourceTree = "<group>"; };
@@ -430,6 +437,7 @@
 				5EDC1E5720165EE2DD806AF0 /* SceneBase */,
 				5EDC17D79872DD7E1F69FD69 /* ESceneType.h */,
 				CF523BC35F5F9C38D4BA7802 /* SceneGame */,
+				B068720AFFF43D72E39287F1 /* SceneStart */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -442,6 +450,7 @@
 				5EDC1490783C1941DFB3D067 /* SharedHighScoreManager */,
 				CF523AAFA335B2C3BA3340A8 /* Candies */,
 				CF523EE80095496B5FEC8EC7 /* GameManager */,
+				B0687503A500D44929D7856E /* ServiceButtons */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -632,6 +641,25 @@
 				5EDC141EB95ABD84B78382A6 /* SceneBase.m */,
 			);
 			path = SceneBase;
+			sourceTree = "<group>";
+		};
+		B068720AFFF43D72E39287F1 /* SceneStart */ = {
+			isa = PBXGroup;
+			children = (
+				B06873C2C44F3563469949AB /* SceneStart.h */,
+				B0687FCFFBBEFCD69D640162 /* SceneStart.m */,
+			);
+			path = SceneStart;
+			sourceTree = "<group>";
+		};
+		B0687503A500D44929D7856E /* ServiceButtons */ = {
+			isa = PBXGroup;
+			children = (
+				B0687FAC968F21CD2461EBCD /* ButtonsService.h */,
+				B0687A8C657F603ADEF32188 /* ButtonsService.m */,
+				B06878F37530F2195803EA2C /* EButtonServiceType.h */,
+			);
+			path = ServiceButtons;
 			sourceTree = "<group>";
 		};
 		CF5235767C88A5DF3697C3B9 /* сolorBombs */ = {
@@ -1078,6 +1106,8 @@
 				5EDC112FC1AE3DABD926482B /* DelegateContainer.m in Sources */,
 				5EDC153C670C198E3B14D3A8 /* CandyView.m in Sources */,
 				5EDC1E8DAB97A4DE96068BF4 /* CCSprite+Resize.m in Sources */,
+				B06876A97D2E75FD0EA9C738 /* SceneStart.m in Sources */,
+				B0687C8BEC07563AC792CE23 /* ButtonsService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

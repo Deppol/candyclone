@@ -36,7 +36,7 @@
 
     [[SharedProgressManager shared] didGameStart:game];
 
-    [SceneBase setScene:EST_GAME];
+    [SceneBase setScene:EST_START];
 
     [NSThread sleepForTimeInterval:0.1f];
 

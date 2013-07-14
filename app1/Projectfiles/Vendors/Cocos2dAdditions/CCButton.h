@@ -27,6 +27,8 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 
 @property (nonatomic, readwrite) id <CCButtonDelegate> delegate;
 
+@property(nonatomic, strong) id <CCButtonDelegate> _delegate;
+
 //! Designated initializer
 - (id)init;
 

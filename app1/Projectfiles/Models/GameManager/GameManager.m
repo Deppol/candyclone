@@ -41,10 +41,23 @@
 	_candy2 = nil;
 
 	_seriesMultiplier = 1;
+
 	_left = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
+	for (NSUInteger i = 0; i < FIELD_SIZE * FIELD_SIZE; ++i)
+		_left[i] = [NSNumber numberWithInteger:0];
+
 	_right = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
+	for (NSUInteger i = 0; i < FIELD_SIZE * FIELD_SIZE; ++i)
+		_right[i] = [NSNumber numberWithInteger:0];
+
 	_up = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
+	for (NSUInteger i = 0; i < FIELD_SIZE * FIELD_SIZE; ++i)
+		_up[i] = [NSNumber numberWithInteger:0];
+
 	_down = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
+	for (NSUInteger i = 0; i < FIELD_SIZE * FIELD_SIZE; ++i)
+		_down[i] = [NSNumber numberWithInteger:0];
+
 	_newBonuses = [NSMutableArray array];
 	_newBonusesPosition = [NSMutableArray array];
 
@@ -103,7 +116,7 @@
 		NSUInteger y1 = index1 % FIELD_SIZE;
 		NSUInteger x2 = index2 / FIELD_SIZE;
 		NSUInteger y2 = index2 % FIELD_SIZE;
-		if(abs(x1 - x2) + abs(y1 - y2) == 1)
+		if (abs(x1 - x2) + abs(y1 - y2) == 1)
 		{
 			_candy2 = candy;
 			[self _swapCandies];
@@ -140,6 +153,18 @@
 
 - (BOOL)_tryToExplode
 {
+//	NSMutableString *s = [NSMutableString string];
+//	for (NSUInteger i = 0; i < FIELD_SIZE; ++i)
+//	{
+//		for (NSUInteger j = 0; j < FIELD_SIZE; ++j)
+//		{
+//			[s appendString:[NSString stringWithFormat:@"%d ", (NSInteger) ((Candy *) _candies[i * FIELD_SIZE + j]).color]];
+//		}
+//		NSLog(s);
+//		s = nil;
+//		s = [[NSMutableString alloc] init];
+//	}
+//	NSLog(@"/////////////////////");
 	BOOL result = NO;
 
 	[self _calcNeighbours];
@@ -371,7 +396,7 @@
 			if (((Candy *) _candies[index]).isMarked)
 			{
 				[_candies[index] cleanup];
-				_candies[index] = nil;
+				_candies[index] = [NSNull null];
 			}
 		}
 }
@@ -399,14 +424,14 @@
 		for (NSInteger i = FIELD_SIZE - 1; i >= 0; --i)
 		{
 			index = (NSUInteger) i * FIELD_SIZE + j;
-			if (_candies[index] != nil)
+			if (_candies[index] != [NSNull null])
 			{
 				if (newIndex != index)
 				{
 					_candies[newIndex] = _candies[index];
-					_candies[index] = nil;
-					newIndex -= FIELD_SIZE;
+					_candies[index] = [NSNull null];
 				}
+				newIndex -= FIELD_SIZE;
 			}
 		}
 	}
@@ -414,7 +439,7 @@
 		for (NSUInteger j = 0; j < FIELD_SIZE; ++j)
 		{
 			index = i * FIELD_SIZE + j;
-			if (_candies[index] == nil)
+			if (_candies[index] == [NSNull null])
 				_candies[index] = [[Candy alloc] initWithColorAndBonus:(enum ECandyColor) arc4random() % ECC_COUNT Bonus:ECBT_NOTHING];
 		}
 }

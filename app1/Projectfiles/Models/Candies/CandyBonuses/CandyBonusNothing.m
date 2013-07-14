@@ -10,8 +10,7 @@
 
 @implementation CandyBonusNothing
 {
-	enum ECandyBonusType _type;
-	Candy *_owner;
+
 }
 
 //designated initializer

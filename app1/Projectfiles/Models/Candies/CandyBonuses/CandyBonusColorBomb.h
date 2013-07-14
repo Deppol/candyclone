@@ -13,10 +13,6 @@
 
 //properties
 
-@property(readonly) enum ECandyBonusType type;
-
-@property(nonatomic, readonly) Candy *owner;
-
 //designated initializer
 - (CandyBonus *)initWithOwner:(Candy *)owner;
 

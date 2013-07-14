@@ -12,7 +12,10 @@
 @class Candy;
 
 @interface CandyBonus : NSObject
-
+{
+	@protected enum ECandyBonusType _type;
+	@protected Candy *_owner;
+}
 //properties
 
 @property(readonly) enum ECandyBonusType type;

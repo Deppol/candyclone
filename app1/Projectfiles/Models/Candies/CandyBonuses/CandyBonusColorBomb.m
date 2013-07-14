@@ -13,8 +13,7 @@
 
 @implementation CandyBonusColorBomb
 {
-	enum ECandyBonusType _type;
-	Candy *_owner;
+
 }
 
 //designated initializer

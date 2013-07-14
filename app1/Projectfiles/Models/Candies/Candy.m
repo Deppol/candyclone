@@ -26,19 +26,19 @@
 	switch (candyBonusType)
 	{
 		case ECBT_NOTHING:
-			_bonus = [[CandyBonusNothing alloc] init];
+			_bonus = [[CandyBonusNothing alloc] initWithOwner:self];
 	        break;
 		case ECBT_VERTICAL_LINE:
-			_bonus = [[CandyBonusVerticalLine alloc] init];
+			_bonus = [[CandyBonusVerticalLine alloc] initWithOwner:self];
 	        break;
 		case ECBT_HORIZONTAL_LINE:
-			_bonus = [[CandyBonusHorizontalLine alloc] init];
+			_bonus = [[CandyBonusHorizontalLine alloc] initWithOwner:self];
 	        break;
 		case ECBT_BOMB:
-			_bonus = [[CandyBonusBomb alloc] init];
+			_bonus = [[CandyBonusBomb alloc] initWithOwner:self];
 	        break;
 		case ECBT_COLOR_BOMB:
-			_bonus = [[CandyBonusColorBomb alloc] init];
+			_bonus = [[CandyBonusColorBomb alloc] initWithOwner:self];
 	        break;
 		default:
 			NSAssert(NO, @"Attempt to initialize Candy with illegal bonus");

@@ -87,6 +87,7 @@
 {
     [_sound cleanup];
     _sound = nil;
+    [super cleanup];
 }
 
 @end

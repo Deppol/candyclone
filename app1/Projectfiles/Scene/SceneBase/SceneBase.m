@@ -10,6 +10,7 @@
 #import "SharedProgressManager.h"
 #import "SharedDeviceHelper.h"
 #import "SharedHighScoreManager.h"
+#import "SceneTest.h"
 
 #include <mach/mach.h>
 #import <sys/sysctl.h>
@@ -19,6 +20,8 @@
 {
 
 }
+
+static CCScene* _allocatedScene;
 
 /*
  * Static functions
@@ -67,11 +70,16 @@ static SceneBase *_currentScene = nil;
         }
     }
 
-    CCScene *scene = [CCScene node];
-
-    [scene addChild:_currentScene];
-
-    [[CCDirector sharedDirector] runWithScene:scene];
+    if(_allocatedScene == nil)
+    {
+        _allocatedScene = [[CCScene alloc] init];
+        [_allocatedScene addChild:_currentScene];
+        [[CCDirector sharedDirector] runWithScene:_allocatedScene];
+    }
+    else
+    {
+        [_allocatedScene addChild:_currentScene];
+    }
 
     [_currentScene loadResources];
 
@@ -116,15 +124,10 @@ static SceneBase *_currentScene = nil;
     NSLog(@"BEGIN LOADING");
     [self _reportMemory];
 
-//    [[SharedLoader shared] startLoading];
-    [[CCDirector sharedDirector] stopAnimation];
 }
 
 - (void)_endLoading
 {
-    [[CCDirector sharedDirector] startAnimation];
-
-//    [[SharedLoader shared] stopLoading];
 
     [self _reportMemory];
     NSLog(@"END LOADING");
@@ -171,9 +174,8 @@ static SceneBase *_currentScene = nil;
 
         [self removeFromParentAndCleanup:YES];
 
-        [[CCDirector sharedDirector] popScene];
-
         [[CCTextureCache sharedTextureCache] removeAllTextures];
+
     }
 }
 

@@ -22,9 +22,6 @@
 #else
 	CCLOG(@"ARC is either not available or not enabled");
 #endif
-
-
-
     glClearColor(0.2f, 0.2f, 0.4f, 1.0f);
 
     {//init singletons
@@ -41,7 +38,7 @@
 
     [SceneBase setScene:EST_GAME];
 
-    [NSThread sleepForTimeInterval:0.1f]; //Needed for scene to initialize
+    [NSThread sleepForTimeInterval:0.1f];
 
     [super initializationComplete];
 

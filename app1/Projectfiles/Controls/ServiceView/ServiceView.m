@@ -36,12 +36,13 @@
                 [newGameTempLabel setColor:ccYELLOW];
                 _button = [[CCButton alloc] initWithCCSprite:newGameTempLabel];
                 _button.colorSelf = ccYELLOW;
-                _stateSound = YES;
+
                 break;
             }
             case EBST_SOUND:
             {
                 _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
+                _stateSound = YES;
                 break;
             }
             case EBST_PAUSE:

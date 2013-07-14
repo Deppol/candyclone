@@ -33,7 +33,7 @@
             }
             else if(type == ECBT_COLOR_BOMB)
             {
-                [ret addObject:@"colorBomb.png"];
+                [ret addObject:@"colorBombBlue.png"];
             }
             else if(type == ECBT_NOTHING)
             {
@@ -64,7 +64,7 @@
             }
             else if(type == ECBT_COLOR_BOMB)
             {
-                [ret addObject:@"colorBomb.png"];
+                [ret addObject:@"colorBombRed.png"];
             }
             else if(type == ECBT_NOTHING)
             {
@@ -95,7 +95,7 @@
             }
             else if(type == ECBT_COLOR_BOMB)
             {
-                [ret addObject:@"colorBomb.png"];
+                [ret addObject:@"colorBombGreen.png"];
             }
             else if(type == ECBT_NOTHING)
             {
@@ -126,7 +126,7 @@
             }
             else if(type == ECBT_COLOR_BOMB)
             {
-                [ret addObject:@"colorBomb.png"];
+                [ret addObject:@"colorBombYellow.png"];
             }
             else if(type == ECBT_NOTHING)
             {
@@ -157,7 +157,7 @@
             }
             else if(type == ECBT_COLOR_BOMB)
             {
-                [ret addObject:@"colorBomb.png"];
+                [ret addObject:@"colorBombPurple.png"];
             }
             else if(type == ECBT_NOTHING)
             {
@@ -188,7 +188,7 @@
             }
             else if(type == ECBT_COLOR_BOMB)
             {
-                [ret addObject:@"colorBomb.png"];
+                [ret addObject:@"colorBombOrange.png"];
             }
             else if(type == ECBT_NOTHING)
             {

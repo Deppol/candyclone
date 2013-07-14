@@ -9,10 +9,10 @@
 #import "Game.h"
 #import "ConstantsStatic.h"
 #import "CCButton.h"
-#import "ButtonsService.h"
 #import "MyConstants.h"
 #import "SharedHighScoreManager.h"
 #import "ResourceManager.h"
+#import "ServiceView.h"
 
 
 @implementation SceneStart
@@ -21,7 +21,7 @@
     CCLabelTTF* _labelForScore;
     NSMutableArray* _topScores;
 
-    ButtonsService * _startGame;
+    ServiceView * _startGame;
 }
 
 /*
@@ -87,7 +87,7 @@ instance methods
     [_labelForScore setColor:ccWHITE];
 
     //place new game button
-    _startGame.position = CGPointMake(160.0f, 50.f);
+    _startGame.button.position = CGPointMake(160.0f, 50.f);
 
     //init and load high scores
     for (NSUInteger i = 0; i < _topScores.count ; ++i)
@@ -96,7 +96,7 @@ instance methods
         tmp.anchorPoint = CGPointMake(0.0f, 0.0f);
         tmp.horizontalAlignment = kCCTextAlignmentLeft;
         tmp.position = CGPointMake(110.0f, 350.0f -
-        (i+1)*(_labelForScore.position.y - _startGame.position.y)/
+        (i+1)*(_labelForScore.position.y - _startGame.button.position.y)/
               ([[ConstantsStatic scoresCount] integerValue]+1));
         [tmp setColor:ccWHITE];
     }
@@ -121,7 +121,7 @@ instance methods
 
 
     //init new game button
-     CCLabelTTF * newGameTempLabel = [CCLabelTTF labelWithString:[ConstantsStatic newGameConst]
+     /*CCLabelTTF * newGameTempLabel = [CCLabelTTF labelWithString:[ConstantsStatic newGameConst]
                                                          fontName:[ConstantsStatic buttonsFontName]
                                                          fontSize:30];  //TODO addToconstatns
     [newGameTempLabel setColor:ccYELLOW];
@@ -129,7 +129,9 @@ instance methods
     _startGame = [[ButtonsService alloc] initWithCCSprite:newGameTempLabel];
     _startGame.serviceType = EBST_NEWGAME;
 
-    [self addChild:_startGame];
+    [self addChild:_startGame];*/
+    _startGame = [ServiceView createViewWithType:EBST_NEWGAME];
+    [self addChild:_startGame.button];
 
     //init and load high scores
     [self performSelectorOnMainThread:@selector(_initAndLoadHighScores) withObject:nil waitUntilDone:YES];

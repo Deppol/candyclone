@@ -37,6 +37,11 @@
     for(NSUInteger i = 0; i< [_children count]; i++)
         ((CCSprite *) [_children objectAtIndex:i]).opacity = _opacity;
 }
+- (void)setColorSelf:(ccColor3B)colorSelf
+{
+    _colorSelf = colorSelf;
+    self.color = colorSelf;
+}
 - (void)setColor:(ccColor3B)color
 {
     _color = color;
@@ -49,7 +54,7 @@
 
     static const ccColor3B ccDARKGRAY = {127, 127, 127};
 
-    self.color = value ? ccWHITE : ccDARKGRAY;
+    self.color = value ? _colorSelf : ccDARKGRAY;
 }
 
 /*
@@ -76,6 +81,7 @@
         _rect = sprite.textureRect;
         _opacity = sprite.opacity;
         _color = sprite.color;
+        _colorSelf = sprite.color;
         sprite.position = ccp(0,0);
         [self addChild:sprite];
     }
@@ -86,7 +92,7 @@
 - (void)addCCSprite:(CCSprite*)sprite
 {
     [sprite resizeTo:_rect.size ];
-    sprite.color = _color;
+    sprite.color = _colorSelf;
     sprite.opacity = _opacity;
     sprite.position = ccp(0,0);
     [self addChild:sprite];
@@ -97,6 +103,7 @@
 {
     _adjustColorWhenClicked = YES;
     _enabled = YES;
+    _colorSelf = ccWHITE;
     _swallowsTouches = YES;
 
     [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:1 swallowsTouches:self.swallowsTouches];
@@ -161,12 +168,12 @@
             }
             else
             {
-                self.color = ccWHITE;
+                self.color = _colorSelf;
             }
         }
         else
         {
-            self.color = ccWHITE;
+            self.color = _colorSelf;
         }
 
         if (result && _delegate)
@@ -192,7 +199,7 @@
         }
         else
         {
-            self.color = ccWHITE;
+            self.color = _colorSelf;
         }
     }
 
@@ -204,7 +211,7 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    self.color = ccWHITE;
+    self.color = _colorSelf;
 
     _endTouchPosition = [self convertTouchToNodeSpace:touch]; // Apply current end touch position
 

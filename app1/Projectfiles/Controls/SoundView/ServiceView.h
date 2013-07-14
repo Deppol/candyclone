@@ -7,9 +7,10 @@
 
 #import <Foundation/Foundation.h>
 #import "CCButtonDelegate.h"
+#import "EButtonServiceType.h"
 
 
-@interface SoundView : NSObject <CCButtonDelegate>
+@interface ServiceView : NSObject <CCButtonDelegate>
 
 @property (nonatomic, readonly) CCButton* button;
 
@@ -21,11 +22,11 @@
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch;
 
-- (id)init;
+- (id)initWithType:(EButtonServiceType)type;
 
 - (void)cleanup;
 
-+(SoundView *)createView;
++ (ServiceView *)createViewWithType:(EButtonServiceType)type;
 
 
 

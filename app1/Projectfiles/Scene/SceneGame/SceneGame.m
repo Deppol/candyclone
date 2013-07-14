@@ -10,7 +10,7 @@
 #import "Game.h"
 #import "SharedProgressManager.h"
 #import "GameManager.h"
-#import "SoundView.h"
+#import "ServiceView.h"
 #import "CCButton.h"
 #import "MyConstants.h"
 #import "Candy.h"
@@ -21,7 +21,7 @@
 {
 	NSMutableArray* scene;
     NSMutableArray* _candies;
-    SoundView* _sound;
+    ServiceView * _sound;
     CandyView* _selectedCandy;
 }
 /*
@@ -64,7 +64,7 @@
 {
 	[super prepare];
 
-	_sound = [SoundView createView];
+	_sound = [ServiceView createViewWithType:EBST_SOUND];
 	[self addChild:_sound.button];
 
 	[[SharedProgressManager shared].game setupScene:self];

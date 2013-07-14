@@ -13,18 +13,10 @@
 -(void)resizeTo:(CGSize) theSize
 {
     CGFloat newWidth = theSize.width;
-    CGFloat newHeight = theSize.height;
-
 
     float startWidth = self.contentSize.width;
-    float startHeight = self.contentSize.height;
 
     self.scale = newWidth/startWidth;
-    //float newScaleX = newWidth/startWidth;
-    //float newScaleY = newHeight/startHeight;
-
-    //self.scaleX = newScaleX;
-    //self.scaleY = newScaleY;
 
 }
 

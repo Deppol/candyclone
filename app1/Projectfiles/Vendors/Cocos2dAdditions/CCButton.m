@@ -91,6 +91,8 @@
 
 - (void)addCCSprite:(CCSprite*)sprite
 {
+    if([_children containsObject:sprite])
+        [_children removeObject:sprite];
     [sprite resizeTo:_rect.size ];
     sprite.color = _colorSelf;
     sprite.opacity = _opacity;

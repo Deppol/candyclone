@@ -36,6 +36,7 @@
             [_button addCCSprite:[CCSprite spriteWithFile:[images objectAtIndex:i]]];
 
         }
+        [_button addCCSprite:_selector];
         _selector.opacity = 0;
     }
     return self;

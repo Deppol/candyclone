@@ -18,7 +18,7 @@
 
 //properties
 
-@property (nonatomic, readonly) NSMutableArray *candies;
+@property(nonatomic, readonly) NSMutableArray *candies;
 
 //Designated initializer
 - (GameManager *)init;
@@ -32,5 +32,7 @@
 - (void)markColor:(enum ECandyColor)candyColor;
 
 - (void)cleanup;
+
+- (void)candyClick:(Candy *)candy;
 
 @end

@@ -16,6 +16,9 @@
 	NSMutableArray *_candies;
 	NSInteger _score;
 
+	Candy *_candy1;
+	Candy *_candy2;
+
 	//fields for calculations and updating
 	NSInteger _seriesMultiplier;
 	NSMutableArray *_left;
@@ -34,6 +37,8 @@
 		_candies[i] = [[Candy alloc] initWithColorAndBonus:(enum ECandyColor) arc4random() % ECC_COUNT Bonus:ECBT_NOTHING];
 
 	_score = 0;
+	_candy1 = nil;
+	_candy2 = nil;
 
 	_seriesMultiplier = 1;
 	_left = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
@@ -74,12 +79,58 @@
 	for (NSUInteger i = 0; i < FIELD_SIZE * FIELD_SIZE; ++i)
 		[_candies[i] cleanup];
 	_candies = nil;
+
+	_candy1 = nil;
+	_candy2 = nil;
+
 	_left = nil;
 	_right = nil;
 	_up = nil;
 	_down = nil;
 	_newBonuses = nil;
 	_newBonusesPosition = nil;
+}
+
+- (void)candyClick:(Candy *)candy
+{
+	if (_candy1 == nil)
+		_candy1 = candy;
+	else
+	{
+		NSUInteger index1 = [self getIndexOf:candy];
+		NSUInteger index2 = [self getIndexOf:_candy1];
+		NSUInteger x1 = index1 / FIELD_SIZE;
+		NSUInteger y1 = index1 % FIELD_SIZE;
+		NSUInteger x2 = index2 / FIELD_SIZE;
+		NSUInteger y2 = index2 % FIELD_SIZE;
+		if(abs(x1 - x2) + abs(y1 - y2) == 1)
+		{
+			_candy2 = candy;
+			[self _swapCandies];
+		}
+		else
+			_candy1 = candy;
+	}
+}
+
+- (void)_swapCandies
+{
+	NSUInteger index1 = [self getIndexOf:_candy1];
+	NSUInteger index2 = [self getIndexOf:_candy2];
+	Candy *temp = _candies[index1];
+	_candies[index1] = _candies[index2];
+	_candies[index2] = temp;
+	BOOL result = [self _tryToExplode];
+	if (result)
+		while ([self _tryToExplode]);
+	else
+	{
+		temp = _candies[index1];
+		_candies[index1] = _candies[index2];
+		_candies[index2] = temp;
+	}
+	_candy1 = nil;
+	_candy2 = nil;
 }
 
 - (BOOL)_tryToExplode
@@ -107,7 +158,7 @@
 	return result;
 }
 
--(void)_calcNeighbours
+- (void)_calcNeighbours
 {
 	NSUInteger index;
 	NSUInteger currentSeries;
@@ -363,7 +414,7 @@
 		}
 }
 
--(void)_finishGame
+- (void)_finishGame
 {
 	[[SharedHighScoreManager shared] addScore:[NSNumber numberWithInteger:_score]];
 }

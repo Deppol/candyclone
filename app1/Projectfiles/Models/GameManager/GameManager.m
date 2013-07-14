@@ -113,6 +113,11 @@
 	}
 }
 
+- (void)doInitialUpdate
+{
+	while ([self _tryToExplode]);
+}
+
 - (void)_swapCandies
 {
 	NSUInteger index1 = [self getIndexOf:_candy1];

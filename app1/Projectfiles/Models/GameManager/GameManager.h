@@ -35,4 +35,6 @@
 
 - (void)candyClick:(Candy *)candy;
 
+- (void)doInitialUpdate;
+
 @end

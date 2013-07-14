@@ -32,9 +32,10 @@
 	SceneBase *scene = [SceneBase currentScene];
 	NSAssert(scene.type != EST_GAME, @"Attempt to activate bonus in non-game scene");
 	GameManager *gameManager = ((SceneGame *) scene).gameManager;
-	CGPoint position = [gameManager getIndexOf:_owner];
+	NSUInteger index = [gameManager getIndexOf:_owner];
+	index -= index % FIELD_SIZE;
 	for (NSUInteger i = 0; i < FIELD_SIZE; ++i)
-		[gameManager markCandyByIndex:CGPointMake(position.x, i)];
+		[gameManager markCandyByIndex:index + i];
 }
 
 @end

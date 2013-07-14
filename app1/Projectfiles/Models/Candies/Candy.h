@@ -15,7 +15,6 @@
 //properties
 
 @property(readonly) enum ECandyColor color;
-@property(readonly) enum ECandyBonusType type;
 @property(nonatomic, readonly) CandyBonus *bonus;
 @property BOOL isMarked;
 

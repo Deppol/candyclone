@@ -23,9 +23,9 @@
 
 //methods
 
-- (CGPoint)getIndexOf:(Candy *)candy;
+- (NSUInteger)getIndexOf:(Candy *)candy;
 
-- (void)markCandyByIndex:(CGPoint)coordinates;
+- (void)markCandyByIndex:(NSUInteger)index;
 
 - (void)markColor:(enum ECandyColor)candyColor;
 

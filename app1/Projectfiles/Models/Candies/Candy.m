@@ -23,7 +23,6 @@
 {
 	NSAssert(candyColor != ECC_COUNT, @"Attempt to initialize Candy with illegal color (ECC_COUNT)");
 	_color = candyColor;
-    _type = candyBonusType;
 	switch (candyBonusType)
 	{
 		case ECBT_NOTHING:

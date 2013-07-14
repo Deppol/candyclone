@@ -36,6 +36,7 @@
 	index -= index % FIELD_SIZE;
 	for (NSUInteger i = 0; i < FIELD_SIZE; ++i)
 		[gameManager markCandyByIndex:index + i];
+    [super activateBonus];
 }
 
 @end

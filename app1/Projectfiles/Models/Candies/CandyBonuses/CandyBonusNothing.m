@@ -26,7 +26,7 @@
 
 - (void)activateBonus
 {
-
+    [super activateBonus];
 }
 
 @end

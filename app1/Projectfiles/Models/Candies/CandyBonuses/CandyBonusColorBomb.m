@@ -33,6 +33,7 @@
 	NSAssert(scene.type != EST_GAME, @"Attempt to activate bonus in non-game scene");
 	GameManager *gameManager = ((SceneGame *) scene).gameManager;
 	[gameManager markColor:_owner.color];
+    [super activateBonus];
 }
 
 @end

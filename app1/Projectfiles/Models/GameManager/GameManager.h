@@ -18,6 +18,8 @@
 
 //properties
 
+@property (nonatomic, readonly) NSMutableArray *candies;
+
 //Designated initializer
 - (GameManager *)init;
 

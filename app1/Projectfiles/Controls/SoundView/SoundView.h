@@ -9,7 +9,9 @@
 #import "CCButtonDelegate.h"
 
 
-@interface SoundDelegate : NSObject <CCButtonDelegate>
+@interface SoundView : NSObject <CCButtonDelegate>
+
+@property (nonatomic, readonly) CCButton* button;
 
 - (void)didButtonTouchBegan:(CCButton *)button touch:(UITouch *)touch;
 
@@ -21,7 +23,9 @@
 
 -(id)init;
 
-+(CCButton*)generateSoundButton;
+- (void)cleanup;
+
++(SoundView *)createView;
 
 
 

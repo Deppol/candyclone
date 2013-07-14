@@ -237,6 +237,15 @@
 
         CGRect r = [((CCNode*)[_children objectAtIndex:i]) boundingBox];
 
+        CGFloat difx = (r.size.width*self.scaleX - r.size.width)/2.0f;
+        CGFloat dify = (r.size.height*self.scaleY - r.size.height)/2.0f;
+
+        r.origin.x -= difx;
+        r.origin.y -= dify;
+
+        r.size.width += difx;
+        r.size.height += dify;
+
         //r.origin.x = _startTouchPosition.x - _endTouchPosition.x;
         //r.origin.y = _startTouchPosition.y - _endTouchPosition.y;
 

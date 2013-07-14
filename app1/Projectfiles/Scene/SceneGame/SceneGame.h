@@ -38,4 +38,7 @@
 //! Prepare scene. Init all game objects here
 - (void)prepare;
 
+-(void)placeViewsiPhone;
+-(void)placeViewsiPhoneWide;
+
 @end

@@ -5,13 +5,13 @@
 //
 
 
-#import "SoundDelegate.h"
+#import "SoundView.h"
 #import "CCButton.h"
 #import "ResourceManager.h"
 #import "SimpleAudioEngine.h"
 
 
-@implementation SoundDelegate
+@implementation SoundView
 {
     BOOL _state;
 }
@@ -21,10 +21,18 @@
     if(self)
     {
         _state = YES;
+        _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
+        [_button setDelegate:self];
     }
     return self;
 
 }
+
+- (void)cleanup
+{
+    _button = nil;
+}
+
 
 - (void)didButtonTouchBegan:(CCButton *)button touch:(UITouch *)touch
 {
@@ -60,11 +68,9 @@
 
 }
 
-+(CCButton *)generateSoundButton
++(SoundView *)createView
 {
-    CCButton* ret = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
-    SoundDelegate * d = [[SoundDelegate alloc]init];
-    [ret setDelegate:d];
-    return ret;
+    SoundView * d = [[SoundView alloc] init];
+    return d;
 }
 @end

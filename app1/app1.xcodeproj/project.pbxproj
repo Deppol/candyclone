@@ -64,7 +64,7 @@
 		5EDC1D02F9D2F6712D858828 /* redColorV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC18665123E62B49E04369 /* redColorV.png */; };
 		5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1D53F6542180CA7E3B79 /* CCButton.m */; };
 		5EDC1D2BA0E770C7488BBAEC /* purpleColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1DDBC16B3A11622F7CB7 /* purpleColor.png */; };
-		5EDC1D9E6DC73EBB7A2A648F /* SoundDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1A4C6774F0EB81F45855 /* SoundDelegate.m */; };
+		5EDC1D9E6DC73EBB7A2A648F /* SoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1A4C6774F0EB81F45855 /* SoundView.m */; };
 		5EDC1DD45D1E7829FE8079DF /* text1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1B79ED15CF6D1503AE71 /* text1.png */; };
 		5EDC1F3D828498312244BB9C /* bombOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC18C93D92B1FBA7AE9CAD /* bombOrange.png */; };
 		5EDC1F452F05BCFBA8CAA50E /* orangeLinesV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1D2EC4EA72075DC9101C /* orangeLinesV.png */; };
@@ -188,9 +188,9 @@
 		5EDC197990C68DC2043F9A22 /* greenLinesV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenLinesV.png; sourceTree = "<group>"; };
 		5EDC1987932F448169B9CA54 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		5EDC1A1A0AB9E1DD1DEE82EF /* divine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divine.png; sourceTree = "<group>"; };
-		5EDC1A3438BE9AF9533DC40C /* SoundDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundDelegate.h; sourceTree = "<group>"; };
+		5EDC1A3438BE9AF9533DC40C /* SoundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundView.h; sourceTree = "<group>"; };
 		5EDC1A3EA6F71B6798BCD1AD /* candyPurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyPurple.png; sourceTree = "<group>"; };
-		5EDC1A4C6774F0EB81F45855 /* SoundDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundDelegate.m; sourceTree = "<group>"; };
+		5EDC1A4C6774F0EB81F45855 /* SoundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundView.m; sourceTree = "<group>"; };
 		5EDC1A6382A033878B336C79 /* soundOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOn.png; sourceTree = "<group>"; };
 		5EDC1A6B0154F9AB0FE18EB2 /* greenColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenColor.png; sourceTree = "<group>"; };
 		5EDC1A71F65DBD646F28A764 /* purpleLines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purpleLines.png; sourceTree = "<group>"; };
@@ -525,18 +525,18 @@
 		5EDC1B9417A1C8AB147515AC /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				5EDC1BFEE07A42717CB475C8 /* SoundControl */,
+				5EDC1BFEE07A42717CB475C8 /* SoundView */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
 		};
-		5EDC1BFEE07A42717CB475C8 /* SoundControl */ = {
+		5EDC1BFEE07A42717CB475C8 /* SoundView */ = {
 			isa = PBXGroup;
 			children = (
-				5EDC1A3438BE9AF9533DC40C /* SoundDelegate.h */,
-				5EDC1A4C6774F0EB81F45855 /* SoundDelegate.m */,
+				5EDC1A3438BE9AF9533DC40C /* SoundView.h */,
+				5EDC1A4C6774F0EB81F45855 /* SoundView.m */,
 			);
-			path = SoundControl;
+			path = SoundView;
 			sourceTree = "<group>";
 		};
 		5EDC1C83CD247FCBA06A91D1 /* ResourceManager */ = {
@@ -1012,7 +1012,7 @@
 				CF523D54A0C6296A73C73F6D /* SceneGame.m in Sources */,
 				5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */,
 				5EDC1B8BF8846568662FFA0A /* ResourceManager.m in Sources */,
-				5EDC1D9E6DC73EBB7A2A648F /* SoundDelegate.m in Sources */,
+				5EDC1D9E6DC73EBB7A2A648F /* SoundView.m in Sources */,
 				5EDC1410B6098BF11ADC5030 /* ConstantsStatic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

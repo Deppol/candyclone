@@ -10,10 +10,13 @@
 #import "Game.h"
 #import "SharedProgressManager.h"
 #import "GameManager.h"
+#import "SoundView.h"
+#import "CCButton.h"
 
 @implementation SceneGame
 {
 	NSMutableArray *scene;
+    SoundView* _sound;
 }
 /*
  * Static
@@ -55,6 +58,9 @@
 {
 	[super prepare];
 
+    _sound = [SoundView createView];
+    [self addChild:_sound.button];
+
 	[[SharedProgressManager shared].game setupScene:self];
 
 	[self _initGameObjects];
@@ -63,6 +69,17 @@
 - (void)_initGameObjects
 {
 	_gameManager = [[GameManager alloc] init];
+
+}
+
+-(void)placeViewsiPhone
+{
+    _sound.button.position = ccp(30,450);
+}
+-(void)placeViewsiPhoneWide
+{
+    _sound.button.scale = 2.0f;
+    _sound.button.position = ccp(30,538);
 
 }
 

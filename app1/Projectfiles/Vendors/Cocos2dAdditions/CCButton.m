@@ -85,7 +85,7 @@
 
 - (void)addCCSprite:(CCSprite*)sprite
 {
-    [sprite setTextureRect:_rect];
+    [sprite resizeTo:_rect.size ];
     sprite.color = _color;
     sprite.opacity = _opacity;
     sprite.position = ccp(0,0);
@@ -258,7 +258,7 @@
         //r.origin.x = _startTouchPosition.x - _endTouchPosition.x;
         //r.origin.y = _startTouchPosition.y - _endTouchPosition.y;
 
-        ans = ans|CGRectContainsPoint(CGRectInset(r, -5, -5), point);
+        ans = ans|CGRectContainsPoint(CGRectInset(r, -6, -5), point);
     }
     return ans;
 }

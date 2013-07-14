@@ -9,6 +9,7 @@
 #import "SceneBase.h"
 
 @class GameManager;
+@class CandyView;
 
 
 @interface SceneGame : SceneBase
@@ -42,5 +43,7 @@
 -(void)placeViewsiPhoneWide;
 
 -(void)cleanup;
+
+-(void)select:(CandyView*) v;
 
 @end

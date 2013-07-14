@@ -216,4 +216,8 @@
     }
     return ret;
 }
++(NSString*)getCandySelector
+{
+    return @"selector.png";
+}
 @end

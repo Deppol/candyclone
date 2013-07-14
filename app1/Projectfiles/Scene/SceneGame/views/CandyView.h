@@ -10,7 +10,7 @@
 
 @class Candy;
 @class CCButton;
-
+@class SceneGame;
 
 @interface CandyView : NSObject <CCButtonDelegate>
 
@@ -18,10 +18,12 @@
 @property (nonatomic, readonly) CCButton* button;
 
 //designated initializer
--(CandyView *)initWithCandy:(Candy*) candy;
+-(CandyView *)initWithCandy:(Candy*)candy scene: (SceneGame*) scene;
 
 -(void)activateBonus;
 
 -(void)cleanup;
+
+-(void)deactivate;
 
 @end

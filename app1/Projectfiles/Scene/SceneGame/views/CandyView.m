@@ -9,30 +9,42 @@
 #import "Candy.h"
 #import "CCButton.h"
 #import "ResourceManager.h"
+#import "SceneGame.h"
+#import "CCSprite+Resize.h"
 
 
 @implementation CandyView
 {
-    BOOL _buttonActivated;
+    SceneGame* _scene;
+    CCSprite* _selector;
 }
-- (CandyView*)initWithCandy:(Candy *)candy
+- (CandyView*)initWithCandy:(Candy *)candy scene:(SceneGame*)scene
 {
     self = [super init];
     if(self)
     {
-        _buttonActivated = NO;
         _representsCandy = candy;
+        _scene = scene;
+        _selector = [CCSprite spriteWithFile:[ResourceManager getCandySelector]];
 
         NSMutableArray* images = [ResourceManager getCandyImage:candy.color type:candy.bonus.type];
-        _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[images objectAtIndex:0]]];
-        for(NSUInteger i = 1; i<[images count]; i++)
-        {
-            [_button addCCSprite:[images objectAtIndex:i]];
-        }
+        _button = [[CCButton alloc] initWithCCSprite:_selector];
+        _button.delegate = self;
 
+        for(NSUInteger i = 0; i<[images count]; i++)
+        {
+            [_button addCCSprite:[CCSprite spriteWithFile:[images objectAtIndex:i]]];
+
+        }
+        _selector.opacity = 0;
     }
     return self;
 
+}
+
+-(void)deactivate
+{
+    _selector.opacity = 0;
 }
 
 - (void)activateBonus
@@ -56,6 +68,7 @@
 {
     _button = nil;
     _representsCandy = nil;
+    _scene = nil;
 }
 
 /*
@@ -74,7 +87,9 @@
 
 - (void)didButtonTouchEnded:(CCButton *)button touch:(UITouch *)touch
 {
-
+    _selector.opacity = 255;
+    [_scene select:self];
+    //[_button addCCSprite:_selector];
 }
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch

@@ -14,4 +14,5 @@
 +(NSString*)getSoundOn;
 +(NSString*)getSoundOff;
 +(NSMutableArray*)getCandyImage: (enum ECandyColor)color type:(enum ECandyBonusType)type;
++(NSString*)getCandySelector;
 @end

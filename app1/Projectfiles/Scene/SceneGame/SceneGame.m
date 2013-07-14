@@ -22,6 +22,7 @@
 	NSMutableArray* scene;
     NSMutableArray* _candies;
     SoundView* _sound;
+    CandyView* _selectedCandy;
 }
 /*
  * Static
@@ -75,11 +76,11 @@
     for(NSUInteger i = 0; i<FIELD_SIZE; i++)
         for(NSUInteger j = 0; j<FIELD_SIZE; j++)
         {
-            CandyView* v = [[CandyView alloc] initWithCandy:[_gameManager.candies objectAtIndex:i*FIELD_SIZE+j]];
+            CandyView* v = [[CandyView alloc] initWithCandy:[_gameManager.candies objectAtIndex:i*FIELD_SIZE+j] scene:self];
             [_candies insertObject:v atIndex:i*FIELD_SIZE+j];
             [self addChild:v.button];
         }
-    [_gameManager doInitialUpdate];
+    //[_gameManager doInitialUpdate];
 }
 
 - (void)_initGameObjects
@@ -123,6 +124,20 @@
             [_candies insertObject:nil atIndex:i*FIELD_SIZE+j];
         }
     [super cleanup];
+}
+
+-(void)select:(CandyView*) v
+{
+    if(_selectedCandy == nil)
+        _selectedCandy = v;
+    else if(_selectedCandy != v)
+    {
+        [_selectedCandy deactivate];
+        [v deactivate];
+        _selectedCandy = nil;
+        //[_gameManager candyClick:_selectedCandy.representsCandy];
+    }
+
 }
 
 @end

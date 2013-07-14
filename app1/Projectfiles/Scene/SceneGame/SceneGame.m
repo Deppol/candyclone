@@ -73,14 +73,15 @@
 
 	_candies = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
 
-	[_gameManager doInitialUpdate];
-	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
-		{
-			CandyView *v = [[CandyView alloc] initWithCandy:[_gameManager.candies objectAtIndex:i * FIELD_SIZE + j]];
-			[_candies insertObject:v atIndex:i * FIELD_SIZE + j];
-			[self addChild:v.button];
-		}
+    [_gameManager doInitialUpdate];
+
+    for(NSUInteger i = 0; i<FIELD_SIZE; i++)
+        for(NSUInteger j = 0; j<FIELD_SIZE; j++)
+        {
+            CandyView* v = [[CandyView alloc] initWithCandy:[_gameManager.candies objectAtIndex:i*FIELD_SIZE+j] scene:self];
+            [_candies insertObject:v atIndex:i*FIELD_SIZE+j];
+            [self addChild:v.button];
+        }
 }
 
 - (void)_initGameObjects
@@ -99,7 +100,6 @@
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
 		}
-
 }
 
 - (void)placeViewsiPhoneWide
@@ -111,10 +111,8 @@
 		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
 		{
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
 		}
-
 }
 
 - (void)cleanup

@@ -83,4 +83,10 @@
 
 }
 
+-(void)cleanup
+{
+    [_sound cleanup];
+    _sound = nil;
+}
+
 @end

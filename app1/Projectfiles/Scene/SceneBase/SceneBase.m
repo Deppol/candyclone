@@ -46,6 +46,8 @@ static SceneBase *_currentScene = nil;
 
         [_currentScene _clearScene];
 
+        [_currentScene cleanup];
+
         _currentScene = nil;
     }
 
@@ -192,6 +194,11 @@ static SceneBase *_currentScene = nil;
     NSAssert(NO, @"SceneBase::type. Implement this method in derived classes.");
 
     return EST_COUNT;
+}
+
+- (void)cleanup
+{
+
 }
 
 

@@ -41,4 +41,6 @@
 -(void)placeViewsiPhone;
 -(void)placeViewsiPhoneWide;
 
+-(void)cleanup;
+
 @end

@@ -21,7 +21,7 @@
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch;
 
--(id)init;
+- (id)init;
 
 - (void)cleanup;
 

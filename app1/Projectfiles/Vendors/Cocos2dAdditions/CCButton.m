@@ -9,6 +9,7 @@
 #import "CCButton.h"
 #import "SimpleAudioEngine.h"
 #import "CCButtonDelegate.h"
+#import "CCSprite+Resize.h"
 
 
 @implementation CCButton
@@ -117,6 +118,14 @@
     [super cleanup];
 }
 
+- (void)setSquare:(CGFloat)s
+{
+    for(NSUInteger i = 0; i<[_children count]; i++)
+    {
+        //((CCNode *) [_children objectAtIndex:i]) setContentSize:CGSizeMake(s, s)];
+        [((CCSprite*)[_children objectAtIndex:i]) resizeTo:CGSizeMake(s, s)];
+    }
+}
 /*
  * CCTouchOneByOneDelegate
  */
@@ -249,7 +258,7 @@
         //r.origin.x = _startTouchPosition.x - _endTouchPosition.x;
         //r.origin.y = _startTouchPosition.y - _endTouchPosition.y;
 
-        ans = ans|CGRectContainsPoint(CGRectInset(r, -10, -10), point);
+        ans = ans|CGRectContainsPoint(CGRectInset(r, -5, -5), point);
     }
     return ans;
 }

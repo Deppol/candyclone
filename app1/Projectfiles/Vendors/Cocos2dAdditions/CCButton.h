@@ -38,6 +38,8 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 
 - (void)cleanup;
 
+- (void)setSquare:(CGFloat)s;
+
 /*
  * CCTouchOneByOneDelegate
  */

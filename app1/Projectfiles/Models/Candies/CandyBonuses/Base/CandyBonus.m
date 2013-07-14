@@ -6,6 +6,7 @@
 
 
 #import "CandyBonus.h"
+#import "DelegateContainer.h"
 
 
 @implementation CandyBonus
@@ -25,7 +26,7 @@
 
 - (void)activateBonus
 {
-
+    [DelegateContainer callBonusActivated:_owner];
 }
 
 @end

@@ -569,19 +569,19 @@
 		5EDC1B9417A1C8AB147515AC /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				5EDC1BFEE07A42717CB475C8 /* SoundView */,
+				5EDC1BFEE07A42717CB475C8 /* ServiceView */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
 		};
-		5EDC1BFEE07A42717CB475C8 /* SoundView */ = {
+		5EDC1BFEE07A42717CB475C8 /* ServiceView */ = {
 			isa = PBXGroup;
 			children = (
 				5EDC1A3438BE9AF9533DC40C /* ServiceView.h */,
 				5EDC1A4C6774F0EB81F45855 /* ServiceView.m */,
 				5EDC1F121F919B821E831AFF /* EButtonServiceType.h */,
 			);
-			path = SoundView;
+			path = ServiceView;
 			sourceTree = "<group>";
 		};
 		5EDC1C83CD247FCBA06A91D1 /* ResourceManager */ = {

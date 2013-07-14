@@ -140,12 +140,12 @@ instance methods
 
 - (void)_initAndLoadHighScores
 {
-   _topScores = [[NSMutableArray alloc] initWithCapacity:[ConstantsStatic scoresCount]];
+   _topScores = [[NSMutableArray alloc] initWithCapacity:[[ConstantsStatic scoresCount] unsignedIntegerValue]];
 
-   for (int i = 0; i < [[ConstantsStatic scoresCount] integerValue]; ++i)
+   for (NSUInteger i = 0; i < [[ConstantsStatic scoresCount] integerValue]; ++i)
    {
        CCLabelTTF* tmp = [CCLabelTTF labelWithString:
-               [NSString stringWithFormat:@"%d. %d", i+1, [[SharedHighScoreManager shared].scores[i] intValue], nil]
+               [NSString stringWithFormat:@"%d. %d", i+1, [[SharedHighScoreManager shared].scores[i] intValue]]
                fontName:[ConstantsStatic buttonsFontName]
                fontSize:20];
 

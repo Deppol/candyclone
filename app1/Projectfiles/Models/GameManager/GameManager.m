@@ -161,7 +161,7 @@
     _animationIsRunning = YES;
     [DelegateContainer callUnsetSelection:_candy1];
     [DelegateContainer callSwap:_candy1 candy2:_candy2];
-    [NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME];
+    [NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME+0.04f];
     NSUInteger index1 = [self getIndexOf:_candy1];
 	NSUInteger index2 = [self getIndexOf:_candy2];
 
@@ -184,7 +184,7 @@
     if (!result)
     {
         [DelegateContainer callSwap:_candy1 candy2:_candy2];
-        [NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME];
+        [NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME+0.04f];
     }
     _candy1 = nil;
     _candy2 = nil;
@@ -221,7 +221,6 @@
 		[self _cleanMarked];
         [self _placeNewBonuses];
         [self _updateField];
-        [NSThread sleepForTimeInterval:1.0f];
 
     }
 	else
@@ -480,6 +479,7 @@
             [DelegateContainer callFallFromOutside:_candies[index] point:index];
         }
 	}
+    [NSThread sleepForTimeInterval:LINE_DROP_ANIMATION_TIME + 0.04f];
 }
 
 - (void)_finishGame

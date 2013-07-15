@@ -83,7 +83,7 @@
 
     [DelegateContainer subscribe:self];
 
-    //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
 }
 
 - (void)_initGameObjects
@@ -100,7 +100,8 @@
 		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
 		{
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
+            CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
+			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
 		}
     [_gameManager doInitialUpdate];
 }
@@ -114,7 +115,9 @@
 		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
 		{
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
+            CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
+            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
+			//[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
 		}
     [_gameManager doInitialUpdate];
 }
@@ -180,14 +183,13 @@
 - (void)AddBonus:(Candy*)candyBonus
 {
    NSUInteger pos = [_gameManager getIndexOf:candyBonus];
-   NSUInteger i = pos/FIELD_SIZE;
-   NSUInteger j = pos%FIELD_SIZE;
    CandyView *newCandy = [[CandyView alloc] initWithCandy:candyBonus scene:self];
 
     [_candies replaceObjectAtIndex:pos withObject:newCandy];
-
-   [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
-   [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
+    CGPoint point = [self _calculatePositionByIndex:pos];
+    [[[_candies objectAtIndex:pos] button] setSquare:40.0f];
+    [[[_candies objectAtIndex:pos] button] setPosition:point];
+   //[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
 
     [self addChild:newCandy.button];
 
@@ -200,8 +202,9 @@
 
     v.button.position = CGPointMake(22+(to%FIELD_SIZE)*45, 22 + (FIELD_SIZE * 50));
     [v.button setSquare:40.0f];
-    CGPoint point = CGPointMake(22+(NSUInteger)(to%FIELD_SIZE)*45,22 + (FIELD_SIZE - (NSUInteger)(to/FIELD_SIZE) - 1) * 50);
-    CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:1.0f position:point];
+    CGPoint point = [self _calculatePositionByIndex:to];
+    //CGPoint point = [self _calculatePositionByIndex:to];CGPoint point = CGPointMake(22+(NSUInteger)(to%FIELD_SIZE)*45,22 + (FIELD_SIZE - (NSUInteger)(to/FIELD_SIZE) - 1) * 50);
+    CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:LINE_DROP_ANIMATION_TIME position:point];
 
 
     [v.button runAction:moveCandy];
@@ -212,14 +215,19 @@
 
 - (void)FallFromField:(Candy *)candy point:(NSUInteger)to
 {
-    CGPoint point = CGPointMake(22+(to%FIELD_SIZE)*45,22+(FIELD_SIZE - to/FIELD_SIZE - 1) * 50);
-    CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:1.0f position:point];
+    CGPoint point = [self _calculatePositionByIndex:to];
+    //CGPoint point = CGPointMake(22+(to%FIELD_SIZE)*45,22+(FIELD_SIZE - to/FIELD_SIZE - 1) * 50);
+    CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:LINE_DROP_ANIMATION_TIME position:point];
     NSUInteger curpos = [_gameManager getIndexOf:candy];
     CandyView* v = _candies[curpos];
 
     [v.button runAction:moveCandy];
 
     _candies[to] = v;
+}
+-(CGPoint)_calculatePositionByIndex:(NSUInteger)index
+{
+    return ccp(22+(index%FIELD_SIZE)*45,22+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
 }
 
 

@@ -1,4 +1,5 @@
 const NSUInteger FIELD_SIZE = 7;
 const NSUInteger POINTS_FOR_ONE_CANDY = 30;
-const CGFloat SWAP_ANIMATION_TIME = 0.8f;
-const CGFloat BONUS_ANIMATION_TIME = 0.3f;
+const CGFloat SWAP_ANIMATION_TIME = 0.4f;
+const CGFloat BONUS_ANIMATION_TIME = 0.2f;
+const CGFloat LINE_DROP_ANIMATION_TIME = 0.9f;

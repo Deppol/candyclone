@@ -108,6 +108,7 @@
         }
 
     _pauseView = [[PauseView alloc]init];
+
     [self addChild:_pauseView.button];
 
     _timerLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d:%d",GAME_TIME/60, GAME_TIME%60]
@@ -117,7 +118,7 @@
 
     _timer = [[TimerManager alloc] initWithTimerAndManager:_gameManager];
 
-    [[SharedHighScoreManager shared] addScore:[NSNumber numberWithInt:1000]];
+
 
     [DelegateContainer subscribe:self];
 
@@ -177,6 +178,7 @@
             [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
         }
     [_gameManager doInitialUpdate];
+
 
     _pauseView.button.position = [[CCDirector sharedDirector] screenCenter];
 
@@ -317,8 +319,7 @@
 {
     if(!_gameManager.animationIsRunning)
     {
-        [self removeChild:_pauseView.button];
-        [self addChild:_pauseView.button];
+        [self reorderChild:_pauseView.button z:0];
         _timer.isTimerOn = NO;
         [_pauseView showPause];
     }

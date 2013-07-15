@@ -47,6 +47,7 @@
             }
             case EBST_PAUSE:
             {
+                _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getPause]]];
                 break;
             }
             case EBST_RESTART:
@@ -103,6 +104,9 @@
         }
         case EBST_PAUSE:
         {
+            if ([SceneBase currentScene].type == EST_GAME)
+             [[SceneBase currentScene] performSelectorOnMainThread:@selector(showPause)
+                                                        withObject:nil waitUntilDone:YES];
             break;
         }
         case EBST_RESTART:

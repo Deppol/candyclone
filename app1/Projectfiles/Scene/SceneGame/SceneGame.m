@@ -27,6 +27,7 @@
     NSMutableArray* _candies;
     ServiceView * _sound;
     ServiceView * _returnToMainMenu;
+    ServiceView * _buttonPause;
 	CCSprite *_background;
 	CCSprite *_backgroundField;
     PauseView* _pauseView;
@@ -88,6 +89,11 @@
     _returnToMainMenu = [ServiceView createViewWithType:EBST_RETURN_TO_MAIN_MENU];
     [self addChild:_returnToMainMenu.button];
 
+    //init pause button
+
+    _buttonPause = [ServiceView createViewWithType:EBST_PAUSE];
+    [self addChild:_buttonPause.button];
+
 
     [self _initGameObjects];
 
@@ -126,9 +132,10 @@
 
 - (void)placeViewsiPhone
 {
+    //place service button
     _sound.button.position = ccp(30, 450);
-
     _returnToMainMenu.button.position = ccp(120,450);
+    _buttonPause.button.position = ccp(90,450);
 
 	_background.anchorPoint = CGPointMake(0.0f, 0.0f);
 
@@ -152,11 +159,15 @@
 
 - (void)placeViewsiPhoneWide
 {
+    //place serive buttons
     _sound.button.scale = 2.0f;
     _sound.button.position = ccp(30, 538);
 
     _returnToMainMenu.button.scale = 2.0f;
     _returnToMainMenu.button.position = ccp(120,538);
+
+    _buttonPause.button.scale = 2.0f;
+    _buttonPause.button.position = ccp(90,538);
 
     for (NSUInteger i = 0; i < FIELD_SIZE; i++)
         for (NSUInteger j = 0; j < FIELD_SIZE; j++)
@@ -176,6 +187,10 @@
 {
     [_sound cleanup];
     _sound = nil;
+    [_returnToMainMenu cleanup];
+    _returnToMainMenu = nil;
+    [_buttonPause cleanup];
+    _buttonPause = nil;
     [DelegateContainer unsubscribe];
     for (NSUInteger i = 0; i < FIELD_SIZE; i++)
         for (NSUInteger j = 0; j < FIELD_SIZE; j++)
@@ -184,8 +199,6 @@
             [_candies insertObject:[NSNull null] atIndex:i * FIELD_SIZE + j];
         }
     _candies = nil;
-    [_returnToMainMenu cleanup];
-    _returnToMainMenu = nil;
     [_gameManager cleanup];
     _gameManager = nil;
     [_pauseView cleanup];

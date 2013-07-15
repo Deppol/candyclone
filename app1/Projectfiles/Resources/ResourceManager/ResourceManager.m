@@ -233,4 +233,10 @@
 {
 	return @"selector.png";
 }
+
++ (NSString *)getPause
+{
+    return @"pause.png";
+}
+
 @end

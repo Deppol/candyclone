@@ -22,4 +22,6 @@
 + (NSMutableArray *)getCandyImage:(enum ECandyColor)color type:(enum ECandyBonusType)type;
 
 + (NSString *)getCandySelector;
+
++ (NSString *)getPause;
 @end

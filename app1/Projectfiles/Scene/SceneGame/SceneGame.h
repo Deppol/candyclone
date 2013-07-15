@@ -56,4 +56,6 @@
 
 -(void)showPause;
 
+-(void)unshowPause;
+
 @end

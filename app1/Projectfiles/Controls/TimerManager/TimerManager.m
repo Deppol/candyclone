@@ -42,23 +42,26 @@
 
 - (void)timerFireMethod:(NSTimer *)theTimer
 {
-   if (_isTimerOn)
-   {
-    if (timeRemained>0)
+    @synchronized (self)
     {
-        timeRemained--;
-        SceneBase* scene  = [SceneBase currentScene];
-        if (scene.type == EST_GAME)
-        [scene performSelectorOnMainThread:@selector(setTime:) withObject:[NSString stringWithFormat:@"%d:%d", timeRemained / 60, timeRemained % 60, nil]
+        if (_isTimerOn)
+        {
+            if (timeRemained>0)
+            {
+                timeRemained--;
+                SceneBase* scene  = [SceneBase currentScene];
+                if (scene.type == EST_GAME)
+                [scene performSelectorOnMainThread:@selector(setTime:) withObject:[NSString stringWithFormat:@"%d:%d", timeRemained / 60, timeRemained % 60, nil]
                             waitUntilDone:YES];
-       //delegate redraw label to a game manager
+                //delegate redraw label to a game manager
+            }
+        else
+        {
+            _isTimerOn = NO;
+            [_gameManager performSelectorOnMainThread:@selector(finishGame) withObject:nil waitUntilDone:YES];
+        }
+        }
     }
-    else
-    {
-        _isTimerOn = NO;
-        [_gameManager performSelectorOnMainThread:@selector(finishGame) withObject:nil waitUntilDone:YES];
-    }
-   }
 }
 
 

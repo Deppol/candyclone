@@ -9,6 +9,8 @@
 #import "CCButton.h"
 #import "ConstantsStatic.h"
 #import "CCSprite+Resize.h"
+#import "SceneBase.h"
+#import "SceneGame.h"
 
 
 @implementation PauseView
@@ -29,6 +31,10 @@
 {
     self.button.opacity = 0;
     self.button.enabled = NO;
+    if([SceneBase currentScene].type == EST_GAME)
+    {
+        [(SceneGame *) [SceneBase currentScene] unshowPause];
+    }
 }
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch

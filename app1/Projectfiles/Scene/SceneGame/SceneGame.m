@@ -19,6 +19,7 @@
 #import "PauseView.h"
 #import "ConstantsStatic.h"
 #import "TimerManager.h"
+#import "SharedHighScoreManager.h"
 
 @implementation SceneGame
 {
@@ -110,6 +111,7 @@
 
     _timer = [[TimerManager alloc] initWithTimerAndManager:_gameManager];
 
+    [[SharedHighScoreManager shared] addScore:[NSNumber numberWithInt:1000]];
 
     [DelegateContainer subscribe:self];
 
@@ -307,6 +309,11 @@
         _timer.isTimerOn = NO;
         [_pauseView showPause];
     }
+}
+-(void)unshowPause
+{
+    if(!_gameManager.animationIsRunning)
+        _timer.isTimerOn = YES;
 }
 
 @end

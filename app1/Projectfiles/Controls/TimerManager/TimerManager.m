@@ -54,7 +54,11 @@
        //delegate redraw label to a game manager
     }
     else
-    [_gameManager performSelectorOnMainThread:@selector(finishGame) withObject:nil waitUntilDone:YES];
+    {
+        _isTimerOn = NO;
+        [_gameManager performSelectorOnMainThread:@selector(finishGame) withObject:nil waitUntilDone:YES];
+
+    }
    }
 }
 

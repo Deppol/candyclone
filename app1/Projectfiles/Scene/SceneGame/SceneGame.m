@@ -304,6 +304,7 @@
     {
         [self removeChild:_pauseView.button];
         [self addChild:_pauseView.button];
+        _timer.isTimerOn = NO;
         [_pauseView showPause];
     }
 }

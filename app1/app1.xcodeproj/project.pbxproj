@@ -44,6 +44,7 @@
 		5EDC1BE8ECFE9B1537F190E8 /* sugarCrush.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1A26822B7264411CE468 /* sugarCrush.png */; };
 		5EDC1C07EC18380DE18CEF88 /* blueLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC17ED46889E4F14B34F6B /* blueLines.png */; };
 		5EDC1C9A4F3959E2DBCF3B8E /* orangeLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1C264BE36EC45E7A0551 /* orangeLines.png */; };
+		5EDC1CA7FD7C9CFB233E3FA0 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1897734C17C9DC9169FD /* pause.png */; };
 		5EDC1CE1F0D7FADB6F61739C /* blueLinesV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1E6ABB4489991518212C /* blueLinesV.png */; };
 		5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1D53F6542180CA7E3B79 /* CCButton.m */; };
 		5EDC1D16BCB042A4A1760464 /* delicious.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC111BFDD8C63069CAD4E4 /* delicious.png */; };
@@ -173,6 +174,7 @@
 		5EDC17D79872DD7E1F69FD69 /* ESceneType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESceneType.h; sourceTree = "<group>"; };
 		5EDC17ED46889E4F14B34F6B /* blueLines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueLines.png; sourceTree = "<group>"; };
 		5EDC18001983888962D6A852 /* ConstantsStatic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConstantsStatic.m; sourceTree = "<group>"; };
+		5EDC1897734C17C9DC9169FD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		5EDC18ED74EC87FD2C2F81DC /* bombPurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bombPurple.png; sourceTree = "<group>"; };
 		5EDC1938625980D40DF429EE /* backgroundImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundImage.png; sourceTree = "<group>"; };
 		5EDC19642CC227294AEF5A7B /* CCSprite+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCSprite+Resize.m"; sourceTree = "<group>"; };
@@ -662,6 +664,7 @@
 				5EDC13DD3B99936951F4ACBB /* exit.png */,
 				5EDC116A72DA97786782C480 /* musicOff.png */,
 				5EDC14DBE9C7E8085E006983 /* musicOn.png */,
+				5EDC1897734C17C9DC9169FD /* pause.png */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -993,6 +996,7 @@
 				5EDC157C3926C62A814AE5E1 /* exit.png in Resources */,
 				5EDC1AFAFAA298C53866748B /* musicOff.png in Resources */,
 				5EDC1B99F72A2C5ECBEAAB0C /* musicOn.png in Resources */,
+				5EDC1CA7FD7C9CFB233E3FA0 /* pause.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

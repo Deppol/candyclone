@@ -57,7 +57,6 @@
     {
         _isTimerOn = NO;
         [_gameManager performSelectorOnMainThread:@selector(finishGame) withObject:nil waitUntilDone:YES];
-
     }
    }
 }

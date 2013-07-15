@@ -230,5 +230,9 @@
 {
     return _candies[pos];
 }
+-(void)setTime:(NSString*)time
+{
+
+}
 
 @end

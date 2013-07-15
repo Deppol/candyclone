@@ -17,10 +17,10 @@
 {
    NSUInteger timeRemained;
 }
-- (void)initWithTimerAndManager:(GameManager *)gameManager
+- (TimerManager *)initWithTimerAndManager:(GameManager *)gameManager
 {
-    TimerManager* result = [super init];
-    if (result)
+    self = [super init];
+    if (self)
     {
        _gameManager = gameManager;
        timeRemained = GAME_TIME;
@@ -28,6 +28,7 @@
                          selector:@selector(timerFireMethod:) userInfo:nil repeats:YES];
        _isTimerOn = YES;
     }
+    return self;
 
 }
 
@@ -45,7 +46,8 @@
    {
     if (timeRemained>0)
     {
-         SceneBase* scene  = [SceneBase currentScene];
+        timeRemained--;
+        SceneBase* scene  = [SceneBase currentScene];
         if (scene.type == EST_GAME)
         [scene performSelectorOnMainThread:@selector(setTime:) withObject:[NSString stringWithFormat:@"%d:%d", timeRemained / 60, timeRemained % 60, nil]
                             waitUntilDone:YES];

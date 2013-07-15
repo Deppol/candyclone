@@ -17,6 +17,8 @@
 #import "DelegateContainer.h"
 #import "ResourceManager.h"
 #import "PauseView.h"
+#import "ConstantsStatic.h"
+#import "TimerManager.h"
 
 @implementation SceneGame
 {
@@ -27,6 +29,8 @@
 	CCSprite *_background;
 	CCSprite *_backgroundField;
     PauseView* _pauseView;
+    CCLabelTTF * _timerLabel;
+    TimerManager * _timer;
 }
 /*
  * Static
@@ -96,7 +100,16 @@
             [self addChild:v.button];
         }
 
-    //_pauseView = [[PauseView alloc]init];
+    _pauseView = [[PauseView alloc]init];
+    [self addChild:_pauseView.button];
+
+    _timerLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d:%d",GAME_TIME/60, GAME_TIME%60]
+                                           fontName:[ConstantsStatic buttonsFontName]
+                                           fontSize:25];
+    [self addChild:_timerLabel];
+
+    _timer = [[TimerManager alloc] initWithTimerAndManager:_gameManager];
+
 
     [DelegateContainer subscribe:self];
 
@@ -129,6 +142,10 @@
             [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
         }
     [_gameManager doInitialUpdate];
+
+    _pauseView.button.position = [[CCDirector sharedDirector] screenCenter];
+
+    _timerLabel.position = ccp([[CCDirector sharedDirector] screenCenter].x,22);
 }
 
 - (void)placeViewsiPhoneWide
@@ -147,6 +164,10 @@
             [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
         }
     [_gameManager doInitialUpdate];
+
+    _pauseView.button.position = [[CCDirector sharedDirector] screenCenter];
+
+    _timerLabel.position = ccp([[CCDirector sharedDirector] screenCenter].x,22);
 }
 
 - (void)cleanup
@@ -167,6 +188,10 @@
     _gameManager = nil;
     [_pauseView cleanup];
     _pauseView = nil;
+    [_timerLabel cleanup];
+    _timerLabel = nil;
+    [_timer cleanup];
+    _timer = nil;
     [super cleanup];
 }
 
@@ -271,7 +296,16 @@
 }
 -(void)setTime:(NSString*)time
 {
-
+    [_timerLabel setString:time];
+}
+-(void)showPause
+{
+    if(!_gameManager.animationIsRunning)
+    {
+        [self removeChild:_pauseView.button];
+        [self addChild:_pauseView.button];
+        [_pauseView showPause];
+    }
 }
 
 @end

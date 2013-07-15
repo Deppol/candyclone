@@ -54,5 +54,6 @@
 
 -(CandyView*)getCandyViewForPosition:(NSUInteger)pos;
 
+-(void)showPause;
 
 @end

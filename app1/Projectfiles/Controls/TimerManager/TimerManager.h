@@ -16,7 +16,7 @@
 @property (nonatomic, readonly) GameManager* gameManager;
 @property (nonatomic, readwrite) BOOL isTimerOn;
 
-- (void) initWithTimerAndManager:(GameManager *) gameManager;
+- (TimerManager *)initWithTimerAndManager:(GameManager *) gameManager;
 
 - (void)cleanup;
 

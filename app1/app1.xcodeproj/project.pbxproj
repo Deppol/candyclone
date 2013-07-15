@@ -22,6 +22,7 @@
 		5EDC1456D03131C70B8EFC09 /* greenLinesV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1650657E60E6C6BCC1E0 /* greenLinesV.png */; };
 		5EDC152C4684BDAC43BD43F1 /* bombGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1C81F69C027C94E9AEB6 /* bombGreen.png */; };
 		5EDC153C670C198E3B14D3A8 /* CandyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1B04E91ACF8DB1E067B5 /* CandyView.m */; };
+		5EDC157C3926C62A814AE5E1 /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC13DD3B99936951F4ACBB /* exit.png */; };
 		5EDC1582242C8E5D6ECF744A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1B6ACE1373649032AD12 /* logo.png */; };
 		5EDC15A42415B243AFE2EC08 /* redLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1A60FFAD8AD1664C0A31 /* redLines.png */; };
 		5EDC164383D4877CA5F8EC27 /* _test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC16331EB158D45EDB3F15 /* _test.mp3 */; };
@@ -37,7 +38,9 @@
 		5EDC1A011E2B4437D57AB9B9 /* YellowLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1B091C0737005B9799C4 /* YellowLines.png */; };
 		5EDC1A4219AC190BBAFB1509 /* greenLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1FFD2C7AD087E778D440 /* greenLines.png */; };
 		5EDC1A8CBE28866813CAED48 /* redColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC14A7EC248DC27329B6E8 /* redColor.png */; };
+		5EDC1AFAFAA298C53866748B /* musicOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC116A72DA97786782C480 /* musicOff.png */; };
 		5EDC1B8BF8846568662FFA0A /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1CDF03CFEBDDD322141D /* ResourceManager.m */; };
+		5EDC1B99F72A2C5ECBEAAB0C /* musicOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC14DBE9C7E8085E006983 /* musicOn.png */; };
 		5EDC1BE8ECFE9B1537F190E8 /* sugarCrush.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1A26822B7264411CE468 /* sugarCrush.png */; };
 		5EDC1C07EC18380DE18CEF88 /* blueLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC17ED46889E4F14B34F6B /* blueLines.png */; };
 		5EDC1C9A4F3959E2DBCF3B8E /* orangeLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1C264BE36EC45E7A0551 /* orangeLines.png */; };
@@ -145,16 +148,19 @@
 		5EDC10CB47CFEECA03912435 /* DelegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelegateContainer.h; sourceTree = "<group>"; };
 		5EDC111BFDD8C63069CAD4E4 /* delicious.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delicious.png; sourceTree = "<group>"; };
 		5EDC113FA25D1CF2C799F83B /* redColorV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redColorV.png; sourceTree = "<group>"; };
+		5EDC116A72DA97786782C480 /* musicOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicOff.png; sourceTree = "<group>"; };
 		5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDeviceHelper.m; sourceTree = "<group>"; };
 		5EDC11F49108027641E7AEBA /* bombBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bombBlue.png; sourceTree = "<group>"; };
 		5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedHighScoreManager.m; sourceTree = "<group>"; };
 		5EDC129913949F99E105204B /* yellowColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowColor.png; sourceTree = "<group>"; };
 		5EDC136B326C3AA06AC49DD7 /* SharedHighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedHighScoreManager.h; sourceTree = "<group>"; };
 		5EDC1387FCC4C76423326295 /* CCButtonDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCButtonDelegate.h; sourceTree = "<group>"; };
+		5EDC13DD3B99936951F4ACBB /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit.png; sourceTree = "<group>"; };
 		5EDC141EB95ABD84B78382A6 /* SceneBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneBase.m; sourceTree = "<group>"; };
 		5EDC146C232A129472C16C6F /* bombRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bombRed.png; sourceTree = "<group>"; };
 		5EDC14A7EC248DC27329B6E8 /* redColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redColor.png; sourceTree = "<group>"; };
 		5EDC14C57AD0D90D7024AC62 /* CandyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyView.h; sourceTree = "<group>"; };
+		5EDC14DBE9C7E8085E006983 /* musicOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicOn.png; sourceTree = "<group>"; };
 		5EDC1591DD3B270AB05309E3 /* bombOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bombOrange.png; sourceTree = "<group>"; };
 		5EDC159C9EBC113B7A7C4EC5 /* CCButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCButton.h; sourceTree = "<group>"; };
 		5EDC15D109E92DB980D24A29 /* yellowLinesV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowLinesV.png; sourceTree = "<group>"; };
@@ -653,6 +659,9 @@
 			isa = PBXGroup;
 			children = (
 				CF5238B89BE21194057730E7 /* selector.png */,
+				5EDC13DD3B99936951F4ACBB /* exit.png */,
+				5EDC116A72DA97786782C480 /* musicOff.png */,
+				5EDC14DBE9C7E8085E006983 /* musicOn.png */,
 			);
 			path = controls;
 			sourceTree = "<group>";
@@ -981,6 +990,9 @@
 				5EDC103DDFB79589A72FDDCD /* YellowColorV.png in Resources */,
 				5EDC1751BDE6EC131E8DB268 /* yellowLinesV.png in Resources */,
 				CF523B89F4C6F5CA615CE85A /* field.png in Resources */,
+				5EDC157C3926C62A814AE5E1 /* exit.png in Resources */,
+				5EDC1AFAFAA298C53866748B /* musicOff.png in Resources */,
+				5EDC1B99F72A2C5ECBEAAB0C /* musicOn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

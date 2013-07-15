@@ -37,6 +37,8 @@
         _button = [[CCButton alloc] initWithCCSprite:_selector];
 	    [_button setSquare:CANDY_VISIBLE_SIZE];
 	    _button.delegate = self;
+        _button.box_x = -6;
+        _button.box_y = -4;
 
         for(NSUInteger i = 0; i<[images count]; i++)
         {

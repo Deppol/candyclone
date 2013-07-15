@@ -193,8 +193,7 @@
 {
     CandyView* v = [[CandyView alloc] initWithCandy:candy scene:self];
     [self addChild:v.button];
-
-    v.button.position = CGPointMake(22+(to%FIELD_SIZE)*45, 22 + (FIELD_SIZE * 50));
+    v.button.position = [self _calculatePositionOnTopOfTheField:to];
     [v.button setSquare:CANDY_VISIBLE_SIZE];
     CGPoint point = [self _calculatePositionByIndex:to];
     //CGPoint point = [self _calculatePositionByIndex:to];CGPoint point = CGPointMake(22+(NSUInteger)(to%FIELD_SIZE)*45,22 + (FIELD_SIZE - (NSUInteger)(to/FIELD_SIZE) - 1) * 50);
@@ -220,7 +219,12 @@
 }
 -(CGPoint)_calculatePositionByIndex:(NSUInteger)index
 {
-    return ccp(22+(index%FIELD_SIZE)*45,22+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
+    return ccp(22+(index%FIELD_SIZE)*45,65+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
+
+}
+-(CGPoint)_calculatePositionOnTopOfTheField:(NSUInteger)index
+{
+    return ccp(22+(index%FIELD_SIZE)*45,65+ FIELD_SIZE * 50);
 }
 -(CandyView*)getCandyViewForPosition:(NSUInteger)pos
 {

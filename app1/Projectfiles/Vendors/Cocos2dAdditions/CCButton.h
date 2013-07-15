@@ -22,6 +22,8 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 @property (nonatomic, assign) BOOL adjustColorWhenClicked;
 @property (nonatomic, assign) BOOL swallowsTouches;
 @property (nonatomic, assign) BOOL disallowSound;
+@property (nonatomic, readwrite) NSInteger box_y;
+@property (nonatomic, readwrite) NSInteger box_x;
 @property (nonatomic) ccColor3B color;
 @property (nonatomic) ccColor3B colorSelf;
 @property (nonatomic) GLubyte opacity;

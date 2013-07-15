@@ -68,6 +68,8 @@
 
     if(self)
     {
+        self.box_x = -7;
+        self.box_y = -7;
         [self _prepareButton];
     }
     return self;
@@ -267,8 +269,7 @@
 
         //r.origin.x = _startTouchPosition.x - _endTouchPosition.x;
         //r.origin.y = _startTouchPosition.y - _endTouchPosition.y;
-
-        ans = ans|CGRectContainsPoint(CGRectInset(r, -6, -5), point);
+        ans = ans|CGRectContainsPoint(CGRectInset(r, self.box_x, self.box_y), point);
     }
     return ans;
 }

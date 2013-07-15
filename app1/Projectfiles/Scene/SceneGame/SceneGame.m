@@ -15,6 +15,7 @@
 #import "CandyView.h"
 #import "cpConstraintNode.h"
 #import "DelegateContainer.h"
+#import "ResourceManager.h"
 
 @implementation SceneGame
 {
@@ -22,6 +23,8 @@
     NSMutableArray* _candies;
     ServiceView * _sound;
     ServiceView * _returnToMainMenu;
+	CCSprite *_background;
+	CCSprite *_backgroundField;
 }
 /*
  * Static
@@ -63,6 +66,11 @@
 {
     [super prepare];
 
+	_background = [CCSprite spriteWithFile:[ResourceManager getBackground]];
+	[self addChild:_background];
+
+	_backgroundField = [CCSprite spriteWithFile:[ResourceManager getBackgroundField]];
+	[self addChild:_backgroundField];
 
     //init sound button
     _sound = [ServiceView createViewWithType:EBST_SOUND];
@@ -103,10 +111,16 @@
 
     _returnToMainMenu.button.position = ccp(120,450);
 
-    for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-        for (NSUInteger j = 0; j < FIELD_SIZE; j++)
-        {
-            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
+	_background.anchorPoint = CGPointMake(0.0f, 0.0f);
+
+	_backgroundField.anchorPoint = CGPointMake(0.5f, 0.5f);
+	_backgroundField.position = [self _calculatePositionByIndex:FIELD_SIZE * FIELD_SIZE / 2];
+	_backgroundField.scale = 0.5f;
+
+	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
+		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
+		{
+			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
             CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
             [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
         }
@@ -238,12 +252,12 @@
 }
 -(CGPoint)_calculatePositionByIndex:(NSUInteger)index
 {
-    return ccp(22+(index%FIELD_SIZE)*45,65+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
+    return ccp((index%FIELD_SIZE+0.5)*320.0/FIELD_SIZE,65+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
 
 }
 -(CGPoint)_calculatePositionOnTopOfTheField:(NSUInteger)index
 {
-    return ccp(22+(index%FIELD_SIZE)*45,65+ FIELD_SIZE * 50);
+    return ccp((index%FIELD_SIZE+0.5)*320.0/FIELD_SIZE,65+ FIELD_SIZE * 50);
 }
 -(CandyView*)getCandyViewForPosition:(NSUInteger)pos
 {

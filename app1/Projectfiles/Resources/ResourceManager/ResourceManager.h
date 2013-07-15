@@ -11,9 +11,15 @@
 
 @interface ResourceManager : NSObject
 
-+(NSString*)getBackground;
-+(NSString*)getSoundOn;
-+(NSString*)getSoundOff;
-+(NSMutableArray*)getCandyImage: (enum ECandyColor)color type:(enum ECandyBonusType)type;
-+(NSString*)getCandySelector;
++ (NSString *)getBackground;
+
++ (NSString *)getBackgroundField;
+
++ (NSString *)getSoundOn;
+
++ (NSString *)getSoundOff;
+
++ (NSMutableArray *)getCandyImage:(enum ECandyColor)color type:(enum ECandyBonusType)type;
+
++ (NSString *)getCandySelector;
 @end

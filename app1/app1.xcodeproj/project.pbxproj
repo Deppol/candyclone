@@ -72,6 +72,7 @@
 		CF523808B075A408F951D330 /* candyYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CF523EDCB2AF1C649FECD02D /* candyYellow.png */; };
 		CF5238F8EEEC2D505FAE0F3D /* colorBombOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5238FBFAF292729967AFBE /* colorBombOrange.png */; };
 		CF523AAD41BF1AE7CAB498C7 /* CandyBonusBomb.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5238E941BE9972823601D9 /* CandyBonusBomb.m */; };
+		CF523B89F4C6F5CA615CE85A /* field.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5236B343CE70BA988B4DBA /* field.png */; };
 		CF523D3115E62603CC6F8192 /* CandyBonusColorBomb.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523CD9E5E078B3DF1F0A48 /* CandyBonusColorBomb.m */; };
 		CF523D54A0C6296A73C73F6D /* SceneGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523AE3387C3F139C5D9289 /* SceneGame.m */; };
 		CF523D7F9DE3FEAE77432496 /* CandyBonusHorizontalLine.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523509688A98BD6913D362 /* CandyBonusHorizontalLine.m */; };
@@ -217,6 +218,7 @@
 		CF523509688A98BD6913D362 /* CandyBonusHorizontalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusHorizontalLine.m; sourceTree = "<group>"; };
 		CF5235E6EF7BB22BB536524F /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		CF5236AB0BC883A54C09D4AE /* colorBombRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombRed.png; sourceTree = "<group>"; };
+		CF5236B343CE70BA988B4DBA /* field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field.png; sourceTree = "<group>"; };
 		CF52373F0567BF9170806FEA /* CandyBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonus.h; sourceTree = "<group>"; };
 		CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusNothing.m; sourceTree = "<group>"; };
 		CF52388C650C5CC8784632B6 /* candyRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyRed.png; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDC1938625980D40DF429EE /* backgroundImage.png */,
+				CF5236B343CE70BA988B4DBA /* field.png */,
 			);
 			path = background;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				5EDC1300E27DFBA35C3A9E28 /* redLinesV.png in Resources */,
 				5EDC103DDFB79589A72FDDCD /* YellowColorV.png in Resources */,
 				5EDC1751BDE6EC131E8DB268 /* yellowLinesV.png in Resources */,
+				CF523B89F4C6F5CA615CE85A /* field.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

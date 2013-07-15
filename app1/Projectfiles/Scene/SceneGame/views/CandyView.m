@@ -112,10 +112,12 @@
             }
             CCScaleTo* a1 = [CCScaleTo actionWithDuration:BONUS_ANIMATION_TIME scale:0.05];
             [_button runAction:a1];
+
+            break;
         }
         default:
         {
-            NSLog(@"TODO: animations for bonuses");
+            NSLog(@"WARNING: Impossible bonus detected");
         }
     }
     [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:BONUS_ANIMATION_TIME];

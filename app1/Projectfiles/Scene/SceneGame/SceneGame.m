@@ -126,12 +126,12 @@
 {
 	[_sound cleanup];
 	_sound = nil;
+    [DelegateContainer unsubscribe];
 	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
 		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
 		{
-			[_candies insertObject:nil atIndex:i * FIELD_SIZE + j];
+			[_candies insertObject:[NSNull null] atIndex:i * FIELD_SIZE + j];
 		}
-    [DelegateContainer unsubscribe];
 	[super cleanup];
 }
 

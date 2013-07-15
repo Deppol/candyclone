@@ -11,6 +11,8 @@
 #import "ResourceManager.h"
 #import "SceneGame.h"
 #import "CCSprite+Resize.h"
+#import "MyConstants.h"
+#import "GameManager.h"
 
 
 @implementation CandyView
@@ -54,7 +56,7 @@
     {
         case ECBT_NOTHING:
         {
-            CCScaleTo * a1 = [CCScaleTo actionWithDuration:0.3f scale:0.05];
+            CCScaleTo * a1 = [CCScaleTo actionWithDuration:BONUS_ANIMATION_TIME scale:0.05];
             [_button runAction:a1];
             break;
         }
@@ -63,6 +65,10 @@
             NSLog(@"TODO: animations for bonuses");
         }
     }
+    [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:BONUS_ANIMATION_TIME];
+    [self cleanup];
+
+
 }
 
 - (void)cleanup
@@ -88,14 +94,18 @@
 
 - (void)didButtonTouchEnded:(CCButton *)button touch:(UITouch *)touch
 {
-    _selector.opacity = 255;
-    [_scene select:self];
-    //[_button addCCSprite:_selector];
+    if(!_scene.gameManager.animationIsRunning)
+        [_scene select:self];
 }
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch
 {
 
+}
+
+-(void)activate
+{
+    _selector.opacity = 255;
 }
 
 @end

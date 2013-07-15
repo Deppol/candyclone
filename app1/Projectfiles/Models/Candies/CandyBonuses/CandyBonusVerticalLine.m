@@ -20,6 +20,7 @@
 {
 	NSAssert(owner != nil, @"CandyBonus owner nust not be nil");
 	_type = ECBT_VERTICAL_LINE;
+    _owner = owner;
 	return self;
 }
 
@@ -27,14 +28,15 @@
 
 - (void)activateBonus
 {
+    [super activateBonus];
+
 	SceneBase *scene = [SceneBase currentScene];
-	NSAssert(scene.type != EST_GAME, @"Attempt to activate bonus in non-game scene");
+	NSAssert(scene.type == EST_GAME, @"Attempt to activate bonus in non-game scene");
 	GameManager *gameManager = ((SceneGame *) scene).gameManager;
 	NSUInteger index = [gameManager getIndexOf:_owner];
 	index %= FIELD_SIZE;
 	for (NSUInteger i = 0; i < FIELD_SIZE; ++i)
 		[gameManager markCandyByIndex:i * FIELD_SIZE + index];
-    [super activateBonus];
 }
 
 @end

@@ -142,7 +142,7 @@ instance methods
 {
    _topScores = [[NSMutableArray alloc] initWithCapacity:[[ConstantsStatic scoresCount] unsignedIntegerValue]];
 
-   for (NSUInteger i = 0; i < [[ConstantsStatic scoresCount] integerValue]; ++i)
+   for (NSInteger i = 0; i < [[ConstantsStatic scoresCount] integerValue]; ++i)
    {
        CCLabelTTF* tmp = [CCLabelTTF labelWithString:
                [NSString stringWithFormat:@"%d. %d", i+1, [[SharedHighScoreManager shared].scores[i] intValue]]

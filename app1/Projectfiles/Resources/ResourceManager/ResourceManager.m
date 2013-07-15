@@ -139,11 +139,11 @@
             else if(type == ECBT_HORIZONTAL_LINE)
             {
                 [ret addObject:@"yellowColor.png"];
-                [ret addObject:@"yellowLines.png"];
+                [ret addObject:@"YellowLines.png"];
             }
             else if(type == ECBT_VERTICAL_LINE)
             {
-                [ret addObject:@"yellowColorV.png"];
+                [ret addObject:@"YellowColorV.png"];
                 [ret addObject:@"yellowLinesV.png"];
             }
             else

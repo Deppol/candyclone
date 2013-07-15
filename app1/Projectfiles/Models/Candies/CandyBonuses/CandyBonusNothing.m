@@ -18,6 +18,7 @@
 {
 	NSAssert(owner != nil, @"CandyBonus owner nust not be nil");
 	_type = ECBT_NOTHING;
+    _owner = owner;
 	return self;
 }
 

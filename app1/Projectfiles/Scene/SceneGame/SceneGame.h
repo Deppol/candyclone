@@ -7,12 +7,14 @@
 
 #import "cocos2d.h"
 #import "SceneBase.h"
+#import "BonusDelegate.h"
 
 @class GameManager;
 @class CandyView;
 
 
-@interface SceneGame : SceneBase
+@interface SceneGame : SceneBase <BonusDelegate>
+
 
 /*
  * Static
@@ -45,5 +47,8 @@
 -(void)cleanup;
 
 -(void)select:(CandyView*) v;
+
+-(void)BonusActivated:(Candy*) candy;
+
 
 @end

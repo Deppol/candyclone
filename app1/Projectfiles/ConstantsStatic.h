@@ -24,8 +24,6 @@
 
 + (NSString *)buttonsFontName;
 
-+ (NSUInteger)buttonsFontSize;
-
 +(NSString *) gameTittle;
 
 +(NSString *) newGameConst;

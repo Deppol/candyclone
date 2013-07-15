@@ -29,11 +29,6 @@
     return @"Ubuntu Condensed";
 }
 
-+(NSUInteger)buttonsFontSize
-{
-    return 40;
-}
-
 + (NSString *)gameTittle
 {
     NSString* temp = [[NSString alloc] initWithString:@"Candy Clone"];

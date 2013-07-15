@@ -3,5 +3,6 @@
 
 extern const NSUInteger FIELD_SIZE;
 extern const NSUInteger POINTS_FOR_ONE_CANDY;
-extern const NSUInteger CANDY_SIZE_IN_SCREEN_POINTS;
+extern const CGFloat BONUS_ANIMATION_TIME;
+extern const CGFloat SWAP_ANIMATION_TIME;
 #endif

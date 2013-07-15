@@ -26,4 +26,6 @@
 
 -(void)deactivate;
 
+-(void)activate;
+
 @end

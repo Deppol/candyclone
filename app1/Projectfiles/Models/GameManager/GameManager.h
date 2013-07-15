@@ -19,6 +19,7 @@
 //properties
 
 @property(nonatomic, readonly) NSMutableArray *candies;
+@property(nonatomic, readonly) BOOL animationIsRunning;
 
 //Designated initializer
 - (GameManager *)init;

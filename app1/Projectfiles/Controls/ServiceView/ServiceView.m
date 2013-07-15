@@ -77,66 +77,12 @@
 
 - (void)didButtonTouchBegan:(CCButton *)button touch:(UITouch *)touch
 {
-    switch (_serviceType)
-    {
-        case EBST_NEWGAME:
-        {
-            break;
-        }
-        case EBST_SOUND:
-        {
-            break;
-        }
-        case EBST_PAUSE:
-        {
-            break;
-        }
-        case EBST_RESTART:
-        {
-            break;
-        }
-        case EBST_RETURN_TO_MAIN_MENU:
-        {
-            break;
-        }
-        default:
-        {
-            NSAssert(NO,@"Illegal service button type");
-            break;
-        }
-    }
+
 }
 
 - (void)didButtonTouchMoved:(CCButton *)button touch:(UITouch *)touch
 {
-    switch (_serviceType)
-    {
-        case EBST_NEWGAME:
-        {
-            break;
-        }
-        case EBST_SOUND:
-        {
-            break;
-        }
-        case EBST_PAUSE:
-        {
-            break;
-        }
-        case EBST_RESTART:
-        {
-            break;
-        }
-        case EBST_RETURN_TO_MAIN_MENU:
-        {
-            break;
-        }
-        default:
-        {
-            NSAssert(NO,@"Illegal service button type");
-            break;
-        }
-    }
+
 }
 
 - (void)didButtonTouchEnded:(CCButton *)button touch:(UITouch *)touch
@@ -150,21 +96,7 @@
         }
         case EBST_SOUND:
         {
-            [button removeAllChildren];
-            if(_stateSound)
-            {
-                _stateSound = NO;
-                [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.0f];
-                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.0f];
-                [button addCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOff]]];
-            }
-            else
-            {
-                _stateSound = YES;
-                [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0f];
-                [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
-                [button addCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
-            }
+            [self _soundCall];
             break;
         }
         case EBST_PAUSE:
@@ -173,6 +105,7 @@
         }
         case EBST_RESTART:
         {
+            if([SceneBase currentScene].type == EST_GAME)
             break;
         }
         case EBST_RETURN_TO_MAIN_MENU:
@@ -189,39 +122,30 @@
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch
 {
-    switch (_serviceType)
-    {
-        case EBST_NEWGAME:
-        {
-            break;
-        }
-        case EBST_SOUND:
-        {
-            break;
-        }
-        case EBST_PAUSE:
-        {
-            break;
-        }
-        case EBST_RESTART:
-        {
-            break;
-        }
-        case EBST_RETURN_TO_MAIN_MENU:
-        {
-            break;
-        }
-        default:
-        {
-            NSAssert(NO,@"Illegal service button type");
-            break;
-        }
-    }
+
 }
 
 +(ServiceView *)createViewWithType:(EButtonServiceType)type;
 {
     ServiceView * d = [[ServiceView alloc] initWithType:type];
     return d;
+}
+-(void)_soundCall
+{
+    [self.button removeAllChildren];
+    if(_stateSound)
+    {
+        _stateSound = NO;
+        [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.0f];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.0f];
+        [self.button addCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOff]]];
+    }
+    else
+    {
+        _stateSound = YES;
+        [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0f];
+        [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
+        [self.button addCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
+    }
 }
 @end

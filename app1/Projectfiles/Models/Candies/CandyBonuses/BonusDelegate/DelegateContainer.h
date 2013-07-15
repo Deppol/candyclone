@@ -16,5 +16,10 @@
 +(void)subscribe:(id <BonusDelegate>)delegate;
 +(void)unsubscribe;
 +(void)callBonusActivated:(Candy*)candy;
-
++(void)callSwap:(Candy*)candy1 candy2:(Candy*)candy2;
++(void)callSetSelection:(Candy*)candy;
++(void)callUnsetSelection:(Candy*)candy;
++(void)callAddBonus:(Candy* )candyBonus;
++(void)callFallFromOutside:(Candy*)candy point:(NSUInteger)to;
++(void)callFallFromField:(Candy*)candy point:(NSUInteger)to;
 @end

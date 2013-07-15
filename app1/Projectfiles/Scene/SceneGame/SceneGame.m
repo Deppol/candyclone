@@ -99,7 +99,7 @@
 	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
 		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
 		{
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
+			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
             CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
 			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
 		}
@@ -114,10 +114,9 @@
 	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
 		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
 		{
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:40.0f];
+			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
             CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
             [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
-			//[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
 		}
     [_gameManager doInitialUpdate];
 }
@@ -187,10 +186,8 @@
 
     [_candies replaceObjectAtIndex:pos withObject:newCandy];
     CGPoint point = [self _calculatePositionByIndex:pos];
-    [[[_candies objectAtIndex:pos] button] setSquare:40.0f];
+    [[[_candies objectAtIndex:pos] button] setSquare:CANDY_VISIBLE_SIZE];
     [[[_candies objectAtIndex:pos] button] setPosition:point];
-   //[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:ccp(22 + (j) * 45, 22 + (FIELD_SIZE - i - 1) * 50)];
-
     [self addChild:newCandy.button];
 
 }
@@ -201,11 +198,10 @@
     [self addChild:v.button];
 
     v.button.position = CGPointMake(22+(to%FIELD_SIZE)*45, 22 + (FIELD_SIZE * 50));
-    [v.button setSquare:40.0f];
+    [v.button setSquare:CANDY_VISIBLE_SIZE];
     CGPoint point = [self _calculatePositionByIndex:to];
     //CGPoint point = [self _calculatePositionByIndex:to];CGPoint point = CGPointMake(22+(NSUInteger)(to%FIELD_SIZE)*45,22 + (FIELD_SIZE - (NSUInteger)(to/FIELD_SIZE) - 1) * 50);
     CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:LINE_DROP_ANIMATION_TIME position:point];
-
 
     [v.button runAction:moveCandy];
 

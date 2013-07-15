@@ -35,7 +35,8 @@
 
         NSMutableArray* images = [ResourceManager getCandyImage:candy.color type:candy.bonus.type];
         _button = [[CCButton alloc] initWithCCSprite:_selector];
-        _button.delegate = self;
+	    [_button setSquare:CANDY_VISIBLE_SIZE];
+	    _button.delegate = self;
 
         for(NSUInteger i = 0; i<[images count]; i++)
         {

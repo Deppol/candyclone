@@ -12,11 +12,11 @@
 
 -(void)resizeTo:(CGSize) theSize
 {
-    CGFloat newWidth = theSize.width;
+    CGFloat newSize = max(theSize.width, theSize.height);
 
-    float startWidth = self.contentSize.width;
+    float startSize = max(self.contentSize.width, self.contentSize.height);
 
-    self.scale = newWidth/startWidth;
+    self.scale = newSize / startSize;
 
 }
 

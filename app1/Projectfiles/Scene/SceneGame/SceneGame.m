@@ -16,6 +16,7 @@
 #import "cpConstraintNode.h"
 #import "DelegateContainer.h"
 #import "ResourceManager.h"
+#import "PauseView.h"
 
 @implementation SceneGame
 {
@@ -25,6 +26,7 @@
     ServiceView * _returnToMainMenu;
 	CCSprite *_background;
 	CCSprite *_backgroundField;
+    PauseView* _pauseView;
 }
 /*
  * Static
@@ -94,6 +96,8 @@
             [self addChild:v.button];
         }
 
+    //_pauseView = [[PauseView alloc]init];
+
     [DelegateContainer subscribe:self];
 
     // [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
@@ -161,6 +165,8 @@
     _returnToMainMenu = nil;
     [_gameManager cleanup];
     _gameManager = nil;
+    [_pauseView cleanup];
+    _pauseView = nil;
     [super cleanup];
 }
 

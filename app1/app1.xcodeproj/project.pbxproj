@@ -16,6 +16,7 @@
 		5EDC1223D9F4B2F03C5A5489 /* greenColorV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC103F6C7317F0FC8A2CB8 /* greenColorV.png */; };
 		5EDC123F95D270FAA2DB06DE /* tasty.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1DA6F0918925720B1D5D /* tasty.png */; };
 		5EDC1300E27DFBA35C3A9E28 /* redLinesV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1D9BD3AE236C2EAC591C /* redLinesV.png */; };
+		5EDC140B2E5CB4BF2D0E6343 /* PauseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC1C3E616AC3EFAB37850B /* PauseView.m */; };
 		5EDC1410B6098BF11ADC5030 /* ConstantsStatic.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC18001983888962D6A852 /* ConstantsStatic.m */; };
 		5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC11917FC433923C09A47D /* SharedDeviceHelper.m */; };
 		5EDC1456D03131C70B8EFC09 /* greenLinesV.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1650657E60E6C6BCC1E0 /* greenLinesV.png */; };
@@ -181,9 +182,11 @@
 		5EDC1B6ACE1373649032AD12 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		5EDC1C06AE70C3B6CC100C6A /* ConstantsStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsStatic.h; sourceTree = "<group>"; };
 		5EDC1C264BE36EC45E7A0551 /* orangeLines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangeLines.png; sourceTree = "<group>"; };
+		5EDC1C3E616AC3EFAB37850B /* PauseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseView.m; sourceTree = "<group>"; };
 		5EDC1C81F69C027C94E9AEB6 /* bombGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bombGreen.png; sourceTree = "<group>"; };
 		5EDC1CDF03CFEBDDD322141D /* ResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
 		5EDC1CF26D5BADC5C34494BD /* ELanguageType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELanguageType.h; sourceTree = "<group>"; };
+		5EDC1D45D94F07FF2DC00142 /* PauseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseView.h; sourceTree = "<group>"; };
 		5EDC1D53F6542180CA7E3B79 /* CCButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCButton.m; sourceTree = "<group>"; };
 		5EDC1D9BD3AE236C2EAC591C /* redLinesV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redLinesV.png; sourceTree = "<group>"; };
 		5EDC1DA6F0918925720B1D5D /* tasty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tasty.png; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 			children = (
 				5EDC1B04E91ACF8DB1E067B5 /* CandyView.m */,
 				5EDC14C57AD0D90D7024AC62 /* CandyView.h */,
+				5EDC1D45D94F07FF2DC00142 /* PauseView.h */,
+				5EDC1C3E616AC3EFAB37850B /* PauseView.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -1023,6 +1028,7 @@
 				5EDC1E8DAB97A4DE96068BF4 /* CCSprite+Resize.m in Sources */,
 				B06876A97D2E75FD0EA9C738 /* SceneStart.m in Sources */,
 				B068776EE9E275D2ECB21860 /* TimerManager.m in Sources */,
+				5EDC140B2E5CB4BF2D0E6343 /* PauseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

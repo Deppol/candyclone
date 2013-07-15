@@ -19,7 +19,7 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 @interface CCButton : CCNode <CCTouchOneByOneDelegate>
 
 @property (nonatomic, assign) BOOL enabled;
-@property (nonatomic, assign) BOOL adjustColorWhenClicked;
+@property (nonatomic, readwrite) BOOL adjustColorWhenClicked;
 @property (nonatomic, assign) BOOL swallowsTouches;
 @property (nonatomic, assign) BOOL disallowSound;
 @property (nonatomic, readwrite) NSInteger box_y;
@@ -44,6 +44,8 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 - (void)cleanup;
 
 - (void)setSquare:(CGFloat)s;
+
+-(void)addCCNodeRGBA:(CCNodeRGBA*)sprite;
 
 /*
  * CCTouchOneByOneDelegate

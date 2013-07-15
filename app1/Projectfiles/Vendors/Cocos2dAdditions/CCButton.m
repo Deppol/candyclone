@@ -101,6 +101,15 @@
     sprite.position = ccp(0,0);
     [self addChild:sprite];
 }
+-(void)addCCNodeRGBA:(CCNodeRGBA*)sprite
+{
+    if([_children containsObject:sprite])
+        [self removeChild:sprite];
+    sprite.color = _colorSelf;
+    sprite.opacity = _opacity;
+    sprite.position = ccp(0,0);
+    [self addChild:sprite];
+}
 
 
 - (void)_prepareButton

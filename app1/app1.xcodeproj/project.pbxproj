@@ -56,6 +56,7 @@
 		5EDC1FAC63FAE025BFA92894 /* divine.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC10CA74BB3FDB17866FC5 /* divine.png */; };
 		5EDC1FAE1B81150BCBFA99E7 /* blueColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC106FED594DD8DFAF8557 /* blueColor.png */; };
 		B06876A97D2E75FD0EA9C738 /* SceneStart.m in Sources */ = {isa = PBXBuildFile; fileRef = B0687FCFFBBEFCD69D640162 /* SceneStart.m */; };
+		B068776EE9E275D2ECB21860 /* TimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0687484FD449B4705F0B13F /* TimerManager.m */; };
 		CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */; };
 		CF523260DA65B8CB7EC529B5 /* colorBombPurple.png in Resources */ = {isa = PBXBuildFile; fileRef = CF52324121421AAE2A049124 /* colorBombPurple.png */; };
 		CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52310AC602610BD9A81A4F /* GameManager.m */; };
@@ -200,6 +201,8 @@
 		5EDC1FCA3C7E5A7899986FA0 /* blueColorV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueColorV.png; sourceTree = "<group>"; };
 		5EDC1FFD2C7AD087E778D440 /* greenLines.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenLines.png; sourceTree = "<group>"; };
 		B06873C2C44F3563469949AB /* SceneStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneStart.h; sourceTree = "<group>"; };
+		B0687484FD449B4705F0B13F /* TimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerManager.m; sourceTree = "<group>"; };
+		B0687556F1A7284A85DEAE05 /* TimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerManager.h; sourceTree = "<group>"; };
 		B0687FCFFBBEFCD69D640162 /* SceneStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneStart.m; sourceTree = "<group>"; };
 		CF523036A17F906E5ECC63A0 /* CandyBonusVerticalLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusVerticalLine.h; sourceTree = "<group>"; };
 		CF5230750511F6D6AFAD6939 /* colorBombBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombBlue.png; sourceTree = "<group>"; };
@@ -423,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDC1BFEE07A42717CB475C8 /* ServiceView */,
+				B06878D4BE4EEDEDDD11E485 /* TimerManager */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -474,6 +478,15 @@
 				B0687FCFFBBEFCD69D640162 /* SceneStart.m */,
 			);
 			path = SceneStart;
+			sourceTree = "<group>";
+		};
+		B06878D4BE4EEDEDDD11E485 /* TimerManager */ = {
+			isa = PBXGroup;
+			children = (
+				B0687556F1A7284A85DEAE05 /* TimerManager.h */,
+				B0687484FD449B4705F0B13F /* TimerManager.m */,
+			);
+			path = TimerManager;
 			sourceTree = "<group>";
 		};
 		CF5235368C7014025155F5C1 /* phrases */ = {
@@ -1005,6 +1018,7 @@
 				5EDC153C670C198E3B14D3A8 /* CandyView.m in Sources */,
 				5EDC1E8DAB97A4DE96068BF4 /* CCSprite+Resize.m in Sources */,
 				B06876A97D2E75FD0EA9C738 /* SceneStart.m in Sources */,
+				B068776EE9E275D2ECB21860 /* TimerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

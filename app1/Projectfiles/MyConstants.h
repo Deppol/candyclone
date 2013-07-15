@@ -7,4 +7,5 @@ extern const CGFloat BONUS_ANIMATION_TIME;
 extern const CGFloat SWAP_ANIMATION_TIME;
 extern const CGFloat LINE_DROP_ANIMATION_TIME;
 extern const CGFloat CANDY_VISIBLE_SIZE;
+extern const NSUInteger GAME_TIME;
 #endif

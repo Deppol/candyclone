@@ -47,7 +47,7 @@ static SceneBase *_currentScene = nil;
         [_currentScene _startLoading];
         [_currentScene _clearScene];
 
-        //[_currentScene cleanup];//CHECK
+        [_currentScene cleanup];//CHECK
         _currentScene = nil;
     }
 

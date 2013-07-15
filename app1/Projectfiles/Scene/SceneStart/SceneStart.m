@@ -151,6 +151,17 @@ instance methods
        [self addChild:tmp];
    }
 }
+-(void)cleanup
+{
+    [_labelForScore cleanup];
+    _labelForScore = nil;
+    [_labelForTittle cleanup];
+    _labelForTittle = nil;
+    _topScores = nil;
+    [_startGame cleanup];
+    _startGame = nil;
+    [super cleanup];
+}
 
 
 @end

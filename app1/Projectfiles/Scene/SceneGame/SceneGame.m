@@ -18,9 +18,10 @@
 
 @implementation SceneGame
 {
-	NSMutableArray* scene;
+    NSMutableArray* scene;
     NSMutableArray* _candies;
     ServiceView * _sound;
+    ServiceView * _returnToMainMenu;
 }
 /*
  * Static
@@ -29,9 +30,9 @@
 //! Default creator for scene. Need override in derived classes.
 + (SceneBase *)createScene
 {
-	SceneGame *result = [[SceneGame alloc] init];
+    SceneGame *result = [[SceneGame alloc] init];
 
-	return result;
+    return result;
 }
 
 /*
@@ -39,7 +40,7 @@
  */
 - (ESceneType)type
 {
-	return EST_GAME;
+    return EST_GAME;
 }
 
 /*
@@ -49,9 +50,9 @@
 //! Load all resources here
 - (void)loadResources
 {
-	[super loadResources];
+    [super loadResources];
 
-	//TODO:implement purge
+    //TODO:implement purge
 
 //    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[ResourceManager sceneGameBasic]];
 
@@ -60,15 +61,22 @@
 //! Prepare scene. Init all game objects here
 - (void)prepare
 {
-	[super prepare];
-
-	_sound = [ServiceView createViewWithType:EBST_SOUND];
-	[self addChild:_sound.button];
+    [super prepare];
 
 
-	[self _initGameObjects];
+    //init sound button
+    _sound = [ServiceView createViewWithType:EBST_SOUND];
+    [self addChild:_sound.button];
 
-	_candies = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
+    //init return_to_main_menu button
+
+    _returnToMainMenu = [ServiceView createViewWithType:EBST_RETURN_TO_MAIN_MENU];
+    [self addChild:_returnToMainMenu.button];
+
+
+    [self _initGameObjects];
+
+    _candies = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
 
     for(NSUInteger i = 0; i<FIELD_SIZE; i++)
         for(NSUInteger j = 0; j<FIELD_SIZE; j++)
@@ -80,55 +88,66 @@
 
     [DelegateContainer subscribe:self];
 
-   // [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
+    // [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
 }
 
 - (void)_initGameObjects
 {
-	_gameManager = [[GameManager alloc] init];
+    _gameManager = [[GameManager alloc] init];
 
 }
 
 - (void)placeViewsiPhone
 {
-	_sound.button.position = ccp(30, 450);
+    _sound.button.position = ccp(30, 450);
 
-	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
-		{
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
+    _returnToMainMenu.button.position = ccp(120,450);
+
+    for (NSUInteger i = 0; i < FIELD_SIZE; i++)
+        for (NSUInteger j = 0; j < FIELD_SIZE; j++)
+        {
+            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
             CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
-		}
+            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
+        }
     [_gameManager doInitialUpdate];
 }
 
 - (void)placeViewsiPhoneWide
 {
-	_sound.button.scale = 2.0f;
-	_sound.button.position = ccp(30, 538);
+    _sound.button.scale = 2.0f;
+    _sound.button.position = ccp(30, 538);
 
-	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
-		{
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
+    _returnToMainMenu.button.scale = 2.0f;
+    _returnToMainMenu.button.position = ccp(120,538);
+
+    for (NSUInteger i = 0; i < FIELD_SIZE; i++)
+        for (NSUInteger j = 0; j < FIELD_SIZE; j++)
+        {
+            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
             CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
             [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
-		}
+        }
     [_gameManager doInitialUpdate];
 }
 
 - (void)cleanup
 {
-	[_sound cleanup];
-	_sound = nil;
+    [_sound cleanup];
+    _sound = nil;
     [DelegateContainer unsubscribe];
-	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
-		{
-			[_candies insertObject:[NSNull null] atIndex:i * FIELD_SIZE + j];
-		}
-	[super cleanup];
+    for (NSUInteger i = 0; i < FIELD_SIZE; i++)
+        for (NSUInteger j = 0; j < FIELD_SIZE; j++)
+        {
+            [_candies[i*FIELD_SIZE + j] cleanup];
+            [_candies insertObject:[NSNull null] atIndex:i * FIELD_SIZE + j];
+        }
+    _candies = nil;
+    [_returnToMainMenu cleanup];
+    _returnToMainMenu = nil;
+    [_gameManager cleanup];
+    _gameManager = nil;
+    [super cleanup];
 }
 
 -(void)select:(CandyView*) v
@@ -178,8 +197,8 @@
 }
 - (void)AddBonus:(Candy*)candyBonus
 {
-   NSUInteger pos = [_gameManager getIndexOf:candyBonus];
-   CandyView *newCandy = [[CandyView alloc] initWithCandy:candyBonus scene:self];
+    NSUInteger pos = [_gameManager getIndexOf:candyBonus];
+    CandyView *newCandy = [[CandyView alloc] initWithCandy:candyBonus scene:self];
 
     [_candies replaceObjectAtIndex:pos withObject:newCandy];
     CGPoint point = [self _calculatePositionByIndex:pos];

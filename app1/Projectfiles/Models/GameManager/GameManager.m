@@ -482,7 +482,7 @@
     [NSThread sleepForTimeInterval:LINE_DROP_ANIMATION_TIME + 0.04f];
 }
 
-- (void)_finishGame
+- (void)finishGame
 {
 	[[SharedHighScoreManager shared] addScore:[NSNumber numberWithInteger:_score]];
 }

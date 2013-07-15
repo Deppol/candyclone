@@ -38,4 +38,6 @@
 
 - (void)doInitialUpdate;
 
+- (void)finishGame;
+
 @end

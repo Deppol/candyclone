@@ -55,6 +55,8 @@
             }
             case EBST_RETURN_TO_MAIN_MENU:
             {
+                CCSprite* toMainMenu = [[CCSprite alloc] initWithFile:@"exit.png"];
+                _button = [[CCButton alloc] initWithCCSprite:toMainMenu];
                 break;
             }
             default:
@@ -105,11 +107,12 @@
         }
         case EBST_RESTART:
         {
-            if([SceneBase currentScene].type == EST_GAME)
+            //  if([SceneBase currentScene].type == EST_GAME)
             break;
         }
         case EBST_RETURN_TO_MAIN_MENU:
         {
+            [SceneBase setScene:EST_START];
             break;
         }
         default:
@@ -130,6 +133,7 @@
     ServiceView * d = [[ServiceView alloc] initWithType:type];
     return d;
 }
+
 -(void)_soundCall
 {
     [self.button removeAllChildren];

@@ -28,4 +28,6 @@
 
 -(void)activate;
 
+-(void)colorBombActivation;
+
 @end

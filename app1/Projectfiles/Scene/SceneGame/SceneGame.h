@@ -50,5 +50,7 @@
 
 -(void)BonusActivated:(Candy*) candy;
 
+-(CandyView*)getCandyViewForPosition:(NSUInteger)pos;
+
 
 @end

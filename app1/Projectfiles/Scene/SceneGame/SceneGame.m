@@ -229,6 +229,9 @@
 {
     return ccp(22+(index%FIELD_SIZE)*45,22+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
 }
-
+-(CandyView*)getCandyViewForPosition:(NSUInteger)pos
+{
+    return _candies[pos];
+}
 
 @end

@@ -8,8 +8,6 @@
 #import "AppDelegate.h"
 #import "ESceneType.h"
 #import "SceneBase.h"
-#import "SharedProgressManager.h"
-#import "Game.h"
 #import "SimpleAudioEngine.h"
 #import "SharedHighScoreManager.h"
 
@@ -27,14 +25,9 @@
     {//init singletons
         [SimpleAudioEngine sharedEngine];
 
-        [SharedProgressManager shared];
 
         [SharedHighScoreManager shared];
     }
-
-    Game *game = [[Game alloc] init];
-
-    [[SharedProgressManager shared] didGameStart:game];
 
     [SceneBase setScene:EST_START];
 

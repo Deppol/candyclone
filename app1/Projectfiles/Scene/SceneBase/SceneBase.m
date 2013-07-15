@@ -7,7 +7,6 @@
 
 #import "SceneBase.h"
 #import "SceneGame.h"
-#import "SharedProgressManager.h"
 #import "SharedDeviceHelper.h"
 #import "SharedHighScoreManager.h"
 #import "SceneStart.h"

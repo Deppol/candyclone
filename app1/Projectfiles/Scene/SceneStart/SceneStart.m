@@ -5,8 +5,6 @@
 //
 
 #import "SceneStart.h"
-#import "SharedProgressManager.h"
-#import "Game.h"
 #import "ConstantsStatic.h"
 #import "CCButton.h"
 #import "MyConstants.h"

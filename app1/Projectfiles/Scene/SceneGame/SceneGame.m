@@ -7,8 +7,6 @@
 
 #import "SceneGame.h"
 #import "SimpleAudioEngine.h"
-#import "Game.h"
-#import "SharedProgressManager.h"
 #import "GameManager.h"
 #import "ServiceView.h"
 #import "CCButton.h"
@@ -67,7 +65,6 @@
 	_sound = [ServiceView createViewWithType:EBST_SOUND];
 	[self addChild:_sound.button];
 
-	[[SharedProgressManager shared].game setupScene:self];
 
 	[self _initGameObjects];
 
@@ -83,7 +80,7 @@
 
     [DelegateContainer subscribe:self];
 
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
+   // [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
 }
 
 - (void)_initGameObjects

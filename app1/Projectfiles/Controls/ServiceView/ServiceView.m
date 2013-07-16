@@ -52,6 +52,7 @@
             }
             case EBST_RESTART:
             {
+                _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getRestart]]];
                 break;
             }
             case EBST_RETURN_TO_MAIN_MENU:
@@ -111,7 +112,10 @@
         }
         case EBST_RESTART:
         {
-            //  if([SceneBase currentScene].type == EST_GAME)
+             if([SceneBase currentScene].type == EST_GAME)
+             {
+                [SceneBase setScene:EST_GAME];
+             }
             break;
         }
         case EBST_RETURN_TO_MAIN_MENU:

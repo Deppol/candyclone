@@ -24,13 +24,18 @@
 {
     NSMutableArray* scene;
     NSMutableArray* _candies;
+
     ServiceView * _sound;
     ServiceView * _returnToMainMenu;
     ServiceView * _buttonPause;
+    ServiceView * _buttonRestart;
+
 	CCSprite *_background;
 	CCSprite *_backgroundField;
     PauseView* _pauseView;
     CCLabelTTF * _timerLabel;
+    CCLabelTTF * _score;
+
     NSInteger timeRemained;
 }
 /*
@@ -93,6 +98,14 @@
     _buttonPause = [ServiceView createViewWithType:EBST_PAUSE];
     [self addChild:_buttonPause.button];
 
+    //init button restart
+    _buttonRestart = [ServiceView createViewWithType:EBST_RESTART];
+    [self addChild:_buttonRestart.button];
+
+    _score = [[CCLabelTTF alloc] initWithString:@"0"
+                                 fontName:[ConstantsStatic buttonsFontName]
+                                 fontSize:45];
+    [self addChild:_score];
 
     [self _initGameObjects];
 
@@ -136,6 +149,11 @@
     _sound.button.position = ccp(30, 450);
     _returnToMainMenu.button.position = ccp(120,450);
     _buttonPause.button.position = ccp(90,450);
+    _buttonRestart.button.position = ccp(60,450);
+
+    //place the score
+    _score.anchorPoint = ccp(0,0);
+    _score.position = ccp(160,420);
 
 	_background.anchorPoint = CGPointMake(0.0f, 0.0f);
 
@@ -172,10 +190,16 @@
     _background.anchorPoint = CGPointMake(0.0f, 0.0f);
     _background.scale = 2.0f;
 
+    _score.scale = 2.0f;
+    _score.anchorPoint = ccp(0,0);
+    _score.position = ccp(160,508);
+
     _backgroundField.anchorPoint = CGPointMake(0.5f, 0.5f);
     _backgroundField.position = [self _calculatePositionByIndex:FIELD_SIZE * FIELD_SIZE / 2];
     _backgroundField.scale = 1.0f;
 
+    _buttonRestart.button.scale = 2.0f;
+    _buttonRestart.button.position = ccp(90,538);
 
     for (NSUInteger i = 0; i < FIELD_SIZE; i++)
         for (NSUInteger j = 0; j < FIELD_SIZE; j++)
@@ -204,6 +228,12 @@
 	_background = nil;
 	[_backgroundField cleanup];
 	_backgroundField = nil;
+    [_buttonRestart cleanup];
+    _buttonRestart = nil;
+
+    [_score cleanup];
+    _score = nil;
+
     [DelegateContainer unsubscribe];
     for (NSUInteger i = 0; i < FIELD_SIZE; i++)
         for (NSUInteger j = 0; j < FIELD_SIZE; j++)
@@ -347,10 +377,12 @@
         if (timeRemained>0)
         {
             timeRemained--;
+            [_score setString:[NSString stringWithFormat:@"%d",[_gameManager getScore],nil]];
             [self setTime:[NSString stringWithFormat:@"%d:%d", timeRemained / 60, timeRemained % 60]];
         }
         else
         {
+            [_gameManager finishGame];
             [self unschedule:@selector(_timerTick)];
         }
 }

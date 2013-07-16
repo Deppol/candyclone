@@ -25,5 +25,9 @@
 
 + (NSString *)getPause;
 
+
 + (NSString *)getBackgroundMusic;
+
++ (NSString *)getRestart;
+
 @end

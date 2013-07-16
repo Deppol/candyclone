@@ -40,4 +40,6 @@
 
 - (void)finishGame;
 
+- (NSUInteger)getScore;
+
 @end

@@ -502,4 +502,10 @@
 	[SceneBase performSelector:@selector(_setScene:) withObject:[NSNumber numberWithInteger:EST_START] afterDelay:5.0];
 }
 
+- (NSUInteger)getScore
+{
+    return _score;
+}
+
+
 @end

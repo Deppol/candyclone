@@ -239,9 +239,18 @@
     return @"pause.png";
 }
 
+
 + (NSString *)getBackgroundMusic
 {
     return @"background.mp3";
 }
+
+
++ (NSString *)getRestart
+{
+    return @"restart.png";
+}
+
+
 
 @end

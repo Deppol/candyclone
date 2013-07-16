@@ -39,8 +39,6 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 
 - (void)addCCSprite:(CCSprite*)sprite;
 
-- (void)dealloc;
-
 - (void)cleanup;
 
 - (void)setSquare:(CGFloat)s;

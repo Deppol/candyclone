@@ -125,9 +125,9 @@
     _newBonuses = nil;
     _newBonusesPosition = nil;
 
-    [_congratulations cleanup];
+    //[_congratulations cleanup];
     _congratulations = nil;
-    [_sprite cleanup];
+    //[_sprite cleanup];
     _sprite = nil;
 }
 
@@ -505,7 +505,7 @@
     _sprite.zOrder = 50;
 
     [[SharedHighScoreManager shared] addScore:[NSNumber numberWithInteger:_score]];
-    [SceneBase performSelector:@selector(setScene:) withObject:[NSNumber numberWithInteger:EST_START] afterDelay:5.0];
+    [SceneBase performSelector:@selector(setSceneWithNumber:) withObject:[NSNumber numberWithInt:EST_START] afterDelay:5.0];
 }
 
 - (NSUInteger)getScore

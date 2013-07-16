@@ -220,14 +220,13 @@
     _buttonReturnToMainMenu = nil;
     [_buttonPause cleanup];
     _buttonPause = nil;
-    [_background cleanup];
+    //[_background cleanup];
     _background = nil;
-    [_backgroundField cleanup];
+    //[_backgroundField cleanup];
     _backgroundField = nil;
     [_buttonRestart cleanup];
     _buttonRestart = nil;
 
-    [_labelScore cleanup];
     _labelScore = nil;
 
     [DelegateContainer unsubscribe];
@@ -245,7 +244,7 @@
     _gameManager = nil;
     [_pauseView cleanup];
     _pauseView = nil;
-    [_timerLabel cleanup];
+    //[_timerLabel cleanup];
     _timerLabel = nil;
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [super cleanup];

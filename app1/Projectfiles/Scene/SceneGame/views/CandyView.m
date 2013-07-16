@@ -130,6 +130,8 @@
 
 - (void)cleanup
 {
+    [_button stopAllActions];
+    //[_button removeFromParentAndCleanup:YES];
     _button = nil;
     _representsCandy = nil;
     _scene = nil;

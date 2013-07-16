@@ -41,11 +41,6 @@ static SharedHighScoreManager *_instance;
     return self;
 }
 
-- (void)dealloc
-{
-    [self cleanup];
-
-}
 
 - (void)cleanup
 {

@@ -34,7 +34,12 @@ static SceneBase *_currentScene = nil;
 
 + (void)setScene:(ESceneType)type
 {
-    [self performSelectorInBackground:@selector(_setScene:) withObject:[NSNumber numberWithInt:type]];
+    [self performSelectorOnMainThread:@selector(_setScene:) withObject:[NSNumber numberWithInt:type] waitUntilDone:YES];
+}
+
++ (void)setSceneWithNumber:(NSNumber*)t
+{
+    [self performSelectorOnMainThread:@selector(_setScene:) withObject:t waitUntilDone:YES];
 }
 
 + (void)_setScene:(NSNumber *)typeObj
@@ -46,7 +51,8 @@ static SceneBase *_currentScene = nil;
         [_currentScene _startLoading];
         [_currentScene _clearScene];
 
-        [_currentScene cleanup];//TODO: CHECK
+        //[_sceneToClean cleanup];//TODO: CHECK
+
         _currentScene = nil;
     }
 
@@ -78,6 +84,8 @@ static SceneBase *_currentScene = nil;
 
     [[CCDirector sharedDirector] runningScene] == nil ? [[CCDirector sharedDirector] runWithScene:scene]
             : [[CCDirector sharedDirector] replaceScene:scene];
+
+
 
     [_currentScene loadResources];
 
@@ -118,6 +126,7 @@ static SceneBase *_currentScene = nil;
     [_currentScene performSelectorOnMainThread:selectorPlaceViews withObject:nil waitUntilDone:YES];
 
     [_currentScene _endLoading];
+
 }
 
 
@@ -168,11 +177,11 @@ static SceneBase *_currentScene = nil;
 {
     @autoreleasepool
     {
-        [[CCDirector sharedDirector].touchDispatcher removeAllDelegates];
-
-        [self stopAllActions];
+        //[[CCDirector sharedDirector].touchDispatcher removeAllDelegates];
 
         [self removeFromParentAndCleanup:YES];
+
+        [self stopAllActions];
 
         [[CCTextureCache sharedTextureCache] removeAllTextures];
     }

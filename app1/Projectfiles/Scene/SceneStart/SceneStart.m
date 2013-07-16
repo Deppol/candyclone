@@ -153,9 +153,9 @@ instance methods
 }
 -(void)cleanup
 {
-    [_labelForScore cleanup];
+    //[_labelForScore cleanup];
     _labelForScore = nil;
-    [_labelForTittle cleanup];
+    //[_labelForTittle cleanup];
     _labelForTittle = nil;
     _topScores = nil;
     [_startGame cleanup];

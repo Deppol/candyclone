@@ -114,11 +114,6 @@
     [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:1 swallowsTouches:self.swallowsTouches];
 }
 
-- (void)dealloc
-{
-    [self cleanup];
-}
-
 - (void)cleanup
 {
     _delegate = nil;

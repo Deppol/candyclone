@@ -21,6 +21,8 @@
 //! Set current scene
 + (void)setScene:(ESceneType)type;
 
++ (void)setSceneWithNumber:(NSNumber*)type;
+
 //! Default creator for scene. Need override in derived classes.
 + (SceneBase *)createScene;
 

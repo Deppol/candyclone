@@ -83,7 +83,8 @@
 
 - (void)cleanup
 {
-    [_button cleanup];
+    //[_button stopAllActions];
+    //[_button cleanup];
     _button = nil;
 }
 

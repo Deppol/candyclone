@@ -9,6 +9,42 @@
 
 
 @implementation ConstantsStatic
+
++ (NSUInteger)fieldSize
+{
+    return 7;
+}
+
++ (NSUInteger)pointsOneCandy
+{
+    return 30;
+}
+
++ (CGFloat)animationTimeSwap
+{
+    return 0.4f;
+}
+
++ (CGFloat)animationTimeBonus
+{
+    return 0.2f;
+}
+
++ (CGFloat)animatiopnTimeLineDrop
+{
+    return 0.9f;
+}
+
++ (CGFloat)candyVisibleSize
+{
+    return 40.0f;
+}
+
++ (NSInteger)gameTime
+{
+    return 240;
+}
+
 /*
  * For SharedHighScoreManager
  */
@@ -21,6 +57,7 @@
 {
     return [NSNumber numberWithInt:5];
 }
+
 /*
  * Fonts
  */
@@ -31,19 +68,16 @@
 
 + (NSString *)gameTittle
 {
-    NSString* temp = [[NSString alloc] initWithString:@"Candy Clone"];
-    return temp;
+    return @"Candy Clone";
 }
 
 + (NSString *)newGameConst
 {
-    NSString* temp = [[NSString alloc] initWithString:@"New Game"];
-    return temp;
+    return @"New Game";
 }
 
 + (NSString *)highScoreConst
 {
-    NSString* temp = [[NSString alloc] initWithString:@"High Scores"];
-    return temp;
+    return @"High Scores";
 }
 @end

@@ -1,7 +1,7 @@
 #ifndef E_CANDY_BONUS_TYPE
 #define E_CANDY_BONUS_TYPE
 
-enum ECandyBonusType
+typedef enum
 {
 	ECBT_NOTHING = 0,
 	ECBT_VERTICAL_LINE,
@@ -10,6 +10,6 @@ enum ECandyBonusType
 	ECBT_COLOR_BOMB,
 
 	ECBT_COUNT
-};
+}ECandyBonusType ;
 
 #endif

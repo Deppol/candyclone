@@ -64,6 +64,7 @@ static SharedHighScoreManager *_instance;
             break;
         }
     }
+
     [self _save];
 }
 

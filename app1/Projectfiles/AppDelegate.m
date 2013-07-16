@@ -25,7 +25,6 @@
     {//init singletons
         [SimpleAudioEngine sharedEngine];
 
-
         [SharedHighScoreManager shared];
     }
 

@@ -7,19 +7,19 @@
 
 #import <Foundation/Foundation.h>
 #import "ECandyColor.h"
-#import "CandyBonus.h"
+#import "CandyBonusBase.h"
 
 
 @interface Candy : NSObject
 
 //properties
 
-@property(readonly) enum ECandyColor color;
-@property(nonatomic, readonly) CandyBonus *bonus;
+@property(nonatomic, readonly) ECandyColor color;
+@property(nonatomic, readonly) CandyBonusBase *bonus;
 @property BOOL isMarked;
 
 //Designated initializer
-- (Candy *)initWithColorAndBonus:(enum ECandyColor)candyColor Bonus:(enum ECandyBonusType)candyBonusType;
+- (Candy *)initWithColorAndBonus:(ECandyColor)candyColor Bonus:(ECandyBonusType)candyBonusType;
 
 //methods
 

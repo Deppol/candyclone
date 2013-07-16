@@ -6,15 +6,16 @@
 
 
 #import <Foundation/Foundation.h>
-#import "CandyBonus.h"
+#import "CandyBonusBase.h"
 
 
-@interface CandyBonusHorizontalLine : CandyBonus
+@interface CandyBonusHorizontalLine : CandyBonusBase
 
 //properties
+@property (nonatomic, readonly) ECandyBonusType type;
 
 //designated initializer
-- (CandyBonus *)initWithOwner:(Candy *)owner;
+- (CandyBonusBase *)initWithOwner:(Candy *)owner;
 
 //methods
 

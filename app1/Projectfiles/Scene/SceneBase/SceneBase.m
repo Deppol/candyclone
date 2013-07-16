@@ -21,7 +21,6 @@
 }
 
 
-
 /*
  * Static functions
  */
@@ -47,10 +46,9 @@ static SceneBase *_currentScene = nil;
         [_currentScene _startLoading];
         [_currentScene _clearScene];
 
-        [_currentScene cleanup];//CHECK
+        [_currentScene cleanup];//TODO: CHECK
         _currentScene = nil;
     }
-
 
     switch (type)
     {
@@ -78,36 +76,34 @@ static SceneBase *_currentScene = nil;
 
     [scene addChild:_currentScene];
 
-    //[[CCDirector sharedDirector] stop];
-
-    if ([[CCDirector sharedDirector] runningScene] == nil)
-        [[CCDirector sharedDirector] runWithScene:scene];
-    else
-        [[CCDirector sharedDirector] replaceScene:scene];
+    [[CCDirector sharedDirector] runningScene] == nil ? [[CCDirector sharedDirector] runWithScene:scene]
+            : [[CCDirector sharedDirector] replaceScene:scene];
 
     [_currentScene loadResources];
 
     [_currentScene performSelectorOnMainThread:@selector(prepare) withObject:nil waitUntilDone:YES];
+
+    SEL selectorPlaceViews = nil;
 
     switch ([SharedDeviceHelper shared].deviceType)
     {
         case EDT_IPHONE:
         case EDT_IPHONE_RETINA:
         {
-            [_currentScene performSelectorOnMainThread:@selector(placeViewsiPhone) withObject:nil waitUntilDone:YES];
+            selectorPlaceViews = @selector(placeViewsiPhone);
 
             break;
         }
         case EDT_IPHONE_RETINA_WIDE:
         {
-            [_currentScene performSelectorOnMainThread:@selector(placeViewsiPhoneWide) withObject:nil waitUntilDone:YES];
+            selectorPlaceViews = @selector(placeViewsiPhoneWide);
 
             break;
         }
         case EDT_IPAD:
         case EDT_IPAD_RETINA:
         {
-            [_currentScene performSelectorOnMainThread:@selector(placeViewsiPad) withObject:nil waitUntilDone:YES];
+            selectorPlaceViews = @selector(placeViewsiPad);
 
             break;
         }
@@ -119,6 +115,8 @@ static SceneBase *_currentScene = nil;
         }
     }
 
+    [_currentScene performSelectorOnMainThread:selectorPlaceViews withObject:nil waitUntilDone:YES];
+
     [_currentScene _endLoading];
 }
 
@@ -127,12 +125,10 @@ static SceneBase *_currentScene = nil;
 {
     NSLog(@"BEGIN LOADING");
     [self _reportMemory];
-
 }
 
 - (void)_endLoading
 {
-
     [self _reportMemory];
     NSLog(@"END LOADING");
 }
@@ -179,8 +175,6 @@ static SceneBase *_currentScene = nil;
         [self removeFromParentAndCleanup:YES];
 
         [[CCTextureCache sharedTextureCache] removeAllTextures];
-
-
     }
 }
 
@@ -205,7 +199,7 @@ static SceneBase *_currentScene = nil;
 
 - (void)cleanup
 {
-
+    [super cleanup];
 }
 
 

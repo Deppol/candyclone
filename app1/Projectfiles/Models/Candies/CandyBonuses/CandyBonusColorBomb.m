@@ -16,25 +16,44 @@
 
 }
 
-//designated initializer
-- (CandyBonus *)initWithOwner:(Candy *)owner
+/*
+ * Properties
+ */
+- (ECandyBonusType)type
 {
-	NSAssert(owner != nil, @"CandyBonus owner nust not be nil");
-	_type = ECBT_COLOR_BOMB;
-    _owner = owner;
-	return self;
+    return ECBT_COLOR_BOMB;
 }
 
-//methods
+/*
+ * Methods
+ */
+
+//designated initializer
+- (CandyBonusBase *)initWithOwner:(Candy *)owner
+{
+    self = [super initWithOwner:owner];
+
+    if (self)
+    {
+
+    }
+
+    return self;
+}
+
+/*
+ * Methods
+ */
 
 - (void)activateBonus
 {
     [super activateBonus];
 
-	SceneBase *scene = [SceneBase currentScene];
-	NSAssert(scene.type ==  EST_GAME, @"Attempt to activate bonus in non-game scene");
-	GameManager *gameManager = ((SceneGame *) scene).gameManager;
-	[gameManager markColor:_owner.color];
+    SceneGame *scene = (SceneGame *) [SceneBase currentScene];
+
+    GameManager *gameManager = scene.gameManager;
+
+    [gameManager markColor:self.owner.color];
 }
 
 @end

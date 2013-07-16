@@ -19,6 +19,7 @@
     BOOL _stateSound;
     EButtonServiceType _serviceType;
 }
+
 -(id)initWithType:(EButtonServiceType)type
 {
     self = [super init];
@@ -41,13 +42,13 @@
             }
             case EBST_SOUND:
             {
-                _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
+                _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager buttonSoundOn]]];
                 _stateSound = YES;
                 break;
             }
             case EBST_PAUSE:
             {
-                _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager getPause]]];
+                _button = [[CCButton alloc] initWithCCSprite:[CCSprite spriteWithFile:[ResourceManager buttonPause]]];
                 break;
             }
             case EBST_RESTART:
@@ -157,7 +158,7 @@
         _stateSound = YES;
         [[SimpleAudioEngine sharedEngine] setEffectsVolume:1.0f];
         [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1.0f];
-        [self.button addCCSprite:[CCSprite spriteWithFile:[ResourceManager getSoundOn]]];
+        [self.button addCCSprite:[CCSprite spriteWithFile:[ResourceManager buttonSoundOn]]];
     }
 }
 @end

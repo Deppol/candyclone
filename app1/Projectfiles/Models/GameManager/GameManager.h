@@ -12,9 +12,6 @@
 
 
 @interface GameManager : NSObject
-{
-
-}
 
 //properties
 
@@ -30,7 +27,7 @@
 
 - (void)markCandyByIndex:(NSUInteger)index;
 
-- (void)markColor:(enum ECandyColor)candyColor;
+- (void)markColor:(ECandyColor)candyColor;
 
 - (void)cleanup;
 

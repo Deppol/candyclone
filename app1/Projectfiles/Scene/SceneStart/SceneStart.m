@@ -7,7 +7,7 @@
 #import "SceneStart.h"
 #import "ConstantsStatic.h"
 #import "CCButton.h"
-#import "MyConstants.h"
+
 #import "SharedHighScoreManager.h"
 #import "ResourceManager.h"
 #import "ServiceView.h"

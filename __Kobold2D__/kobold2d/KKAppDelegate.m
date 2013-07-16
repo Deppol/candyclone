@@ -299,7 +299,7 @@
 	// Setup director
 	director = (CCDirectorIOS*)[CCDirector sharedDirector];
 	director.wantsFullScreenLayout = !config.enableStatusBar;
-	director.displayStats = config.displayFPS;
+	director.displayStats = NO;
 	director.animationInterval = 1.0f / config.maxFrameRate;
 	[[UIAccelerometer sharedAccelerometer] setUpdateInterval:director.animationInterval];
 	

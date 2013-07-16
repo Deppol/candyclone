@@ -10,7 +10,6 @@
 #import "GameManager.h"
 #import "ServiceView.h"
 #import "CCButton.h"
-#import "MyConstants.h"
 #import "Candy.h"
 #import "CandyView.h"
 #import "cpConstraintNode.h"
@@ -22,21 +21,21 @@
 
 @implementation SceneGame
 {
-    NSMutableArray* scene;
-    NSMutableArray* _candies;
+    NSMutableArray *scene;
+    NSMutableArray *_candies;
 
-    ServiceView * _sound;
-    ServiceView * _returnToMainMenu;
-    ServiceView * _buttonPause;
-    ServiceView * _buttonRestart;
+    ServiceView *_buttonSound;
+    ServiceView *_buttonReturnToMainMenu;
+    ServiceView *_buttonPause;
+    ServiceView *_buttonRestart;
 
-	CCSprite *_background;
-	CCSprite *_backgroundField;
-    PauseView* _pauseView;
-    CCLabelTTF * _timerLabel;
-    CCLabelTTF * _score;
+    CCSprite *_background;
+    CCSprite *_backgroundField;
+    PauseView *_pauseView;
+    CCLabelTTF *_timerLabel;
+    CCLabelTTF *_labelScore;
 
-    NSInteger timeRemained;
+    NSInteger _timeRemained;
 }
 /*
  * Static
@@ -78,20 +77,19 @@
 {
     [super prepare];
 
-	_background = [CCSprite spriteWithFile:[ResourceManager getBackground]];
-	[self addChild:_background];
+    _background = [CCSprite spriteWithFile:[ResourceManager getBackground]];
+    [self addChild:_background];
 
-	_backgroundField = [CCSprite spriteWithFile:[ResourceManager getBackgroundField]];
-	[self addChild:_backgroundField];
+    _backgroundField = [CCSprite spriteWithFile:[ResourceManager getBackgroundField]];
+    [self addChild:_backgroundField];
 
-    //init sound button
-    _sound = [ServiceView createViewWithType:EBST_SOUND];
-    [self addChild:_sound.button];
+    _buttonSound = [ServiceView createViewWithType:EBST_SOUND];
+    [self addChild:_buttonSound.button];
 
     //init return_to_main_menu button
 
-    _returnToMainMenu = [ServiceView createViewWithType:EBST_RETURN_TO_MAIN_MENU];
-    [self addChild:_returnToMainMenu.button];
+    _buttonReturnToMainMenu = [ServiceView createViewWithType:EBST_RETURN_TO_MAIN_MENU];
+    [self addChild:_buttonReturnToMainMenu.button];
 
     //init pause button
 
@@ -102,33 +100,35 @@
     _buttonRestart = [ServiceView createViewWithType:EBST_RESTART];
     [self addChild:_buttonRestart.button];
 
-    _score = [[CCLabelTTF alloc] initWithString:@"0"
-                                 fontName:[ConstantsStatic buttonsFontName]
-                                 fontSize:45];
-    [self addChild:_score];
+    _labelScore = [[CCLabelTTF alloc] initWithString:@"0"
+                                            fontName:[ConstantsStatic buttonsFontName]
+                                            fontSize:45];
+    [self addChild:_labelScore];
 
     [self _initGameObjects];
 
-    _candies = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
+    _candies = [NSMutableArray arrayWithCapacity:[ConstantsStatic fieldSize] * [ConstantsStatic fieldSize]];
 
-    for(NSUInteger i = 0; i<FIELD_SIZE; i++)
-        for(NSUInteger j = 0; j<FIELD_SIZE; j++)
+    for (NSUInteger i = 0; i < [ConstantsStatic fieldSize]; i++)
+    {
+        for (NSUInteger j = 0; j < [ConstantsStatic fieldSize]; j++)
         {
-            CandyView* v = [[CandyView alloc] initWithCandy:[_gameManager.candies objectAtIndex:i*FIELD_SIZE+j] scene:self];
-            [_candies insertObject:v atIndex:i*FIELD_SIZE+j];
+            CandyView *v = [[CandyView alloc] initWithCandy:[_gameManager.candies objectAtIndex:i * [ConstantsStatic fieldSize] + j] scene:self];
+            [_candies insertObject:v atIndex:i * [ConstantsStatic fieldSize] + j];
             [self addChild:v.button];
         }
+    }
 
-    _pauseView = [[PauseView alloc]init];
+    _pauseView = [[PauseView alloc] init];
 
     [self addChild:_pauseView.button];
 
-    _timerLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d:%d",GAME_TIME/60, GAME_TIME%60]
-                                           fontName:[ConstantsStatic buttonsFontName]
-                                           fontSize:25];
+    _timerLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d:%d", [ConstantsStatic gameTime] / 60, [ConstantsStatic gameTime] % 60]
+                                     fontName:[ConstantsStatic buttonsFontName]
+                                     fontSize:25];
     [self addChild:_timerLabel];
 
-    timeRemained = GAME_TIME;
+    _timeRemained = [ConstantsStatic gameTime];
 
     [self schedule:@selector(_timerTick) interval:1.0f repeat:kCCRepeatForever delay:1.0f];
 
@@ -140,107 +140,111 @@
 - (void)_initGameObjects
 {
     _gameManager = [[GameManager alloc] init];
-
 }
 
 - (void)placeViewsiPhone
 {
     //place service button
-    _sound.button.position = ccp(30, 450);
-    _returnToMainMenu.button.position = ccp(120,450);
-    _buttonPause.button.position = ccp(90,450);
-    _buttonRestart.button.position = ccp(60,450);
+    _buttonSound.button.position = ccp(30, 450);
+    _buttonReturnToMainMenu.button.position = ccp(120, 450);
+    _buttonPause.button.position = ccp(90, 450);
+    _buttonRestart.button.position = ccp(60, 450);
 
     //place the score
-    _score.anchorPoint = ccp(0,0);
-    _score.position = ccp(160,420);
+    _labelScore.anchorPoint = ccp(0, 0);
+    _labelScore.position = ccp(160, 420);
 
-	_background.anchorPoint = CGPointMake(0.0f, 0.0f);
+    _background.anchorPoint = CGPointMake(0.0f, 0.0f);
 
-	_backgroundField.anchorPoint = CGPointMake(0.5f, 0.5f);
-	_backgroundField.position = [self _calculatePositionByIndex:FIELD_SIZE * FIELD_SIZE / 2];
-	_backgroundField.scale = 0.5f;
+    _backgroundField.anchorPoint = CGPointMake(0.5f, 0.5f);
+    _backgroundField.position = [self _calculatePositionByIndex:[ConstantsStatic fieldSize] * [ConstantsStatic fieldSize] / 2];
+    _backgroundField.scale = 0.5f;
 
-	for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-		for (NSUInteger j = 0; j < FIELD_SIZE; j++)
-		{
-			[[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
-            CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
-            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
+    for (NSUInteger i = 0; i < [ConstantsStatic fieldSize]; i++)
+        for (NSUInteger j = 0; j < [ConstantsStatic fieldSize]; j++)
+        {
+            [[[_candies objectAtIndex:i * [ConstantsStatic fieldSize] + j] button] setSquare:[ConstantsStatic candyVisibleSize]];
+            CGPoint point = [self _calculatePositionByIndex:i * [ConstantsStatic fieldSize] + j];
+            [[[_candies objectAtIndex:i * [ConstantsStatic fieldSize] + j] button] setPosition:point];
         }
     [_gameManager doInitialUpdate];
 
     _pauseView.button.position = [[CCDirector sharedDirector] screenCenter];
 
-    _timerLabel.position = ccp([[CCDirector sharedDirector] screenCenter].x,22);
+    _timerLabel.position = ccp([[CCDirector sharedDirector] screenCenter].x, 22);
 }
 
 - (void)placeViewsiPhoneWide
 {
-    //place serive buttons
-    _sound.button.scale = 2.0f;
-    _sound.button.position = ccp(30, 538);
+    {//buttons
+        _buttonSound.button.scale = 2.0f;
+        _buttonSound.button.position = ccp(30, 538);
 
-    _returnToMainMenu.button.scale = 2.0f;
-    _returnToMainMenu.button.position = ccp(120,538);
+        _buttonReturnToMainMenu.button.scale = 2.0f;
+        _buttonReturnToMainMenu.button.position = ccp(120, 538);
 
-    _buttonPause.button.scale = 2.0f;
-    _buttonPause.button.position = ccp(90,538);
+        _buttonPause.button.scale = 2.0f;
+        _buttonPause.button.position = ccp(90, 538);
+
+        _buttonRestart.button.scale = 2.0f;
+        _buttonRestart.button.position = ccp(90, 538);
+    }
 
     _background.anchorPoint = CGPointMake(0.0f, 0.0f);
     _background.scale = 2.0f;
 
-    _score.scale = 2.0f;
-    _score.anchorPoint = ccp(0,0);
-    _score.position = ccp(160,508);
+    _labelScore.scale = 2.0f;
+    _labelScore.anchorPoint = ccp(0, 0);
+    _labelScore.position = ccp(160, 508);
 
     _backgroundField.anchorPoint = CGPointMake(0.5f, 0.5f);
-    _backgroundField.position = [self _calculatePositionByIndex:FIELD_SIZE * FIELD_SIZE / 2];
+    _backgroundField.position = [self _calculatePositionByIndex:[ConstantsStatic fieldSize] * [ConstantsStatic fieldSize] / 2];
     _backgroundField.scale = 1.0f;
 
-    _buttonRestart.button.scale = 2.0f;
-    _buttonRestart.button.position = ccp(90,538);
 
-    for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-        for (NSUInteger j = 0; j < FIELD_SIZE; j++)
+    for (NSUInteger i = 0; i < [ConstantsStatic fieldSize]; i++)
+        for (NSUInteger j = 0; j < [ConstantsStatic fieldSize]; j++)
         {
-            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setSquare:CANDY_VISIBLE_SIZE];
-            CGPoint point = [self _calculatePositionByIndex:i*FIELD_SIZE+j];
-            [[[_candies objectAtIndex:i * FIELD_SIZE + j] button] setPosition:point];
+            [[[_candies objectAtIndex:i * [ConstantsStatic fieldSize] + j] button] setSquare:[ConstantsStatic candyVisibleSize]];
+            CGPoint point = [self _calculatePositionByIndex:i * [ConstantsStatic fieldSize] + j];
+            [[[_candies objectAtIndex:i * [ConstantsStatic fieldSize] + j] button] setPosition:point];
         }
     [_gameManager doInitialUpdate];
 
 
     _pauseView.button.position = [[CCDirector sharedDirector] screenCenter];
 
-    _timerLabel.position = ccp([[CCDirector sharedDirector] screenCenter].x,22);
+    _timerLabel.position = ccp([[CCDirector sharedDirector] screenCenter].x, 22);
 }
 
 - (void)cleanup
 {
-    [_sound cleanup];
-    _sound = nil;
-    [_returnToMainMenu cleanup];
-    _returnToMainMenu = nil;
+    [_buttonSound cleanup];
+    _buttonSound = nil;
+    [_buttonReturnToMainMenu cleanup];
+    _buttonReturnToMainMenu = nil;
     [_buttonPause cleanup];
     _buttonPause = nil;
-	[_background cleanup];
-	_background = nil;
-	[_backgroundField cleanup];
-	_backgroundField = nil;
+    [_background cleanup];
+    _background = nil;
+    [_backgroundField cleanup];
+    _backgroundField = nil;
     [_buttonRestart cleanup];
     _buttonRestart = nil;
 
-    [_score cleanup];
-    _score = nil;
+    [_labelScore cleanup];
+    _labelScore = nil;
 
     [DelegateContainer unsubscribe];
-    for (NSUInteger i = 0; i < FIELD_SIZE; i++)
-        for (NSUInteger j = 0; j < FIELD_SIZE; j++)
+    for (NSUInteger i = 0; i < [ConstantsStatic fieldSize]; i++)
+    {
+        for (NSUInteger j = 0; j < [ConstantsStatic fieldSize]; j++)
         {
-            [_candies[i*FIELD_SIZE + j] cleanup];
-            [_candies insertObject:[NSNull null] atIndex:i * FIELD_SIZE + j];
+            [_candies[i * [ConstantsStatic fieldSize] + j] cleanup];
+            [_candies insertObject:[NSNull null] atIndex:i * [ConstantsStatic fieldSize] + j];
         }
+    }
+
     _candies = nil;
     [_gameManager cleanup];
     _gameManager = nil;
@@ -252,7 +256,7 @@
     [super cleanup];
 }
 
--(void)select:(CandyView*) v
+- (void)select:(CandyView *)v
 {
     [_gameManager candyClick:v.representsCandy];
 }
@@ -269,22 +273,20 @@
     NSUInteger index1 = [_gameManager getIndexOf:candy1];
     NSUInteger index2 = [_gameManager getIndexOf:candy2];
 
-    CandyView* v1 = [_candies objectAtIndex:index1];
-    CandyView* v2 = [_candies objectAtIndex:index2];
+    CandyView *v1 = [_candies objectAtIndex:index1];
+    CandyView *v2 = [_candies objectAtIndex:index2];
 
-    if(v1 == nil || v2 == nil)return;
     CGPoint p1 = v1.button.position;
     CGPoint p2 = v2.button.position;
 
-    CCMoveTo* a1 = [CCMoveTo actionWithDuration:SWAP_ANIMATION_TIME position:p2];
-    CCMoveTo* a2 = [CCMoveTo actionWithDuration:SWAP_ANIMATION_TIME position:p1];
+    CCMoveTo *a1 = [CCMoveTo actionWithDuration:[ConstantsStatic animationTimeSwap] position:p2];
+    CCMoveTo *a2 = [CCMoveTo actionWithDuration:[ConstantsStatic animationTimeSwap] position:p1];
 
     [_candies replaceObjectAtIndex:index1 withObject:v2];
     [_candies replaceObjectAtIndex:index2 withObject:v1];
 
     [v1.button runAction:a1];
     [v2.button runAction:a2];
-
 }
 
 
@@ -297,14 +299,15 @@
 {
     [[_candies objectAtIndex:[_gameManager getIndexOf:candy]] deactivate];
 }
-- (void)AddBonus:(Candy*)candyBonus
+
+- (void)AddBonus:(Candy *)candyBonus
 {
     NSUInteger pos = [_gameManager getIndexOf:candyBonus];
     CandyView *newCandy = [[CandyView alloc] initWithCandy:candyBonus scene:self];
 
     [_candies replaceObjectAtIndex:pos withObject:newCandy];
     CGPoint point = [self _calculatePositionByIndex:pos];
-    [[[_candies objectAtIndex:pos] button] setSquare:CANDY_VISIBLE_SIZE];
+    [[[_candies objectAtIndex:pos] button] setSquare:[ConstantsStatic candyVisibleSize]];
     [[[_candies objectAtIndex:pos] button] setPosition:point];
     [self addChild:newCandy.button];
 
@@ -312,13 +315,13 @@
 
 - (void)FallFromOutside:(Candy *)candy point:(NSUInteger)to
 {
-    CandyView* v = [[CandyView alloc] initWithCandy:candy scene:self];
+    CandyView *v = [[CandyView alloc] initWithCandy:candy scene:self];
     [self addChild:v.button];
     v.button.position = [self _calculatePositionOnTopOfTheField:to];
-    [v.button setSquare:CANDY_VISIBLE_SIZE];
+    [v.button setSquare:[ConstantsStatic candyVisibleSize]];
     CGPoint point = [self _calculatePositionByIndex:to];
-    //CGPoint point = [self _calculatePositionByIndex:to];CGPoint point = CGPointMake(22+(NSUInteger)(to%FIELD_SIZE)*45,22 + (FIELD_SIZE - (NSUInteger)(to/FIELD_SIZE) - 1) * 50);
-    CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:LINE_DROP_ANIMATION_TIME position:point];
+
+    CCMoveTo *moveCandy = [CCMoveTo actionWithDuration:[ConstantsStatic animatiopnTimeLineDrop] position:point];
 
     [v.button runAction:moveCandy];
 
@@ -329,62 +332,68 @@
 - (void)FallFromField:(Candy *)candy point:(NSUInteger)to
 {
     CGPoint point = [self _calculatePositionByIndex:to];
-    //CGPoint point = CGPointMake(22+(to%FIELD_SIZE)*45,22+(FIELD_SIZE - to/FIELD_SIZE - 1) * 50);
-    CCMoveTo* moveCandy = [CCMoveTo actionWithDuration:LINE_DROP_ANIMATION_TIME position:point];
+
+    CCMoveTo *moveCandy = [CCMoveTo actionWithDuration:[ConstantsStatic animatiopnTimeLineDrop] position:point];
     NSUInteger curpos = [_gameManager getIndexOf:candy];
-    CandyView* v = _candies[curpos];
+    CandyView *v = _candies[curpos];
 
     [v.button runAction:moveCandy];
 
     _candies[to] = v;
 }
--(CGPoint)_calculatePositionByIndex:(NSUInteger)index
+
+- (CGPoint)_calculatePositionByIndex:(NSUInteger)index
 {
-    return ccp((index%FIELD_SIZE+0.5)*320.0/FIELD_SIZE,65+(FIELD_SIZE - index/FIELD_SIZE - 1) * 50);
+    return ccp((index % [ConstantsStatic fieldSize] + 0.5) * 320.0 / [ConstantsStatic fieldSize], 65 + ([ConstantsStatic fieldSize] - index / [ConstantsStatic fieldSize] - 1) * 50);
 
 }
--(CGPoint)_calculatePositionOnTopOfTheField:(NSUInteger)index
+
+- (CGPoint)_calculatePositionOnTopOfTheField:(NSUInteger)index
 {
-    return ccp((index%FIELD_SIZE+0.5)*320.0/FIELD_SIZE,65+ FIELD_SIZE * 50);
+    return ccp((index % [ConstantsStatic fieldSize] + 0.5) * 320.0 / [ConstantsStatic fieldSize], 65 + [ConstantsStatic fieldSize] * 50);
 }
--(CandyView*)getCandyViewForPosition:(NSUInteger)pos
+
+- (CandyView *)getCandyViewForPosition:(NSUInteger)pos
 {
     return _candies[pos];
 }
--(void)setTime:(NSString*)time
+
+- (void)setTime:(NSString *)time
 {
     [_timerLabel setString:time];
 }
--(void)showPause
+
+- (void)showPause
 {
-    if(!_gameManager.animationIsRunning)
+    if (!_gameManager.animationIsRunning)
     {
         [self reorderChild:_pauseView.button z:0];
         [self unschedule:@selector(_timerTick)];
         [_pauseView showPause];
     }
 }
--(void)unshowPause
+
+- (void)unshowPause
 {
-    if(!_gameManager.animationIsRunning)
+    if (!_gameManager.animationIsRunning)
     {
         [self schedule:@selector(_timerTick) interval:1.0f repeat:kCCRepeatForever delay:1.0f];
     }
 }
 
--(void)_timerTick
+- (void)_timerTick
 {
-        if (timeRemained>0)
-        {
-            timeRemained--;
-            [_score setString:[NSString stringWithFormat:@"%d",[_gameManager getScore],nil]];
-            [self setTime:[NSString stringWithFormat:@"%d:%d", timeRemained / 60, timeRemained % 60]];
-        }
-        else
-        {
-            [_gameManager finishGame];
-            [self unschedule:@selector(_timerTick)];
-        }
+    if (_timeRemained > 0)
+    {
+        _timeRemained--;
+        [_labelScore setString:[NSString stringWithFormat:@"%d", [_gameManager getScore]]];
+        [self setTime:[NSString stringWithFormat:@"%d:%d", _timeRemained / 60, _timeRemained % 60]];
+    }
+    else
+    {
+        [_gameManager finishGame];
+        [self unschedule:@selector(_timerTick)];
+    }
 }
 
 @end

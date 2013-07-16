@@ -8,20 +8,26 @@
 #import "CandyBonusVerticalLine.h"
 #import "SceneGame.h"
 #import "GameManager.h"
-#import "MyConstants.h"
+#import "ConstantsStatic.h"
 
 @implementation CandyBonusVerticalLine
-{
 
+- (ECandyBonusType)type
+{
+    return ECBT_VERTICAL_LINE;
 }
 
 //designated initializer
-- (CandyBonus *)initWithOwner:(Candy *)owner
+- (id)initWithOwner:(Candy *)owner
 {
-	NSAssert(owner != nil, @"CandyBonus owner nust not be nil");
-	_type = ECBT_VERTICAL_LINE;
-    _owner = owner;
-	return self;
+    self = [super initWithOwner:owner];
+
+    if (self)
+    {
+
+    }
+
+    return self;
 }
 
 //methods
@@ -30,13 +36,17 @@
 {
     [super activateBonus];
 
-	SceneBase *scene = [SceneBase currentScene];
-	NSAssert(scene.type == EST_GAME, @"Attempt to activate bonus in non-game scene");
-	GameManager *gameManager = ((SceneGame *) scene).gameManager;
-	NSUInteger index = [gameManager getIndexOf:_owner];
-	index %= FIELD_SIZE;
-	for (NSUInteger i = 0; i < FIELD_SIZE; ++i)
-		[gameManager markCandyByIndex:i * FIELD_SIZE + index];
+    SceneGame *scene = (SceneGame *) [SceneBase currentScene];
+
+    GameManager *gameManager = scene.gameManager;
+    NSUInteger index = [gameManager getIndexOf:self.owner];
+
+    index %= [ConstantsStatic fieldSize];
+
+    for (NSUInteger i = 0; i < [ConstantsStatic fieldSize]; ++i)
+    {
+        [gameManager markCandyByIndex:i * [ConstantsStatic fieldSize] + index];
+    }
 }
 
 @end

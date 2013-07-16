@@ -6,15 +6,15 @@
 
 
 #import <Foundation/Foundation.h>
-#import "CandyBonus.h"
+#import "CandyBonusBase.h"
 
 
-@interface CandyBonusColorBomb : CandyBonus
+@interface CandyBonusColorBomb : CandyBonusBase
 
 //properties
 
 //designated initializer
-- (CandyBonus *)initWithOwner:(Candy *)owner;
+- (CandyBonusBase *)initWithOwner:(Candy *)owner;
 
 //methods
 

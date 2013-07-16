@@ -15,15 +15,15 @@
 
 + (NSString *)getBackgroundField;
 
-+ (NSString *)getSoundOn;
++ (NSString *)buttonSoundOn;
 
 + (NSString *)getSoundOff;
 
-+ (NSMutableArray *)getCandyImage:(enum ECandyColor)color type:(enum ECandyBonusType)type;
++ (NSMutableArray *)getCandyImage:(ECandyColor)color type:(ECandyBonusType)type;
 
 + (NSString *)getCandySelector;
 
-+ (NSString *)getPause;
++ (NSString *)buttonPause;
 
 
 + (NSString *)getBackgroundMusic;

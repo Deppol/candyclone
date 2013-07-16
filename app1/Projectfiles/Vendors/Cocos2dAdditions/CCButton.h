@@ -45,8 +45,6 @@ static CGFloat const OPACITY_HIDE = 0.0f;
 
 - (void)setSquare:(CGFloat)s;
 
--(void)addCCNodeRGBA:(CCNodeRGBA*)sprite;
-
 /*
  * CCTouchOneByOneDelegate
  */

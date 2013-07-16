@@ -8,7 +8,6 @@
 #import "DelegateContainer.h"
 #import "BonusDelegate.h"
 #import "Candy.h"
-#import "SceneGame.h"
 
 
 @implementation DelegateContainer
@@ -16,56 +15,69 @@
 
 }
 
-static id<BonusDelegate> _delegate = nil;
+static id <BonusDelegate> _delegate = nil;
 
-+(void)subscribe:(id <BonusDelegate>)delegate
++ (void)subscribe:(id <BonusDelegate>)delegate
 {
     _delegate = delegate;
 }
-+(void)unsubscribe
+
++ (void)unsubscribe
 {
     _delegate = nil;
 }
-+(void)__callBonusActivated:(Candy*)candy
+
++ (void)__callBonusActivated:(Candy *)candy
 {
     [_delegate BonusActivated:candy];
 };
-+(void)__callAddBonus:(Candy*)candy
+
+
++ (void)callBonusActivated:(Candy *)candy
 {
-    [_delegate AddBonus:candy];
-}
-+(void)callBonusActivated:(Candy*)candy
-{
-    if(_delegate!=nil)
+    if (_delegate != nil)
     {
         [self performSelectorOnMainThread:@selector(__callBonusActivated:) withObject:candy waitUntilDone:YES];
     }
 }
-+(void)callSwap:(Candy*)candy1 candy2:(Candy*)candy2
+
++ (void)callSwap:(Candy *)candy1 candy2:(Candy *)candy2
 {
-    if(_delegate!=nil) [_delegate Swap:candy1 candy2:candy2];
+    if (_delegate != nil) [_delegate Swap:candy1 candy2:candy2];
 }
-+(void)callSetSelection:(Candy*)candy
+
++ (void)callSetSelection:(Candy *)candy
 {
-    if(_delegate!=nil) [_delegate SetSelection:candy];
+    if (_delegate != nil) [_delegate SetSelection:candy];
 }
-+(void)callUnsetSelection:(Candy*)candy
+
++ (void)callUnsetSelection:(Candy *)candy
 {
-    if(_delegate!=nil) [_delegate UnsetSelection:candy];
+    if (_delegate != nil) [_delegate UnsetSelection:candy];
 }
-+(void)callAddBonus:(Candy* )candyBonus
+
++ (void)callAddBonus:(Candy *)candyBonus
 {
-    if(_delegate!=nil)
+    if (_delegate != nil)
     {
-        [self performSelectorOnMainThread:@selector(__callAddBonus:) withObject:candyBonus waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(_callAddBonus:) withObject:candyBonus waitUntilDone:YES];
     }
 }
-+(void)callFallFromOutside:(Candy*)candy point:(NSUInteger)to
+
++ (void)_callAddBonus:(Candy *)candy
 {
-    if(_delegate!=nil) [_delegate FallFromOutside:candy point:to];
+    [_delegate AddBonus:candy];
 }
-+(void)callFallFromField:(Candy*)candy point:(NSUInteger)to
+
++ (void)callFallFromOutside:(Candy *)candy point:(NSUInteger)to
 {
-    if(_delegate!=nil) [_delegate FallFromField:candy point:to];
+    if (_delegate != nil)
+        [_delegate FallFromOutside:candy point:to];
+}
+
++ (void)callFallFromField:(Candy *)candy point:(NSUInteger)to
+{
+    if (_delegate != nil)
+        [_delegate FallFromField:candy point:to];
 }
 @end

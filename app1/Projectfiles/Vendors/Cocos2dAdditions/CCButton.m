@@ -78,6 +78,7 @@
 - (id)initWithCCSprite:(CCSprite* ) sprite
 {
     self = [self init];
+
     if(self)
     {
         _rect = sprite.textureRect;
@@ -87,6 +88,7 @@
         sprite.position = ccp(0,0);
         [self addChild:sprite];
     }
+
     return self;
 }
 
@@ -101,16 +103,6 @@
     sprite.position = ccp(0,0);
     [self addChild:sprite];
 }
--(void)addCCNodeRGBA:(CCNodeRGBA*)sprite
-{
-    if([_children containsObject:sprite])
-        [self removeChild:sprite];
-    sprite.color = _colorSelf;
-    sprite.opacity = _opacity;
-    sprite.position = ccp(0,0);
-    [self addChild:sprite];
-}
-
 
 - (void)_prepareButton
 {

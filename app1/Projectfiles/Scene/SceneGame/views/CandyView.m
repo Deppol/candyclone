@@ -10,9 +10,8 @@
 #import "CCButton.h"
 #import "ResourceManager.h"
 #import "SceneGame.h"
-#import "CCSprite+Resize.h"
-#import "MyConstants.h"
 #import "GameManager.h"
+#import "ConstantsStatic.h"
 
 
 @implementation CandyView
@@ -25,6 +24,7 @@
 - (CandyView*)initWithCandy:(Candy *)candy scene:(SceneGame*)scene
 {
     self = [super init];
+
     if(self)
     {
         _representsCandy = candy;
@@ -35,7 +35,7 @@
 
         NSMutableArray* images = [ResourceManager getCandyImage:candy.color type:candy.bonus.type];
         _button = [[CCButton alloc] initWithCCSprite:_selector];
-	    [_button setSquare:CANDY_VISIBLE_SIZE];
+	    [_button setSquare:[ConstantsStatic candyVisibleSize]];
 	    _button.delegate = self;
         _button.box_x = -6;
         _button.box_y = -4;
@@ -56,8 +56,8 @@
         [_button addCCSprite:_selector];
         _selector.opacity = 0;
     }
-    return self;
 
+    return self;
 }
 
 -(void)deactivate
@@ -67,19 +67,18 @@
 
 - (void)activateBonus
 {
-
     switch (_representsCandy.bonus.type)
     {
         case ECBT_NOTHING:
         {
-            CCScaleTo* a1 = [CCScaleTo actionWithDuration:BONUS_ANIMATION_TIME scale:0.05];
+            CCScaleTo* a1 = [CCScaleTo actionWithDuration:[ConstantsStatic animationTimeBonus] scale:0.05];
             [_button runAction:a1];
             break;
         }
         case ECBT_HORIZONTAL_LINE:
         {
-            CCMoveBy* a1 = [CCMoveBy actionWithDuration:BONUS_ANIMATION_TIME position:ccp(-400,0)];
-            CCMoveBy* a2 = [CCMoveBy actionWithDuration:BONUS_ANIMATION_TIME position:ccp(400,0)];
+            CCMoveBy* a1 = [CCMoveBy actionWithDuration:[ConstantsStatic animationTimeBonus] position:ccp(-400,0)];
+            CCMoveBy* a2 = [CCMoveBy actionWithDuration:[ConstantsStatic animationTimeBonus] position:ccp(400,0)];
 
             [_image1 runAction:a1];
             [_image2 runAction:a2];
@@ -89,8 +88,8 @@
         }
         case ECBT_VERTICAL_LINE:
         {
-            CCMoveBy* a1 = [CCMoveBy actionWithDuration:BONUS_ANIMATION_TIME position:ccp(0,-400)];
-            CCMoveBy* a2 = [CCMoveBy actionWithDuration:BONUS_ANIMATION_TIME position:ccp(0,400)];
+            CCMoveBy* a1 = [CCMoveBy actionWithDuration:[ConstantsStatic animationTimeBonus] position:ccp(0,-400)];
+            CCMoveBy* a2 = [CCMoveBy actionWithDuration:[ConstantsStatic animationTimeBonus] position:ccp(0,400)];
 
             [_image1 runAction:a1];
             [_image2 runAction:a2];
@@ -99,9 +98,7 @@
         }
         case ECBT_BOMB:
         {
-            CCScaleBy* a = [CCScaleBy actionWithDuration:BONUS_ANIMATION_TIME scale:3.0f];
-
-            [_button runAction:a];
+            [_button runAction:[CCScaleBy actionWithDuration:[ConstantsStatic animationTimeBonus] scale:3.0f]];
 
             break;
         }
@@ -114,20 +111,21 @@
                     [[_scene getCandyViewForPosition:i] colorBombActivation];
                 }
             }
-            CCScaleTo* a1 = [CCScaleTo actionWithDuration:BONUS_ANIMATION_TIME scale:0.05];
-            [_button runAction:a1];
+
+            [_button runAction:[CCScaleTo actionWithDuration:[ConstantsStatic animationTimeBonus] scale:0.05]];
 
             break;
         }
         default:
         {
-            NSLog(@"WARNING: Impossible bonus detected");
+            NSAssert(NO, @"WARNING: Impossible bonus detected");
+            break;
         }
     }
-    [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:BONUS_ANIMATION_TIME];
+
+    [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:[ConstantsStatic animationTimeBonus]];
+
     [self cleanup];
-
-
 }
 
 - (void)cleanup
@@ -156,7 +154,9 @@
 - (void)didButtonTouchEnded:(CCButton *)button touch:(UITouch *)touch
 {
     if(!_scene.gameManager.animationIsRunning)
+    {
         [_scene select:self];
+    }
 }
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch

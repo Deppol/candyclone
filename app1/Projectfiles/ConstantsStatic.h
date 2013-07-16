@@ -10,6 +10,26 @@
 
 @interface ConstantsStatic : NSObject
 
+
+/*
+ * Game scene
+ */
+
++ (NSUInteger)fieldSize;
+
++ (NSUInteger)pointsOneCandy;
+
++ (CGFloat)animationTimeSwap;
+
++ (CGFloat)animationTimeBonus;
+
++ (CGFloat)animatiopnTimeLineDrop;
+
++ (CGFloat)candyVisibleSize;
+
++ (NSInteger)gameTime;
+
+
 /*
  * For SharedHighScoreManager
  */
@@ -24,9 +44,9 @@
 
 + (NSString *)buttonsFontName;
 
-+(NSString *) gameTittle;
++ (NSString *)gameTittle;
 
-+(NSString *) newGameConst;
++ (NSString *)newGameConst;
 
-+(NSString *) highScoreConst;
++ (NSString *)highScoreConst;
 @end

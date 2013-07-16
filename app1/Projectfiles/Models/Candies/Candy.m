@@ -14,53 +14,58 @@
 
 
 @implementation Candy
-{
-
-}
 
 //Designated initializer
-- (Candy *)initWithColorAndBonus:(enum ECandyColor)candyColor Bonus:(enum ECandyBonusType)candyBonusType
+- (Candy *)initWithColorAndBonus:(ECandyColor)candyColor Bonus:(ECandyBonusType)candyBonusType
 {
-	NSAssert(candyColor != ECC_COUNT, @"Attempt to initialize Candy with illegal color (ECC_COUNT)");
-	_color = candyColor;
-	switch (candyBonusType)
-	{
-		case ECBT_NOTHING:
-			_bonus = [[CandyBonusNothing alloc] initWithOwner:self];
-	        break;
-		case ECBT_VERTICAL_LINE:
-			_bonus = [[CandyBonusVerticalLine alloc] initWithOwner:self];
-	        break;
-		case ECBT_HORIZONTAL_LINE:
-			_bonus = [[CandyBonusHorizontalLine alloc] initWithOwner:self];
-	        break;
-		case ECBT_BOMB:
-			_bonus = [[CandyBonusBomb alloc] initWithOwner:self];
-	        break;
-		case ECBT_COLOR_BOMB:
-			_bonus = [[CandyBonusColorBomb alloc] initWithOwner:self];
-	        break;
-		default:
-			NSAssert(NO, @"Attempt to initialize Candy with illegal bonus");
-	}
-	_isMarked = NO;
-	return self;
+    NSAssert(candyColor != ECC_COUNT, @"Attempt to initialize Candy with illegal color (ECC_COUNT)");
+
+    _color = candyColor;
+
+    Class bonusClass = nil;
+
+    switch (candyBonusType)
+    {
+        case ECBT_NOTHING:
+            bonusClass = [CandyBonusNothing class];
+            break;
+        case ECBT_VERTICAL_LINE:
+            bonusClass = [CandyBonusVerticalLine class];
+            break;
+        case ECBT_HORIZONTAL_LINE:
+            bonusClass = [CandyBonusHorizontalLine class];
+            break;
+        case ECBT_BOMB:
+            bonusClass = [CandyBonusBomb class];
+            break;
+        case ECBT_COLOR_BOMB:
+            bonusClass = [CandyBonusColorBomb class];
+            break;
+        default:
+            NSAssert(NO, @"Attempt to initialize Candy with illegal bonus");
+            break;
+    }
+
+    _bonus = [[bonusClass alloc] initWithOwner:self];
+
+    _isMarked = NO;
+    return self;
 }
 
 //methods
 
 - (void)markCandy
 {
-	if (!_isMarked)
-	{
-		_isMarked = YES;
-		[_bonus activateBonus];
-	}
+    if (_isMarked)
+        return;
+
+    _isMarked = YES;
+    [_bonus activateBonus];
 }
 
 - (void)cleanup
 {
-	_bonus = nil;
+    _bonus = nil;
 }
 
 @end

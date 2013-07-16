@@ -63,7 +63,7 @@
 		CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52310AC602610BD9A81A4F /* GameManager.m */; };
 		CF5234C1AE135B5965884D12 /* colorBombRed.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5236AB0BC883A54C09D4AE /* colorBombRed.png */; };
 		CF523571F1A949753BAF07BC /* Candy.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D2AFC0AB2516B65ED88 /* Candy.m */; };
-		CF52358C408C4F46B6235472 /* CandyBonus.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D1293B89B0BDEFB8D9C /* CandyBonus.m */; };
+		CF52358C408C4F46B6235472 /* CandyBonusBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523D1293B89B0BDEFB8D9C /* CandyBonusBase.m */; };
 		CF52365D54C391008CD45D4A /* colorBombYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CF523951D4DE0F678AF0F5BA /* colorBombYellow.png */; };
 		CF5236F3B46511C25D3390F8 /* candyBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = CF523C68970C8FB4254AA70A /* candyBlue.png */; };
 		CF5237207390DDEEA9447811 /* candyGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = CF523EA7BE401DEDD0A7064B /* candyGreen.png */; };
@@ -81,7 +81,6 @@
 		CF523F2287B2DD1480D539EB /* selector.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5238B89BE21194057730E7 /* selector.png */; };
 		CF523F624F367A204B03FF92 /* colorBombBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5230750511F6D6AFAD6939 /* colorBombBlue.png */; };
 		CF523F78ABC49229C936A52D /* candyPurple.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5238A616B5305FAE3A6F46 /* candyPurple.png */; };
-		CF523FDD769C7353E713584E /* MyConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CF523AD066A30695094B65BD /* MyConstants.m */; };
 		DC1BE6A014F417CC00F49D25 /* Ubuntu-B.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68C14F417CC00F49D25 /* Ubuntu-B.ttf */; };
 		DC1BE6A114F417CC00F49D25 /* Ubuntu-BI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68D14F417CC00F49D25 /* Ubuntu-BI.ttf */; };
 		DC1BE6A214F417CC00F49D25 /* Ubuntu-C.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DC1BE68E14F417CC00F49D25 /* Ubuntu-C.ttf */; };
@@ -216,12 +215,11 @@
 		CF5232762E0E144D0740382A /* colorBombGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombGreen.png; sourceTree = "<group>"; };
 		CF5232EEBB4455E23BF2CFB3 /* Candy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Candy.h; sourceTree = "<group>"; };
 		CF5233A659E654ACF4B1F573 /* ECandyBonusType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECandyBonusType.h; sourceTree = "<group>"; };
-		CF52341290129F8397A96DFB /* MyConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConstants.h; sourceTree = "<group>"; };
 		CF523509688A98BD6913D362 /* CandyBonusHorizontalLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusHorizontalLine.m; sourceTree = "<group>"; };
 		CF5235E6EF7BB22BB536524F /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		CF5236AB0BC883A54C09D4AE /* colorBombRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombRed.png; sourceTree = "<group>"; };
 		CF5236B343CE70BA988B4DBA /* field.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = field.png; sourceTree = "<group>"; };
-		CF52373F0567BF9170806FEA /* CandyBonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonus.h; sourceTree = "<group>"; };
+		CF52373F0567BF9170806FEA /* CandyBonusBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusBase.h; sourceTree = "<group>"; };
 		CF52383CF991C94441CA9CB1 /* CandyBonusNothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusNothing.m; sourceTree = "<group>"; };
 		CF52388C650C5CC8784632B6 /* candyRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyRed.png; sourceTree = "<group>"; };
 		CF5238A616B5305FAE3A6F46 /* candyPurple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyPurple.png; sourceTree = "<group>"; };
@@ -230,14 +228,13 @@
 		CF5238FBFAF292729967AFBE /* colorBombOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombOrange.png; sourceTree = "<group>"; };
 		CF523951D4DE0F678AF0F5BA /* colorBombYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBombYellow.png; sourceTree = "<group>"; };
 		CF5239832C6F22354E7610AD /* CandyBonusNothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusNothing.h; sourceTree = "<group>"; };
-		CF523AD066A30695094B65BD /* MyConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyConstants.m; sourceTree = "<group>"; };
 		CF523AE3387C3F139C5D9289 /* SceneGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneGame.m; sourceTree = "<group>"; };
 		CF523BE92D74E5DC9B491258 /* SceneGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneGame.h; sourceTree = "<group>"; };
 		CF523C3107923445449E0EBE /* CandyBonusColorBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusColorBomb.h; sourceTree = "<group>"; };
 		CF523C68970C8FB4254AA70A /* candyBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyBlue.png; sourceTree = "<group>"; };
 		CF523CD9E5E078B3DF1F0A48 /* CandyBonusColorBomb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusColorBomb.m; sourceTree = "<group>"; };
 		CF523D09681F0B6DE918134B /* CandyBonusBomb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyBonusBomb.h; sourceTree = "<group>"; };
-		CF523D1293B89B0BDEFB8D9C /* CandyBonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonus.m; sourceTree = "<group>"; };
+		CF523D1293B89B0BDEFB8D9C /* CandyBonusBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyBonusBase.m; sourceTree = "<group>"; };
 		CF523D2AFC0AB2516B65ED88 /* Candy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Candy.m; sourceTree = "<group>"; };
 		CF523EA7BE401DEDD0A7064B /* candyGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyGreen.png; sourceTree = "<group>"; };
 		CF523EDCB2AF1C649FECD02D /* candyYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = candyYellow.png; sourceTree = "<group>"; };
@@ -565,8 +562,8 @@
 		CF523CC7881526F5ECC9C72A /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				CF52373F0567BF9170806FEA /* CandyBonus.h */,
-				CF523D1293B89B0BDEFB8D9C /* CandyBonus.m */,
+				CF52373F0567BF9170806FEA /* CandyBonusBase.h */,
+				CF523D1293B89B0BDEFB8D9C /* CandyBonusBase.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -688,23 +685,7 @@
 				DCC1A0F713A94ED5005BD75D /* Projectfiles-iOS */,
 				DCC1A26413A94EE6005BD75D /* Projectfiles-Mac */,
 				DCFA90ED13B4F6A0009DD35A /* BuildSettings */,
-				DCC1A0E613A94ED5005BD75D /* Frameworks */,
-				DCC1A0E413A94ED5005BD75D /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		DCC1A0E413A94ED5005BD75D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DCC1A0E613A94ED5005BD75D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DCC1A0F713A94ED5005BD75D /* Projectfiles-iOS */ = {
@@ -774,8 +755,6 @@
 				5EDC143DE388F23915E438F9 /* Scene */,
 				5EDC174BE4DCEDC081147FC9 /* System */,
 				5EDC14649408AAF7CDA6C230 /* Models */,
-				CF52341290129F8397A96DFB /* MyConstants.h */,
-				CF523AD066A30695094B65BD /* MyConstants.m */,
 				5EDC12F53B3F167DF98B2E3E /* Vendors */,
 				5EDC1B9417A1C8AB147515AC /* Controls */,
 				5EDC18001983888962D6A852 /* ConstantsStatic.m */,
@@ -870,7 +849,6 @@
 				English,
 			);
 			mainGroup = DCC1A0D613A94EC0005BD75D;
-			productRefGroup = DCC1A0E413A94ED5005BD75D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -992,7 +970,6 @@
 				5EDC116F8B1AFD760582B6BD /* SceneBase.m in Sources */,
 				5EDC141AED85AE12B1FB5020 /* SharedDeviceHelper.m in Sources */,
 				5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */,
-				CF523FDD769C7353E713584E /* MyConstants.m in Sources */,
 				CF523571F1A949753BAF07BC /* Candy.m in Sources */,
 				CF523142374BA40D17A3A632 /* CandyBonusNothing.m in Sources */,
 				CF523E4FFF3CB3FFDC6F15B0 /* CandyBonusVerticalLine.m in Sources */,
@@ -1000,7 +977,7 @@
 				CF523AAD41BF1AE7CAB498C7 /* CandyBonusBomb.m in Sources */,
 				CF523D3115E62603CC6F8192 /* CandyBonusColorBomb.m in Sources */,
 				CF52339AD7BD34415AC0DA10 /* GameManager.m in Sources */,
-				CF52358C408C4F46B6235472 /* CandyBonus.m in Sources */,
+				CF52358C408C4F46B6235472 /* CandyBonusBase.m in Sources */,
 				CF523D54A0C6296A73C73F6D /* SceneGame.m in Sources */,
 				5EDC1D0A548703D3EBC62949 /* CCButton.m in Sources */,
 				5EDC1B8BF8846568662FFA0A /* ResourceManager.m in Sources */,

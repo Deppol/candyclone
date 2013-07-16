@@ -31,10 +31,8 @@
 {
     self.button.opacity = 0;
     self.button.enabled = NO;
-    if([SceneBase currentScene].type == EST_GAME)
-    {
-        [(SceneGame *) [SceneBase currentScene] unshowPause];
-    }
+
+    [(SceneGame *) [SceneBase currentScene] unshowPause];
 }
 
 - (void)didButtonTouchCanceled:(CCButton *)button touch:(UITouch *)touch
@@ -44,31 +42,28 @@
 
 - (PauseView *)init
 {
-
     self = [super init];
-    if(self)
-    {
-        CCLabelTTF * text = [CCLabelTTF labelWithString:@"Game Paused"
-                                               fontName:[ConstantsStatic buttonsFontName]
-                                               fontSize:25];
 
-        CCSprite* sprite = [CCSprite node];
-        [sprite setTextureRect:CGRectMake(0, 0, 700, 700)];
-        [sprite setColor:ccGRAY];
-        [sprite setOpacity:128];
+    if (self)
+    {
+        CCLabelTTF *text = [CCLabelTTF labelWithString:@"Game Paused"
+                                              fontName:[ConstantsStatic buttonsFontName]
+                                              fontSize:25];
 
         _button = [[CCButton alloc] initWithCCSprite:text];
 
-
-        [_button addCCSprite:sprite];
-
-        [sprite resizeTo:CGSizeMake(700,700)];
         _button.adjustColorWhenClicked = NO;
         _button.color = ccWHITE;
         _button.colorSelf = ccWHITE;
 
+        CCSprite *sprite = [CCSprite node];
+        [sprite setTextureRect:CGRectMake(0, 0, 700, 700)];
+        [sprite setColor:ccGRAY];
+        [sprite setOpacity:128];
 
+        [_button addCCSprite:sprite];
 
+        [sprite resizeTo:CGSizeMake(700, 700)];
 
         text.color = ccYELLOW;
         text.position = [CCDirector sharedDirector].screenCenter;
@@ -81,6 +76,7 @@
 
         _button.delegate = self;
     }
+
     return self;
 
 }
@@ -93,9 +89,8 @@
 
 - (void)showPause
 {
-
-   self.button.opacity = 255;
-   self.button.enabled = YES;
+    self.button.opacity = 255;
+    self.button.enabled = YES;
 }
 
 

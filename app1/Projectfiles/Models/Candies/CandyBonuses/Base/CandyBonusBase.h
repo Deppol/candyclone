@@ -11,19 +11,18 @@
 
 @class Candy;
 
-@interface CandyBonus : NSObject
-{
-	@protected enum ECandyBonusType _type;
-	@protected Candy *_owner;
-}
-//properties
+@interface CandyBonusBase : NSObject
 
-@property(readonly) enum ECandyBonusType type;
+/*
+ * Properties
+ */
+
+@property(nonatomic, readonly) ECandyBonusType type;
 
 @property(nonatomic, readonly) Candy *owner;
 
 //designated initializer
-- (CandyBonus *)initWithOwner:(Candy *)owner;
+- (CandyBonusBase *)initWithOwner:(Candy *)owner;
 
 //methods
 

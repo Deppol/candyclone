@@ -13,20 +13,22 @@
 
 }
 
-//designated initializer
-- (CandyBonus *)initWithOwner:(Candy *)owner
+- (ECandyBonusType)type
 {
-	NSAssert(owner != nil, @"CandyBonus owner nust not be nil");
-	_type = ECBT_NOTHING;
-    _owner = owner;
-	return self;
+    return ECBT_NOTHING;
 }
 
-//methods
-
-- (void)activateBonus
+//designated initializer
+- (id)initWithOwner:(Candy *)owner
 {
-    [super activateBonus];
+    self = [super initWithOwner:owner];
+
+    if (self)
+    {
+
+    }
+
+    return self;
 }
 
 @end

@@ -67,6 +67,7 @@
 
 - (void)activateBonus
 {
+
     switch (_representsCandy.bonus.type)
     {
         case ECBT_NOTHING:

@@ -31,6 +31,7 @@
 		5EDC17A2ACF04110972A5457 /* orangeColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC15D12AF0AA5FDFDB9A46 /* orangeColor.png */; };
 		5EDC18711125E480B02B21CC /* bombRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC146C232A129472C16C6F /* bombRed.png */; };
 		5EDC1877C00AE8847C618079 /* SharedHighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC127C760C8ABAB1AE14BA /* SharedHighScoreManager.m */; };
+		5EDC18AE202535D5ED1A04AC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC106CD3A9EB24AB60C63E /* background.mp3 */; };
 		5EDC194F92EA8FA049EABA66 /* backgroundImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1938625980D40DF429EE /* backgroundImage.png */; };
 		5EDC197C9CC949A480BC2FD2 /* yellowColor.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC129913949F99E105204B /* yellowColor.png */; };
 		5EDC1A011E2B4437D57AB9B9 /* YellowLines.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EDC1B091C0737005B9799C4 /* YellowLines.png */; };
@@ -136,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		5EDC103F6C7317F0FC8A2CB8 /* greenColorV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenColorV.png; sourceTree = "<group>"; };
+		5EDC106CD3A9EB24AB60C63E /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		5EDC106FED594DD8DFAF8557 /* blueColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueColor.png; sourceTree = "<group>"; };
 		5EDC10CB47CFEECA03912435 /* DelegateContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelegateContainer.h; sourceTree = "<group>"; };
 		5EDC113FA25D1CF2C799F83B /* redColorV.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redColorV.png; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				5EDC16331EB158D45EDB3F15 /* _test.mp3 */,
+				5EDC106CD3A9EB24AB60C63E /* background.mp3 */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -952,6 +955,7 @@
 				5EDC1AFAFAA298C53866748B /* musicOff.png in Resources */,
 				5EDC1B99F72A2C5ECBEAAB0C /* musicOn.png in Resources */,
 				5EDC1CA7FD7C9CFB233E3FA0 /* pause.png in Resources */,
+				5EDC18AE202535D5ED1A04AC /* background.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

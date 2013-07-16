@@ -32,7 +32,6 @@
     PauseView* _pauseView;
     CCLabelTTF * _timerLabel;
     NSInteger timeRemained;
-
 }
 /*
  * Static
@@ -122,9 +121,7 @@
 
     [DelegateContainer subscribe:self];
 
-
-
-    // [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[ResourceManager getBackgroundMusic] loop:YES];
 }
 
 - (void)_initGameObjects
@@ -221,6 +218,7 @@
     _pauseView = nil;
     [_timerLabel cleanup];
     _timerLabel = nil;
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
     [super cleanup];
 }
 

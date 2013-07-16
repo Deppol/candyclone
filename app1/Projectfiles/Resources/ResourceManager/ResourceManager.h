@@ -24,4 +24,6 @@
 + (NSString *)getCandySelector;
 
 + (NSString *)getPause;
+
++ (NSString *)getBackgroundMusic;
 @end

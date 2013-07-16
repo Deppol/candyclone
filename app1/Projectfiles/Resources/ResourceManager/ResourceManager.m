@@ -239,4 +239,9 @@
     return @"pause.png";
 }
 
++ (NSString *)getBackgroundMusic
+{
+    return @"background.mp3";
+}
+
 @end

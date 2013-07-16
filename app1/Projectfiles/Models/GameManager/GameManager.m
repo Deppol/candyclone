@@ -10,6 +10,9 @@
 #import "MyConstants.h"
 #import "SharedHighScoreManager.h"
 #import "DelegateContainer.h"
+#import "SceneBase.h"
+#import "ConstantsStatic.h"
+#import "ResourceManager.h"
 
 
 @implementation GameManager
@@ -28,12 +31,15 @@
 	NSMutableArray *_down;
 	NSMutableArray *_newBonuses;
 	NSMutableArray *_newBonusesPosition;
+
+	CCLabelTTF *_congratulations;
+	CCSprite *_sprite;
 }
 
 //Designated initializer
 - (GameManager *)init
 {
-    _animationIsRunning = NO;
+	_animationIsRunning = NO;
 	_candies = [NSMutableArray arrayWithCapacity:FIELD_SIZE * FIELD_SIZE];
 	for (NSUInteger i = 0; i < FIELD_SIZE * FIELD_SIZE; ++i)
 		_candies[i] = [[Candy alloc] initWithColorAndBonus:(enum ECandyColor) arc4random() % ECC_COUNT Bonus:ECBT_NOTHING];
@@ -62,6 +68,19 @@
 
 	_newBonuses = [NSMutableArray array];
 	_newBonusesPosition = [NSMutableArray array];
+
+	_congratulations = [CCLabelTTF labelWithString:@""
+	                                      fontName:[ConstantsStatic buttonsFontName]
+			                              fontSize:30];
+	[[SceneBase currentScene] addChild:_congratulations z:100];
+	_congratulations.position = [CCDirector sharedDirector].screenCenter;
+	_congratulations.dimensions = CGSizeMake(400, 100);
+	_congratulations.horizontalAlignment = kCCTextAlignmentCenter;
+	[_congratulations setColor:ccYELLOW];
+
+	_sprite = [CCSprite spriteWithFile:[ResourceManager getBackground]];
+	[[SceneBase currentScene] addChild:_sprite z:-10];
+	_sprite.anchorPoint = CGPointMake(0.0f, 0.0f);
 
 	return self;
 }
@@ -103,15 +122,20 @@
 
 	_newBonuses = nil;
 	_newBonusesPosition = nil;
+
+	[_congratulations cleanup];
+	_congratulations = nil;
+	[_sprite cleanup];
+	_sprite = nil;
 }
 
 - (void)candyClick:(Candy *)candy
 {
 	if (_candy1 == nil)
-    {
+	{
 		_candy1 = candy;
-        [DelegateContainer callSetSelection:_candy1];
-    }
+		[DelegateContainer callSetSelection:_candy1];
+	}
 	else
 	{
 		if (candy != _candy1)
@@ -127,42 +151,42 @@
 			if (abs(x1 - x2) + abs(y1 - y2) == 1)
 			{
 				_candy2 = candy;
-                [self _swap2];
+				[self _swap2];
 			}
 			else
-            {
-                [DelegateContainer callUnsetSelection:_candy1];
+			{
+				[DelegateContainer callUnsetSelection:_candy1];
 				_candy1 = candy;
-                [DelegateContainer callSetSelection:_candy1];
-            }
+				[DelegateContainer callSetSelection:_candy1];
+			}
 		}
 	}
 }
 
--(void)_swap2
+- (void)_swap2
 {
-    [NSThread detachNewThreadSelector:@selector(_swapCandies) toTarget:self withObject:nil];
+	[NSThread detachNewThreadSelector:@selector(_swapCandies) toTarget:self withObject:nil];
 }
 
 - (void)doInitialUpdate
 {
-    [NSThread detachNewThreadSelector:@selector(_doInitialUpdate) toTarget:self withObject:nil];
-
+	[NSThread detachNewThreadSelector:@selector(_doInitialUpdate) toTarget:self withObject:nil];
 }
+
 - (void)_doInitialUpdate
 {
-    _animationIsRunning = YES;
-    while([self _tryToExplode]);
-    _animationIsRunning = NO;
+	_animationIsRunning = YES;
+	while ([self _tryToExplode]);
+	_animationIsRunning = NO;
 }
 
 - (void)_swapCandies
 {
-    _animationIsRunning = YES;
-    [DelegateContainer callUnsetSelection:_candy1];
-    [DelegateContainer callSwap:_candy1 candy2:_candy2];
-    [NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME+0.04f];
-    NSUInteger index1 = [self getIndexOf:_candy1];
+	_animationIsRunning = YES;
+	[DelegateContainer callUnsetSelection:_candy1];
+	[DelegateContainer callSwap:_candy1 candy2:_candy2];
+	[NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME + 0.04f];
+	NSUInteger index1 = [self getIndexOf:_candy1];
 	NSUInteger index2 = [self getIndexOf:_candy2];
 
 	Candy *temp = _candies[index1];
@@ -172,39 +196,27 @@
 	BOOL result = [self _tryToExplode];
 
 	if (result)
-    {
+	{
 		while ([self _tryToExplode]);
-    }
+	}
 	else
 	{
 		temp = _candies[index1];
 		_candies[index1] = _candies[index2];
 		_candies[index2] = temp;
 	}
-    if (!result)
-    {
-        [DelegateContainer callSwap:_candy1 candy2:_candy2];
-        [NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME+0.04f];
-    }
-    _candy1 = nil;
-    _candy2 = nil;
-    _animationIsRunning = NO;
+	if (!result)
+	{
+		[DelegateContainer callSwap:_candy1 candy2:_candy2];
+		[NSThread sleepForTimeInterval:SWAP_ANIMATION_TIME + 0.04f];
+	}
+	_candy1 = nil;
+	_candy2 = nil;
+	_animationIsRunning = NO;
 }
 
 - (BOOL)_tryToExplode
 {
-//	NSMutableString *s = [NSMutableString string];
-//	for (NSUInteger i = 0; i < FIELD_SIZE; ++i)
-//	{
-//		for (NSUInteger j = 0; j < FIELD_SIZE; ++j)
-//		{
-//			[s appendString:[NSString stringWithFormat:@"%d ", (NSInteger) ((Candy *) _candies[i * FIELD_SIZE + j]).color]];
-//		}
-//		NSLog(s);
-//		s = nil;
-//		s = [[NSMutableString alloc] init];
-//	}
-//	NSLog(@"/////////////////////");
 	BOOL result = NO;
 
 	[self _calcNeighbours];
@@ -219,13 +231,13 @@
 
 		[self _findBonusesToAdd];
 		[self _cleanMarked];
-        [self _placeNewBonuses];
-        [self _updateField];
+		[self _placeNewBonuses];
+		[self _updateField];
 
-    }
+	}
 	else
 		_seriesMultiplier = 1;
-    return result;
+	return result;
 
 }
 
@@ -430,10 +442,10 @@
 {
 	NSUInteger count = [_newBonuses count];
 	for (NSUInteger i = 0; i < count; ++i)
-    {
+	{
 		_candies[(NSUInteger) [_newBonusesPosition[i] integerValue]] = _newBonuses[i];
-        [DelegateContainer callAddBonus:_newBonuses[i]];
-    }
+		[DelegateContainer callAddBonus:_newBonuses[i]];
+	}
 
 	_newBonuses = nil;
 	_newBonuses = [NSMutableArray array];
@@ -460,8 +472,8 @@
 			{
 				if (newIndex != index)
 				{
-                    //[DelegateContainer performSelectorOnMainThread:@selector(callFallFromField:point:) withObject:<#(id)arg#> waitUntilDone:<#(BOOL)wait#>];
-                    [DelegateContainer callFallFromField:_candies[index] point:newIndex];
+					//[DelegateContainer performSelectorOnMainThread:@selector(callFallFromField:point:) withObject:<#(id)arg#> waitUntilDone:<#(BOOL)wait#>];
+					[DelegateContainer callFallFromField:_candies[index] point:newIndex];
 					_candies[newIndex] = _candies[index];
 					_candies[index] = [NSNull null];
 				}
@@ -474,17 +486,20 @@
 	for (index = 0; index < FIELD_SIZE * FIELD_SIZE; ++index)
 	{
 		if (_candies[index] == [NSNull null])
-        {
+		{
 			_candies[index] = [[Candy alloc] initWithColorAndBonus:(enum ECandyColor) arc4random() % ECC_COUNT Bonus:ECBT_NOTHING];
-            [DelegateContainer callFallFromOutside:_candies[index] point:index];
-        }
+			[DelegateContainer callFallFromOutside:_candies[index] point:index];
+		}
 	}
-    [NSThread sleepForTimeInterval:LINE_DROP_ANIMATION_TIME + 0.04f];
+	[NSThread sleepForTimeInterval:LINE_DROP_ANIMATION_TIME + 0.04f];
 }
 
 - (void)finishGame
 {
+	[_congratulations setString:[NSString localizedStringWithFormat:@"Congratulations!\n You scored %d points.", _score]];
+	_sprite.zOrder = 50;
 	[[SharedHighScoreManager shared] addScore:[NSNumber numberWithInteger:_score]];
+	[SceneBase performSelector:@selector(_setScene:) withObject:[NSNumber numberWithInteger:EST_START] afterDelay:5.0];
 }
 
 @end

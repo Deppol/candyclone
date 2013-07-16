@@ -193,6 +193,10 @@
     _returnToMainMenu = nil;
     [_buttonPause cleanup];
     _buttonPause = nil;
+	[_background cleanup];
+	_background = nil;
+	[_backgroundField cleanup];
+	_backgroundField = nil;
     [DelegateContainer unsubscribe];
     for (NSUInteger i = 0; i < FIELD_SIZE; i++)
         for (NSUInteger j = 0; j < FIELD_SIZE; j++)

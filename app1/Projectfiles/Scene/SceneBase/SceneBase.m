@@ -85,8 +85,6 @@ static SceneBase *_currentScene = nil;
     [[CCDirector sharedDirector] runningScene] == nil ? [[CCDirector sharedDirector] runWithScene:scene]
             : [[CCDirector sharedDirector] replaceScene:scene];
 
-
-
     [_currentScene loadResources];
 
     [_currentScene performSelectorOnMainThread:@selector(prepare) withObject:nil waitUntilDone:YES];

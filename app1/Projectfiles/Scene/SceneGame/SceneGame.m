@@ -299,7 +299,6 @@
     NSUInteger pos = [_gameManager getIndexOf:candyBonus];
     CandyView *newCandy = [[CandyView alloc] initWithCandy:candyBonus scene:self];
 
-    [[[_candies objectAtIndex:pos] button] stopAllActions];
     [_candies replaceObjectAtIndex:pos withObject:newCandy];
     CGPoint point = [self _calculatePositionByIndex:pos];
     [[[_candies objectAtIndex:pos] button] setSquare:[ConstantsStatic candyVisibleSize]];

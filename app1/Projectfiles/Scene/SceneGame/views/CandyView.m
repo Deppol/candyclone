@@ -72,6 +72,7 @@
         case ECBT_NOTHING:
         {
             CCScaleTo* a1 = [CCScaleTo actionWithDuration:[ConstantsStatic animationTimeBonus] scale:0.05];
+
             [_button runAction:a1];
             break;
         }
@@ -123,9 +124,9 @@
         }
     }
 
-    [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:[ConstantsStatic animationTimeBonus]];
+    [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:[ConstantsStatic animationTimeBonus] + 0.04f];
 
-    //[self cleanup];
+   // [self cleanup];
 }
 
 - (void)cleanup

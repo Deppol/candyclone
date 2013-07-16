@@ -34,6 +34,7 @@
 
     if(self)
     {
+        _owner = owner;
     }
 
 	return self;

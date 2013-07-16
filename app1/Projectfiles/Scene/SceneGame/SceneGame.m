@@ -105,7 +105,7 @@
                                             fontSize:45];
     [self addChild:_labelScore];
 
-    [self _initGameObjects];
+    _gameManager = [[GameManager alloc] init];
 
     _candies = [NSMutableArray arrayWithCapacity:[ConstantsStatic fieldSize] * [ConstantsStatic fieldSize]];
 
@@ -135,11 +135,6 @@
     [DelegateContainer subscribe:self];
 
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[ResourceManager getBackgroundMusic] loop:YES];
-}
-
-- (void)_initGameObjects
-{
-    _gameManager = [[GameManager alloc] init];
 }
 
 - (void)placeViewsiPhone

@@ -17,6 +17,7 @@
 @implementation GameManager
 {
     NSInteger _score;
+    NSMutableArray* _candies;
 
     Candy *_selectedCandy1;
     Candy *_selectedCandy2;

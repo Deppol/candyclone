@@ -125,7 +125,7 @@
 
     [_scene performSelector:@selector(removeChild:) withObject:self.button afterDelay:[ConstantsStatic animationTimeBonus]];
 
-    [self cleanup];
+    //[self cleanup];
 }
 
 - (void)cleanup

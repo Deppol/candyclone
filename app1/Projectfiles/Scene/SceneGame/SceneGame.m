@@ -18,7 +18,6 @@
 #import "ResourceManager.h"
 #import "PauseView.h"
 #import "ConstantsStatic.h"
-#import "TimerManager.h"
 #import "SharedHighScoreManager.h"
 
 @implementation SceneGame
@@ -32,7 +31,8 @@
 	CCSprite *_backgroundField;
     PauseView* _pauseView;
     CCLabelTTF * _timerLabel;
-    TimerManager * _timer;
+    NSInteger timeRemained;
+
 }
 /*
  * Static
@@ -116,11 +116,13 @@
                                            fontSize:25];
     [self addChild:_timerLabel];
 
-    _timer = [[TimerManager alloc] initWithTimerAndManager:_gameManager];
+    timeRemained = GAME_TIME;
 
-
+    [self schedule:@selector(_timerTick) interval:1.0f repeat:kCCRepeatForever delay:1.0f];
 
     [DelegateContainer subscribe:self];
+
+
 
     // [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"_test.mp3" loop:YES];
 }
@@ -170,6 +172,14 @@
     _buttonPause.button.scale = 2.0f;
     _buttonPause.button.position = ccp(90,538);
 
+    _background.anchorPoint = CGPointMake(0.0f, 0.0f);
+    _background.scale = 2.0f;
+
+    _backgroundField.anchorPoint = CGPointMake(0.5f, 0.5f);
+    _backgroundField.position = [self _calculatePositionByIndex:FIELD_SIZE * FIELD_SIZE / 2];
+    _backgroundField.scale = 1.0f;
+
+
     for (NSUInteger i = 0; i < FIELD_SIZE; i++)
         for (NSUInteger j = 0; j < FIELD_SIZE; j++)
         {
@@ -211,8 +221,6 @@
     _pauseView = nil;
     [_timerLabel cleanup];
     _timerLabel = nil;
-    [_timer cleanup];
-    _timer = nil;
     [super cleanup];
 }
 
@@ -324,14 +332,29 @@
     if(!_gameManager.animationIsRunning)
     {
         [self reorderChild:_pauseView.button z:0];
-        _timer.isTimerOn = NO;
+        [self unschedule:@selector(_timerTick)];
         [_pauseView showPause];
     }
 }
 -(void)unshowPause
 {
     if(!_gameManager.animationIsRunning)
-        _timer.isTimerOn = YES;
+    {
+        [self schedule:@selector(_timerTick) interval:1.0f repeat:kCCRepeatForever delay:1.0f];
+    }
+}
+
+-(void)_timerTick
+{
+        if (timeRemained>0)
+        {
+            timeRemained--;
+            [self setTime:[NSString stringWithFormat:@"%d:%d", timeRemained / 60, timeRemained % 60]];
+        }
+        else
+        {
+            [self unschedule:@selector(_timerTick)];
+        }
 }
 
 @end

@@ -264,7 +264,6 @@
 
     for(NSUInteger i = 0; i< [_children count]; i++)
     {
-
         CGRect r = [((CCNode*)[_children objectAtIndex:i]) boundingBox];
 
         CGFloat difx = (r.size.width*self.scaleX - r.size.width)/2.0f;

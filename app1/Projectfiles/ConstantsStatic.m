@@ -42,7 +42,7 @@
 
 + (NSInteger)gameTime
 {
-    return 5;
+    return 240;
 }
 
 /*
